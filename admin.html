@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b20d18">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin | Cantinho do Petisco</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <section id="loginView" class="login-card">
+      <a class="back-link" href="index.html">← Voltar ao cardápio</a>
+      <div class="brand-mark large">CP</div>
+      <span class="eyebrow">Área restrita</span>
+      <h1>Administração</h1>
+      <p>Entre com o usuário autorizado no Supabase Auth.</p>
+      <form id="loginForm" class="stack-form">
+        <label class="field-label">E-mail
+          <input id="adminEmail" type="email" autocomplete="username" required placeholder="seu@email.com">
+        </label>
+        <label class="field-label">Senha
+          <input id="adminPassword" type="password" autocomplete="current-password" required placeholder="••••••••">
+        </label>
+        <button id="loginBtn" class="primary-button" type="submit">Entrar</button>
+        <p id="demoCredentials" class="demo-credentials hidden">Modo demonstração: admin@demo.local / 123456</p>
+      </form>
+      <div id="loginMessage" class="form-message hidden"></div>
+    </section>
+
+    <section id="adminView" class="admin-dashboard hidden">
+      <header class="admin-header">
+        <div>
+          <span class="eyebrow">Cantinho do Petisco</span>
+          <h1>Painel administrativo</h1>
+          <p id="adminIdentity"></p>
+        </div>
+        <div class="admin-header-actions">
+          <a class="secondary-button small" href="index.html" target="_blank" rel="noopener">Ver cardápio</a>
+          <button id="logoutBtn" class="secondary-button small" type="button">Sair</button>
+        </div>
+      </header>
+
+      <div class="admin-metrics">
+        <article><span>Produtos</span><strong id="metricProducts">0</strong></article>
+        <article><span>Disponíveis</span><strong id="metricAvailable">0</strong></article>
+        <article><span>Inativos</span><strong id="metricInactive">0</strong></article>
+        <article><span>Categorias</span><strong id="metricCategories">0</strong></article>
+      </div>
+
+      <nav class="admin-tabs" aria-label="Seções do painel">
+        <button class="admin-tab active" data-tab="products" type="button">Produtos</button>
+        <button class="admin-tab" data-tab="special" type="button">Prato do dia</button>
+      </nav>
+
+      <section id="productsTab" class="admin-tabpanel">
+        <div class="admin-toolbar">
+          <label class="search-box admin-search">
+            <span>⌕</span><input id="adminSearch" type="search" placeholder="Buscar produto"><button id="clearAdminSearch" class="clear-search hidden" type="button">×</button>
+          </label>
+          <select id="adminCategoryFilter" aria-label="Filtrar categoria"><option value="">Todas as categorias</option></select>
+          <button id="newProductBtn" class="primary-button small" type="button">+ Novo produto</button>
+        </div>
+        <div id="productsTableWrap" class="products-table-wrap">
+          <table class="products-table">
+            <thead><tr><th>Produto</th><th>Categoria</th><th>Preço</th><th>Status</th><th></th></tr></thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+        </div>
+        <div id="adminEmpty" class="state-card hidden"><p>Nenhum produto encontrado.</p></div>
+      </section>
+
+      <section id="specialTab" class="admin-tabpanel hidden">
+        <div class="special-admin-card">
+          <div>
+            <span class="eyebrow">Destaque do dia</span>
+            <h2>Definir prato do dia</h2>
+            <p>Escolha uma data, um produto e, se quiser, um preço promocional.</p>
+          </div>
+          <form id="specialForm" class="special-form">
+            <input id="specialId" type="hidden">
+            <label class="field-label">Data<input id="specialDate" type="date" required></label>
+            <label class="field-label">Produto<select id="specialProduct" required></select></label>
+            <label class="field-label">Preço especial<input id="specialPrice" type="number" min="0" step="0.01" placeholder="Opcional"></label>
+            <label class="field-label">Observação<input id="specialNote" type="text" maxlength="160" placeholder="Ex.: Sugestão da casa"></label>
+            <label class="switch-line"><input id="specialActive" type="checkbox" checked><span>Ativo</span></label>
+            <button class="primary-button" type="submit">Salvar prato do dia</button>
+          </form>
+          <div id="specialList" class="special-list"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="productDialog" class="app-dialog product-admin-dialog">
+    <form id="productForm">
+      <button id="closeProductDialog" class="dialog-close" type="button" aria-label="Fechar">×</button>
+      <div class="dialog-body">
+        <span class="eyebrow">Produto</span>
+        <h2 id="productDialogTitle">Novo produto</h2>
+        <input id="productId" type="hidden">
+        <div class="form-grid">
+          <label class="field-label span-2">Nome <span>*</span><input id="productName" type="text" maxlength="160" required></label>
+          <label class="field-label">Categoria <span>*</span><select id="productCategory" required></select></label>
+          <label class="field-label">Tamanho
+            <select id="productSize"><option value="">Sem tamanho</option><option value="P">P — Pequena</option><option value="M">M — Média</option><option value="G">G — Grande</option></select>
+            <small>Nas Marmitas, o mesmo nome com tamanhos diferentes vira um único card para o cliente.</small>
+          </label>
+          <label class="field-label">Preço <span>*</span><input id="productPrice" type="number" min="0" step="0.01" required></label>
+          <label class="field-label">Ordem<input id="productOrder" type="number" min="0" step="1" value="0"></label>
+          <label class="field-label span-2">Descrição<textarea id="productDescription" rows="3" maxlength="500"></textarea></label>
+          <label class="field-label span-2">Foto do produto<input id="productImage" type="file" accept="image/jpeg,image/png,image/webp"><small>JPG, PNG ou WEBP, até 5 MB.</small></label>
+        </div>
+        <div id="imagePreviewBox" class="image-preview-box hidden"><img id="imagePreview" alt="Prévia da imagem"><button id="removeImageBtn" type="button" class="text-button danger">Remover foto</button></div>
+        <div class="switch-grid">
+          <label class="switch-line"><input id="productAvailable" type="checkbox" checked><span>Disponível</span></label>
+          <label class="switch-line"><input id="productActive" type="checkbox" checked><span>Publicado</span></label>
+          <label class="switch-line"><input id="productFeatured" type="checkbox"><span>Destaque</span></label>
+        </div>
+        <div class="dialog-actions split-actions">
+          <button id="deleteProductBtn" class="danger-button hidden" type="button">Excluir</button>
+          <div><button id="cancelProductDialog" class="secondary-button" type="button">Cancelar</button><button id="saveProductBtn" class="primary-button" type="submit" value="default">Salvar</button></div>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/mock-data.js"></script>
+  <script src="js/supabase-rest.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

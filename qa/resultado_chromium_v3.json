@@ -1,0 +1,147 @@
+{
+  "passed": 28,
+  "total": 28,
+  "errors": [],
+  "results": [
+    {
+      "name": "Cardápio carregou",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Prato do dia aparece",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Guia P/M/G aparece",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Marmitas renderizadas",
+      "ok": true,
+      "detail": "23"
+    },
+    {
+      "name": "Isca aparece uma vez",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "Card mostra P",
+      "ok": true,
+      "detail": "ESCOLHA O TAMANHO\nIsca de tilápia\nP\nR$ 16,99\nG\nR$ 19,99\nA partir de R$ 16,99\n+\n🍱"
+    },
+    {
+      "name": "Card mostra G",
+      "ok": true,
+      "detail": "ESCOLHA O TAMANHO\nIsca de tilápia\nP\nR$ 16,99\nG\nR$ 19,99\nA partir de R$ 16,99\n+\n🍱"
+    },
+    {
+      "name": "Modal abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Seletor de tamanhos abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Isca tem 2 tamanhos",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "G selecionado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Preço G correto",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Quantidade 2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Total no botão",
+      "ok": true,
+      "detail": "Adicionar • R$ 39,98"
+    },
+    {
+      "name": "Carrinho conta 2",
+      "ok": true,
+      "detail": "2"
+    },
+    {
+      "name": "Carrinho flutuante aparece",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Calabresa aparece uma vez",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Carrinho conta 3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Carrinho registra G",
+      "ok": true,
+      "detail": "Isca de tilápia · G\n−\n2\n+\nRemover\nR$ 39,98\nCalabresa acebolada · P\n−\n1\n+\nRemover\nR$ 16,99"
+    },
+    {
+      "name": "Carrinho registra P",
+      "ok": true,
+      "detail": "Isca de tilápia · G\n−\n2\n+\nRemover\nR$ 39,98\nCalabresa acebolada · P\n−\n1\n+\nRemover\nR$ 16,99"
+    },
+    {
+      "name": "WhatsApp correto",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "WhatsApp contém G",
+      "ok": true,
+      "detail": "https://wa.me/5511947406124?text=Olá! Quero fazer um pedido no *Cantinho do Petisco* 🍽️\n\n*Cliente:* Cliente Teste\n*Recebimento:* Entrega\n*Endereço:* Rua Teste, 123\n*Bairro:* Centro\n\n*PEDIDO:*\n1. *2x Isca de tilápia (G)* — R$ 39,98\n2. *1x Calabresa acebolada (P)* — R$ 16,99\n\n*Total dos itens:* R$ 56,97\n*Pagamento:* Dinheiro\n*Troco para:* R$ 100,00\n\nAguardo a confirmação do pedido e, se for entrega, o valor/taxa final."
+    },
+    {
+      "name": "WhatsApp contém P",
+      "ok": true,
+      "detail": "https://wa.me/5511947406124?text=Olá! Quero fazer um pedido no *Cantinho do Petisco* 🍽️\n\n*Cliente:* Cliente Teste\n*Recebimento:* Entrega\n*Endereço:* Rua Teste, 123\n*Bairro:* Centro\n\n*PEDIDO:*\n1. *2x Isca de tilápia (G)* — R$ 39,98\n2. *1x Calabresa acebolada (P)* — R$ 16,99\n\n*Total dos itens:* R$ 56,97\n*Pagamento:* Dinheiro\n*Troco para:* R$ 100,00\n\nAguardo a confirmação do pedido e, se for entrega, o valor/taxa final."
+    },
+    {
+      "name": "Endereço no pedido",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Busca funciona",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile seletor visível",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile carrinho visível",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "ADM tem P/M/G",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

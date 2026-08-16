@@ -1,0 +1,84 @@
+CANTINHO DO PETISCO — CARDÁPIO DIGITAL V3
+=========================================
+
+VERSÃO ATUAL
+- Visual branco + vermelho, moderno, clássico e elegante.
+- Prato do dia em destaque.
+- Carrinho moderno com ícone e bolinha de quantidade.
+- Marmitas agrupadas por prato: o cliente não vê o mesmo prato repetido por tamanho.
+- Escolha de tamanho P / M / G dentro do produto, com preço atualizado na hora.
+- Painel administrativo conectado ao Supabase.
+- Projeto separado em HTML, CSS e JavaScript.
+
+1. COMO ABRIR NO WINDOWS
+- Dê dois cliques em: abrir_site.bat
+- O BAT escolhe uma porta local livre e abre o navegador.
+
+2. PRODUÇÃO
+- index.html = cardápio do cliente
+- admin.html = painel administrativo
+- Por padrão, o site usa o Supabase configurado em js/config.js.
+
+3. MARMITAS E TAMANHOS
+- O banco continua usando um registro por tamanho, como já estava.
+- Não é necessário alterar o SQL/Supabase para esta versão.
+- No site, produtos da categoria Marmitas com o MESMO NOME são agrupados automaticamente.
+- Exemplo:
+    Isca de tilápia
+      P — R$ 16,99
+      G — R$ 19,99
+  aparece como UM ÚNICO produto para o cliente.
+- Ao abrir o produto, o cliente escolhe P/M/G e o preço muda automaticamente.
+- Tamanhos sem preço ou indisponíveis ficam desabilitados.
+- O carrinho e a mensagem do WhatsApp registram o tamanho escolhido.
+
+4. COMO CADASTRAR TAMANHOS NO ADM
+- Para criar outro tamanho do mesmo prato, use exatamente o mesmo Nome e Categoria.
+- Escolha P, M ou G no campo Tamanho e informe o preço correspondente.
+- Exemplo:
+    Nome: Isca de tilápia | Categoria: Marmitas | Tamanho: P | Preço: 16,99
+    Nome: Isca de tilápia | Categoria: Marmitas | Tamanho: G | Preço: 19,99
+- O cardápio agrupa esses registros automaticamente.
+
+5. CARRINHO
+- O ícone do carrinho no topo mostra a quantidade escolhida.
+- Depois do primeiro item aparece também o carrinho flutuante.
+- A bolinha mostra a quantidade total de unidades.
+- O carrinho registra produto + tamanho + observação + quantidade + preço.
+
+6. PRATO DO DIA
+- O painel ADM possui a aba "Prato do dia".
+- Escolha data, produto, tamanho, preço especial opcional e observação.
+- Se o prato do dia for uma Marmita, ao abrir o produto os outros tamanhos continuam disponíveis com seus preços normais; o preço especial é aplicado ao tamanho configurado no ADM.
+
+7. SEGURANÇA / SUPABASE
+- O login ADM usa Supabase Auth.
+- O usuário precisa estar em private.app_admins conforme o SQL entregue.
+- A publishable key pode ficar no navegador.
+- NUNCA coloque secret key/service_role no projeto.
+- O RLS do SQL continua sendo a camada de autorização real.
+
+8. FOTOS
+- Bucket esperado: product-images
+- As políticas de escrita restringem upload/alteração/exclusão ao administrador.
+
+9. PEDIDOS / LGPD
+- O cliente não precisa criar conta.
+- Nome, endereço, pagamento e observações do checkout não são gravados no Supabase por esta página.
+- Esses dados são usados para montar a mensagem enviada ao WhatsApp.
+
+10. MODO DEMO
+- Acrescente ?demo=1 para testar sem acessar o Supabase.
+- Ex.: http://127.0.0.1:8000/?demo=1
+- Painel: admin.html?demo=1
+- Login demo: admin@demo.local
+- Senha demo: 123456
+
+11. WHATSAPP
+- Número configurado em js/config.js: 5511947406124
+
+12. DEPURAÇÃO
+- Chromium: 28/28 verificações aprovadas.
+- Foram testados agrupamento, P/G, mudança de preço, quantidade, carrinho, checkout, WhatsApp, busca e visual mobile.
+- O ambiente de teste bloqueia navegação HTTP/HTTPS por política; por isso os mesmos HTML/CSS/JS foram carregados diretamente no Chromium em modo demo.
+- Relatório: qa/DEPURACAO_CHROMIUM_V3.txt

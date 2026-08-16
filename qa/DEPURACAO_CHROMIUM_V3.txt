@@ -1,0 +1,50 @@
+CANTINHO DO PETISCO — DEPURAÇÃO CHROMIUM V3
+============================================
+
+Resultado: 28/28 verificações aprovadas
+Erros JavaScript: 0
+
+Cenários validados como cliente:
+- cardápio carregando;
+- prato do dia;
+- categoria Marmitas;
+- guia visual P / M / G;
+- agrupamento de produtos com o mesmo nome;
+- Isca de tilápia aparecendo uma única vez;
+- tamanhos P e G dentro do mesmo produto;
+- abertura do modal de produto;
+- seleção do tamanho G;
+- atualização automática do preço para R$ 19,99;
+- quantidade 2;
+- total do botão de adicionar em R$ 39,98;
+- contador do carrinho chegando a 2;
+- carrinho flutuante;
+- Calabresa acebolada agrupada;
+- adição de Calabresa tamanho P;
+- contador chegando a 3;
+- carrinho registrando tamanhos G e P separadamente;
+- checkout de entrega;
+- endereço e bairro;
+- pagamento em dinheiro e troco;
+- geração do WhatsApp para 5511947406124;
+- mensagem do WhatsApp contendo “Isca de tilápia (G)”;
+- mensagem contendo “Calabresa acebolada (P)”;
+- busca por “salmão”;
+- seletor de tamanhos em viewport de celular;
+- carrinho flutuante no celular;
+- painel ADM contendo opções Sem tamanho / P / M / G.
+
+Resultado do pedido de teste:
+- 2x Isca de tilápia (G): R$ 39,98
+- 1x Calabresa acebolada (P): R$ 16,99
+- Total: R$ 56,97
+
+Arquivos de evidência:
+- DEPURACAO_DESKTOP_V3.png
+- DEPURACAO_MOBILE_V3.png
+- DEPURACAO_TAMANHOS_V3.png
+- DEPURACAO_ADMIN_V3.png
+- resultado_chromium_v3.json
+
+Observação sobre o ambiente de teste:
+O Chromium disponível neste ambiente bloqueia navegação direta para HTTP/HTTPS por política administrativa. Para ainda testar no Chromium real, os arquivos exatos index.html, admin.html, css/styles.css e JavaScript do projeto foram carregados diretamente no navegador em modo demo. As interações, DOM, CSS, JavaScript, formulários, carrinho e montagem do WhatsApp são os mesmos da versão entregue. A comunicação externa com o Supabase não foi exercitada nesse teste automatizado.
