@@ -1,0 +1,172 @@
+[
+  {
+    "test": "Delivery carrega",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Delivery oculta Pratos Executivos",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Especiais\nMassas\nRefrigerantes\nSucos"
+  },
+  {
+    "test": "Delivery oculta Bebidas alcoólicas",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Especiais\nMassas\nRefrigerantes\nSucos"
+  },
+  {
+    "test": "Delivery oculta Cervejas",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Especiais\nMassas\nRefrigerantes\nSucos"
+  },
+  {
+    "test": "Delivery mantém Refrigerantes",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Especiais\nMassas\nRefrigerantes\nSucos"
+  },
+  {
+    "test": "Busca delivery não revela executivo",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Marmita Isca disponível",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Dialog produto abre",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Tamanhos integrados",
+    "ok": true,
+    "detail": "P\nPequena\nR$ 16,99\n✓\nG\nGrande\nR$ 19,99"
+  },
+  {
+    "test": "Carrinho atualiza quantidade",
+    "ok": true,
+    "detail": "2"
+  },
+  {
+    "test": "Carrinho abre",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "WhatsApp delivery gera URL",
+    "ok": true,
+    "detail": "https://wa.me/5511947406124?text=*PEDIDO%3A*%0A*2x%20Isca%20de%20til%C3%A1pia%20(P)*%20%E2%80%94%20R%24%2033%2C98%0A_Obs.%3A%20Sem%20cebola_%0A%0A*Total%20dos%20itens%3A*%20R%24%2033%2C98%0A*Pagamento%3A*%20Pix%3B%0A%0A*DADOS%20PARA%20ENTREGA%3A*%0A*Endere%C3%A7o%3A*%20Rua%20Teste%2C%20123%0A*Bairro%3A*%20Centro%0A*Nome%20do%20cliente%3A*%20Cliente%20Teste"
+  },
+  {
+    "test": "Mensagem começa com PEDIDO",
+    "ok": true,
+    "detail": "*PEDIDO:*\n*2x Isca de tilápia (P)* — R$ 33,98\n_Obs.: Sem cebola_\n\n*Total dos ite"
+  },
+  {
+    "test": "Mensagem contém total e pagamento",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Mensagem termina com dados entrega/nome",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Sem erros JS delivery",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Mobile delivery oculta categorias presenciais",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Especiais\nMassas\nRefrigerantes\nSucos"
+  },
+  {
+    "test": "Carrinho flutuante mobile aparece",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Sem erros JS mobile",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Restaurante mostra Pratos Executivos",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Executivos\nPratos Especiais\nMassas\nRefrigerantes\nSucos\nCervejas\nBebidas alcoólicas"
+  },
+  {
+    "test": "Restaurante mostra Bebidas alcoólicas",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Executivos\nPratos Especiais\nMassas\nRefrigerantes\nSucos\nCervejas\nBebidas alcoólicas"
+  },
+  {
+    "test": "Restaurante mostra demais categorias",
+    "ok": true,
+    "detail": "Tudo\nMarmitas\nPorções\nPratos Executivos\nPratos Especiais\nMassas\nRefrigerantes\nSucos\nCervejas\nBebidas alcoólicas"
+  },
+  {
+    "test": "Executivos aparecem no restaurante",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Categoria não repetida em cada card",
+    "ok": true,
+    "detail": "count=2"
+  },
+  {
+    "test": "Alcoólicas aparecem só no restaurante",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Sem erros JS restaurante",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Admin entra",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Admin tem link delivery",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Admin tem link restaurante",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Admin mantém Pratos Executivos cadastrados",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Admin mantém Bebidas alcoólicas cadastradas",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Admin mostra aviso de visibilidade",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Prato do dia segue semanal",
+    "ok": true,
+    "detail": ""
+  },
+  {
+    "test": "Sem erros JS admin",
+    "ok": true,
+    "detail": ""
+  }
+]

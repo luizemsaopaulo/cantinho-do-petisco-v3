@@ -1,85 +1,23 @@
-CANTINHO DO PETISCO — CARDÁPIO DIGITAL V5
-=========================================
+CANTINHO DO PETISCO - V6
 
-NOVIDADES DESTA VERSÃO
-- Os cards não repetem o nome da categoria. Ex.: dentro de "Pratos Executivos", o card mostra apenas "Salmão grelhado", descrição, preço, foto e botão.
-- Painel ADM reorganizado e separado por categorias.
-- Cadastro/edição de produto dividido em 4 blocos: informações, preço/ordem, foto e disponibilidade.
-- Prato do dia agora é definido por DIA DA SEMANA, e não por data.
-- A programação semanal mostra Segunda a Domingo em uma visão única.
-- Mantidas as correções do WhatsApp mobile da V4.
-- Mantido carrinho com quantidade, tamanhos P/M/G agrupados e Supabase Auth/RLS.
+ARQUIVOS PRINCIPAIS
+- index.html: cardápio para DELIVERY e RETIRADA.
+  Oculta automaticamente: Pratos Executivos, Cervejas e Bebidas Alcoólicas.
+- restaurante.html: cardápio completo para uso no RESTAURANTE.
+  Mostra todas as categorias publicadas no Supabase.
+- admin.html: painel administrativo único para gerenciar os dois cardápios.
 
-1. IMPORTANTE — ATUALIZAR O SUPABASE PARA PRATO SEMANAL
-Como o seu banco atual ainda usa uma DATA no prato do dia, execute UMA VEZ:
+IMPORTANTE
+Os produtos NÃO foram duplicados no Supabase. As duas páginas leem o mesmo banco.
+Pratos Executivos, Cervejas e Bebidas Alcoólicas continuam no Supabase e no ADM; apenas não são exibidos no delivery.
 
-  supabase/MIGRACAO_PRATO_DO_DIA_SEMANAL.sql
+PRATO DO DIA
+Continua por dia da semana (weekday 0 a 6). Se ainda não executou a migração, rode supabase/MIGRACAO_PRATO_DO_DIA_SEMANAL.sql uma vez.
 
-No Supabase > SQL Editor, cole o conteúdo inteiro desse arquivo e clique em Run.
-O script começa com RESET ROLE porque seu SQL Editor já ficou selecionado como "authenticated" antes.
-A migração converte programações antigas para o respectivo dia da semana e mantém a mais recente de cada dia.
+ABRIR LOCALMENTE
+Clique em abrir_site.bat e escolha Delivery, Restaurante, Admin ou os três.
 
-2. COMO ABRIR NO WINDOWS
-- Dê dois cliques em abrir_site.bat.
-- O BAT escolhe uma porta local livre e abre o navegador.
-
-3. PRODUÇÃO
-- index.html = cardápio do cliente.
-- admin.html = painel administrativo.
-- js/config.js contém URL pública do Supabase, publishable key, bucket e fuso America/Sao_Paulo.
-
-4. PRODUTOS E CATEGORIAS
-- No cardápio, a categoria aparece apenas como título da seção.
-- O produto não repete "Pratos Executivos", "Cervejas", "Sucos" etc. dentro de cada card.
-- No ADM, os produtos ficam agrupados por categoria para facilitar a manutenção.
-
-5. MARMITAS E TAMANHOS
-- O banco continua usando um registro por tamanho.
-- Produtos da categoria Marmitas com o MESMO NOME são agrupados no cardápio.
-- Exemplo: Isca de tilápia P e G aparece como um único produto com escolha de tamanho.
-- Carrinho e WhatsApp registram o tamanho escolhido.
-
-6. PRATO DO DIA SEMANAL
-- O banco usa weekday:
-    0 = Domingo
-    1 = Segunda-feira
-    2 = Terça-feira
-    3 = Quarta-feira
-    4 = Quinta-feira
-    5 = Sexta-feira
-    6 = Sábado
-- No ADM, abra "Prato do dia", escolha o dia e o produto.
-- Pode informar preço especial e observação.
-- O cliente vê automaticamente o prato correspondente ao dia no fuso America/Sao_Paulo.
-
-7. FOTOS
-- Bucket esperado: product-images.
-- Público somente para leitura das fotos do cardápio.
-- Upload/alteração/exclusão continuam controlados pelas Policies e pelo administrador.
-- JPG, PNG e WEBP, até 5 MB por arquivo.
-
-8. SEGURANÇA
-- Login ADM pelo Supabase Auth.
-- Usuário autorizado pela função public.is_admin() e tabela de administradores criada no SQL.
-- A publishable key pode ficar no navegador.
-- NUNCA coloque secret key/service_role no HTML ou JavaScript.
-- RLS continua sendo a camada real de autorização.
-
-9. WHATSAPP
-- Mantido envio direto por wa.me para funcionar melhor no mobile.
-- A mensagem começa por *PEDIDO:* e termina com endereço/retirada e nome do cliente.
-- Número: 5511947406124.
-
-10. TESTES NO CHROMIUM
-- Testado em Chromium real no desktop e emulação Pixel 7.
-- 17/17 verificações aprovadas.
-- 0 erros JavaScript.
-- Testes incluíram:
-  • card sem repetir categoria;
-  • agrupamento do ADM por categoria;
-  • formulário de produto separado em quatro blocos;
-  • sete dias da programação semanal;
-  • salvar prato semanal no ADM;
-  • carrinho mobile;
-  • mensagem do WhatsApp.
-- Relatório: qa/DEPURACAO_CHROMIUM_V5.txt
+GITHUB PAGES
+Delivery: /index.html ou a raiz do repositório
+Restaurante: /restaurante.html
+Admin: /admin.html

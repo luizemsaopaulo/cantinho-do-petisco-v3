@@ -1,0 +1,106 @@
+CANTINHO DO PETISCO V6 - DEPURAÇÃO CHROMIUM
+Resultado: 34/34 verificações aprovadas
+
+Método: Chromium real com os arquivos HTML/CSS/JS exatos carregados em modo demonstração. O ambiente bloqueia navegação localhost por política administrativa.
+
+[OK] Delivery carrega
+[OK] Delivery oculta Pratos Executivos — Tudo
+Marmitas
+Porções
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+[OK] Delivery oculta Bebidas alcoólicas — Tudo
+Marmitas
+Porções
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+[OK] Delivery oculta Cervejas — Tudo
+Marmitas
+Porções
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+[OK] Delivery mantém Refrigerantes — Tudo
+Marmitas
+Porções
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+[OK] Busca delivery não revela executivo
+[OK] Marmita Isca disponível
+[OK] Dialog produto abre
+[OK] Tamanhos integrados — P
+Pequena
+R$ 16,99
+✓
+G
+Grande
+R$ 19,99
+[OK] Carrinho atualiza quantidade — 2
+[OK] Carrinho abre
+[OK] WhatsApp delivery gera URL — https://wa.me/5511947406124?text=*PEDIDO%3A*%0A*2x%20Isca%20de%20til%C3%A1pia%20(P)*%20%E2%80%94%20R%24%2033%2C98%0A_Obs.%3A%20Sem%20cebola_%0A%0A*Total%20dos%20itens%3A*%20R%24%2033%2C98%0A*Pagamento%3A*%20Pix%3B%0A%0A*DADOS%20PARA%20ENTREGA%3A*%0A*Endere%C3%A7o%3A*%20Rua%20Teste%2C%20123%0A*Bairro%3A*%20Centro%0A*Nome%20do%20cliente%3A*%20Cliente%20Teste
+[OK] Mensagem começa com PEDIDO — *PEDIDO:*
+*2x Isca de tilápia (P)* — R$ 33,98
+_Obs.: Sem cebola_
+
+*Total dos ite
+[OK] Mensagem contém total e pagamento
+[OK] Mensagem termina com dados entrega/nome
+[OK] Sem erros JS delivery
+[OK] Mobile delivery oculta categorias presenciais — Tudo
+Marmitas
+Porções
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+[OK] Carrinho flutuante mobile aparece
+[OK] Sem erros JS mobile
+[OK] Restaurante mostra Pratos Executivos — Tudo
+Marmitas
+Porções
+Pratos Executivos
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+Cervejas
+Bebidas alcoólicas
+[OK] Restaurante mostra Bebidas alcoólicas — Tudo
+Marmitas
+Porções
+Pratos Executivos
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+Cervejas
+Bebidas alcoólicas
+[OK] Restaurante mostra demais categorias — Tudo
+Marmitas
+Porções
+Pratos Executivos
+Pratos Especiais
+Massas
+Refrigerantes
+Sucos
+Cervejas
+Bebidas alcoólicas
+[OK] Executivos aparecem no restaurante
+[OK] Categoria não repetida em cada card — count=2
+[OK] Alcoólicas aparecem só no restaurante
+[OK] Sem erros JS restaurante
+[OK] Admin entra
+[OK] Admin tem link delivery
+[OK] Admin tem link restaurante
+[OK] Admin mantém Pratos Executivos cadastrados
+[OK] Admin mantém Bebidas alcoólicas cadastradas
+[OK] Admin mostra aviso de visibilidade
+[OK] Prato do dia segue semanal
+[OK] Sem erros JS admin

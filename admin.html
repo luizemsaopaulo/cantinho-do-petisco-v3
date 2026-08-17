@@ -11,7 +11,7 @@
 <body class="admin-body">
   <main class="admin-shell">
     <section id="loginView" class="login-card">
-      <a class="back-link" href="index.html">← Voltar ao cardápio</a>
+      <a class="back-link" href="index.html">← Voltar ao delivery</a>
       <div class="brand-mark large">CP</div>
       <span class="eyebrow">Área restrita</span>
       <h1>Administração</h1>
@@ -38,7 +38,8 @@
           <div class="admin-user-line">Conectado como <strong id="adminIdentity"></strong></div>
         </div>
         <div class="admin-header-actions">
-          <a class="secondary-button small" href="index.html" target="_blank" rel="noopener">Ver cardápio</a>
+          <a class="secondary-button small" href="index.html" target="_blank" rel="noopener">Ver delivery</a>
+          <a class="secondary-button small" href="restaurante.html" target="_blank" rel="noopener">Ver restaurante</a>
           <button id="logoutBtn" class="secondary-button small" type="button">Sair</button>
         </div>
       </header>
@@ -72,6 +73,7 @@
           <select id="adminCategoryFilter" aria-label="Filtrar categoria"><option value="">Todas as categorias</option></select>
         </div>
 
+        <div class="admin-visibility-note"><strong>Visibilidade das duas páginas</strong><span>Pratos Executivos, Cervejas e Bebidas Alcoólicas continuam cadastrados e editáveis aqui, mas são ocultados automaticamente no <b>delivery</b>. No <b>cardápio do restaurante</b>, todas as categorias publicadas aparecem.</span></div>
         <div id="productsGroups" class="admin-category-groups"></div>
         <div id="adminEmpty" class="state-card hidden"><p>Nenhum produto encontrado.</p></div>
       </section>

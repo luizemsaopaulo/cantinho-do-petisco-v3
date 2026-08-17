@@ -1,12 +1,8 @@
-ANTES DE PUBLICAR A V5
-======================
+ANTES DE PUBLICAR
 
-1) No Supabase > SQL Editor, execute UMA VEZ o arquivo:
-   supabase/MIGRACAO_PRATO_DO_DIA_SEMANAL.sql
-
-2) Depois publique/substitua os arquivos do site.
-
-Essa migração é necessária porque a V5 usa prato do dia por DIA DA SEMANA,
-enquanto a versão anterior usava uma DATA específica.
-
-Não precisa recriar produtos, categorias, usuário ADM nem imagens.
+1. Confirme que a migração semanal do prato do dia já foi executada no Supabase.
+2. Confirme o bucket product-images e as políticas de Storage.
+3. Publique TODOS os arquivos e pastas desta V6 no mesmo repositório.
+4. A página padrão (index.html) é o DELIVERY/RETIRADA.
+5. restaurante.html é o cardápio completo presencial.
+6. admin.html administra o mesmo Supabase usado pelos dois cardápios.
