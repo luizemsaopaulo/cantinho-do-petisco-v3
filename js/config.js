@@ -6,5 +6,6 @@ window.APP_CONFIG = Object.freeze({
   STORAGE_BUCKET: 'product-images',
   DEMO_MODE: new URLSearchParams(location.search).has('demo') || window.__FORCE_DEMO__ === true,
   CURRENCY: 'BRL',
-  LOCALE: 'pt-BR'
+  LOCALE: 'pt-BR',
+  TIME_ZONE: 'America/Sao_Paulo'
 });

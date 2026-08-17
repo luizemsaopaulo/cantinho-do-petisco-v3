@@ -1608,7 +1608,7 @@ window.MOCK_MENU = {
   "daily_specials": [
     {
       "id": "special-demo",
-      "special_date": "2099-01-01",
+      "weekday": 0,
       "product_id": "prod-074",
       "special_price": 32.99,
       "note": "Sugestão da casa",

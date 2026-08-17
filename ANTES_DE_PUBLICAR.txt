@@ -1,0 +1,12 @@
+ANTES DE PUBLICAR A V5
+======================
+
+1) No Supabase > SQL Editor, execute UMA VEZ o arquivo:
+   supabase/MIGRACAO_PRATO_DO_DIA_SEMANAL.sql
+
+2) Depois publique/substitua os arquivos do site.
+
+Essa migração é necessária porque a V5 usa prato do dia por DIA DA SEMANA,
+enquanto a versão anterior usava uma DATA específica.
+
+Não precisa recriar produtos, categorias, usuário ADM nem imagens.

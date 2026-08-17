@@ -4,6 +4,23 @@
   class SupabaseRest {
     constructor() {
       this.sessionKey = 'cantinho_petisco_admin_session';
+      this.memorySession = null;
+    }
+
+    storeSession(session) {
+      this.memorySession = session || null;
+      try {
+        if (session) sessionStorage.setItem(this.sessionKey, JSON.stringify(session));
+        else sessionStorage.removeItem(this.sessionKey);
+      } catch {}
+    }
+
+    readStoredSession() {
+      try {
+        const raw = sessionStorage.getItem(this.sessionKey);
+        if (raw) return JSON.parse(raw);
+      } catch {}
+      return this.memorySession;
     }
 
     baseHeaders(token, extra = {}) {
@@ -46,7 +63,7 @@
       const [categories, products, daily_specials] = await Promise.all([
         this.request('/rest/v1/categories?select=id,name,slug,description,sort_order,active&active=eq.true&order=sort_order.asc', h),
         this.request('/rest/v1/products?select=id,category_id,name,slug,size,description,price,image_path,active,available,featured,sort_order&active=eq.true&order=sort_order.asc', h),
-        this.request('/rest/v1/daily_specials?select=id,special_date,product_id,special_price,note,active&active=eq.true&order=special_date.desc&limit=30', h),
+        this.request('/rest/v1/daily_specials?select=id,weekday,product_id,special_price,note,active&active=eq.true&order=weekday.asc', h),
       ]);
       return { categories, products, daily_specials };
     }
@@ -57,7 +74,7 @@
           throw new Error('No modo demonstração use admin@demo.local / 123456.');
         }
         const fake = { access_token: 'demo-token', refresh_token: 'demo-refresh', expires_at: Date.now() + 3600000, user: { email, id: 'demo-admin' } };
-        sessionStorage.setItem(this.sessionKey, JSON.stringify(fake));
+        this.storeSession(fake);
         return fake;
       }
       const data = await this.request('/auth/v1/token?grant_type=password', {
@@ -69,13 +86,12 @@
         ...data,
         expires_at: Date.now() + (data.expires_in || 3600) * 1000,
       };
-      sessionStorage.setItem(this.sessionKey, JSON.stringify(session));
+      this.storeSession(session);
       return session;
     }
 
     getSession() {
-      try { return JSON.parse(sessionStorage.getItem(this.sessionKey)) || null; }
-      catch { return null; }
+      return this.readStoredSession() || null;
     }
 
     async ensureSession() {
@@ -91,7 +107,7 @@
           body: JSON.stringify({ refresh_token: session.refresh_token }),
         });
         session = { ...data, expires_at: Date.now() + (data.expires_in || 3600) * 1000 };
-        sessionStorage.setItem(this.sessionKey, JSON.stringify(session));
+        this.storeSession(session);
         return session;
       } catch {
         this.logout();
@@ -100,7 +116,7 @@
     }
 
     logout() {
-      sessionStorage.removeItem(this.sessionKey);
+      this.storeSession(null);
     }
 
     async isAdmin() {
@@ -129,7 +145,7 @@
       const [categories, products, daily_specials] = await Promise.all([
         this.request('/rest/v1/categories?select=*&order=sort_order.asc', h),
         this.request('/rest/v1/products?select=*&order=sort_order.asc', h),
-        this.request('/rest/v1/daily_specials?select=*&order=special_date.desc', h),
+        this.request('/rest/v1/daily_specials?select=*&order=weekday.asc', h),
       ]);
       return { categories, products, daily_specials };
     }
@@ -175,7 +191,7 @@
       if (!s) throw new Error('Sessão expirada.');
       if (C.DEMO_MODE) {
         const row = { ...special, id: special.id || `special-${Date.now()}` };
-        const i = window.MOCK_MENU.daily_specials.findIndex(x => x.id === row.id || x.special_date === row.special_date);
+        const i = window.MOCK_MENU.daily_specials.findIndex(x => x.id === row.id || Number(x.weekday) === Number(row.weekday));
         if (i >= 0) window.MOCK_MENU.daily_specials[i] = structuredClone(row); else window.MOCK_MENU.daily_specials.push(structuredClone(row));
         return row;
       }
@@ -186,7 +202,7 @@
         });
         return rows?.[0] || null;
       }
-      const rows = await this.request('/rest/v1/daily_specials?on_conflict=special_date', {
+      const rows = await this.request('/rest/v1/daily_specials?on_conflict=weekday', {
         method: 'POST', headers: this.baseHeaders(s.access_token, { Prefer: 'resolution=merge-duplicates,return=representation' }), body: JSON.stringify(body)
       });
       return rows?.[0] || null;

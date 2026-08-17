@@ -1,0 +1,25 @@
+DEPURAÇÃO CHROMIUM — CANTINHO DO PETISCO V5
+==========================================================
+Resultado: 17/17 verificações aprovadas
+Erros JavaScript: 0
+
+Testes realizados no Chromium real em desktop e emulação Pixel 7.
+Modo demo foi usado apenas para não alterar o banco real durante a depuração.
+
+[OK] Cardápio abriu no Chromium
+[OK] Prato do dia semanal apareceu
+[OK] Prato do dia identifica o dia da semana
+[OK] Produto executivo localizado
+[OK] Card não repete nome da categoria
+[OK] Login ADM funcionou
+[OK] Produtos separados por categorias
+[OK] Cada categoria tem cabeçalho próprio
+[OK] Cadastro separado em quatro blocos
+[OK] Prato do dia tem sete dias da semana
+[OK] Campo antigo de data foi removido
+[OK] Seletor de dia da semana existe
+[OK] Programação semanal salva no ADM
+[OK] Carrinho mobile contabiliza item
+[OK] WhatsApp mobile continua usando wa.me
+[OK] Mensagem começa pelo PEDIDO
+[OK] Nome do cliente continua no final

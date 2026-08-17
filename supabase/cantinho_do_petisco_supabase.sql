@@ -121,11 +121,13 @@ for each row execute function public.set_updated_at();
 
 -- ------------------------------------------------------------
 -- 5) PRATO DO DIA
--- Um prato por data. special_price é opcional.
+-- Um prato por dia da semana. 0=domingo ... 6=sábado.
+-- special_price é opcional.
 -- ------------------------------------------------------------
 create table if not exists public.daily_specials (
     id uuid primary key default gen_random_uuid(),
-    special_date date not null unique,
+    weekday smallint not null unique
+        check (weekday between 0 and 6),
     product_id uuid not null
         references public.products(id)
         on update cascade
@@ -138,8 +140,8 @@ create table if not exists public.daily_specials (
     updated_at timestamptz not null default now()
 );
 
-create index if not exists daily_specials_date_idx
-    on public.daily_specials(special_date, active);
+create index if not exists daily_specials_weekday_idx
+    on public.daily_specials(weekday, active);
 
 drop trigger if exists daily_specials_set_updated_at on public.daily_specials;
 create trigger daily_specials_set_updated_at

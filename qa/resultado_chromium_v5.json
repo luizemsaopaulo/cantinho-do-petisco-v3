@@ -1,0 +1,92 @@
+{
+  "passed": 17,
+  "total": 17,
+  "errors": [],
+  "results": [
+    {
+      "name": "Cardápio abriu no Chromium",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Prato do dia semanal apareceu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Prato do dia identifica o dia da semana",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Produto executivo localizado",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Card não repete nome da categoria",
+      "ok": true,
+      "detail": "Salmão grelhado\n\nAcompanha arroz, feijão, fritas e farofa.\n\nR$ 44,99\n+\n🍽️"
+    },
+    {
+      "name": "Login ADM funcionou",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Produtos separados por categorias",
+      "ok": true,
+      "detail": "9"
+    },
+    {
+      "name": "Cada categoria tem cabeçalho próprio",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Cadastro separado em quatro blocos",
+      "ok": true,
+      "detail": "4"
+    },
+    {
+      "name": "Prato do dia tem sete dias da semana",
+      "ok": true,
+      "detail": "7"
+    },
+    {
+      "name": "Campo antigo de data foi removido",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Seletor de dia da semana existe",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Programação semanal salva no ADM",
+      "ok": true,
+      "detail": "Seg\nSegunda-feira\nÁgua\nEspecial de segunda\nR$ 29,90\nAtivo\nEditar\nExcluir"
+    },
+    {
+      "name": "Carrinho mobile contabiliza item",
+      "ok": true,
+      "detail": "1"
+    },
+    {
+      "name": "WhatsApp mobile continua usando wa.me",
+      "ok": true,
+      "detail": "https://wa.me/5511947406124?text=*PEDIDO%3A*%0A*1x%20Isca%20de%20til%C3%A1pia%20(P)*%20%E2%80%94%20R%24%2016%2C99%0A%0A*Total%20dos%20itens%3A*%20R%24%2016%2C99%0A*Pagamento%3A*%20Pix%3B%0A%0A*DADOS%20PARA%20ENTREGA%3A*%0A*Endere%C3%A7o%3A*%20Rua%20Teste%2C%20123%0A*Bairro%3A*%20Centro%0A*Nome%20do%20cliente%3A*%20Luiz%20Teste"
+    },
+    {
+      "name": "Mensagem começa pelo PEDIDO",
+      "ok": true,
+      "detail": "*PEDIDO:*\n*1x Isca de tilápia (P)* — R$ 16,99\n\n*Total dos itens:* R$ 16,99\n*Paga"
+    },
+    {
+      "name": "Nome do cliente continua no final",
+      "ok": true,
+      "detail": "ix;\n\n*DADOS PARA ENTREGA:*\n*Endereço:* Rua Teste, 123\n*Bairro:* Centro\n*Nome do cliente:* Luiz Teste"
+    }
+  ]
+}

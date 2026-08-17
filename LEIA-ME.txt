@@ -1,84 +1,85 @@
-CANTINHO DO PETISCO — CARDÁPIO DIGITAL V3
+CANTINHO DO PETISCO — CARDÁPIO DIGITAL V5
 =========================================
 
-VERSÃO ATUAL
-- Visual branco + vermelho, moderno, clássico e elegante.
-- Prato do dia em destaque.
-- Carrinho moderno com ícone e bolinha de quantidade.
-- Marmitas agrupadas por prato: o cliente não vê o mesmo prato repetido por tamanho.
-- Escolha de tamanho P / M / G dentro do produto, com preço atualizado na hora.
-- Painel administrativo conectado ao Supabase.
-- Projeto separado em HTML, CSS e JavaScript.
+NOVIDADES DESTA VERSÃO
+- Os cards não repetem o nome da categoria. Ex.: dentro de "Pratos Executivos", o card mostra apenas "Salmão grelhado", descrição, preço, foto e botão.
+- Painel ADM reorganizado e separado por categorias.
+- Cadastro/edição de produto dividido em 4 blocos: informações, preço/ordem, foto e disponibilidade.
+- Prato do dia agora é definido por DIA DA SEMANA, e não por data.
+- A programação semanal mostra Segunda a Domingo em uma visão única.
+- Mantidas as correções do WhatsApp mobile da V4.
+- Mantido carrinho com quantidade, tamanhos P/M/G agrupados e Supabase Auth/RLS.
 
-1. COMO ABRIR NO WINDOWS
-- Dê dois cliques em: abrir_site.bat
+1. IMPORTANTE — ATUALIZAR O SUPABASE PARA PRATO SEMANAL
+Como o seu banco atual ainda usa uma DATA no prato do dia, execute UMA VEZ:
+
+  supabase/MIGRACAO_PRATO_DO_DIA_SEMANAL.sql
+
+No Supabase > SQL Editor, cole o conteúdo inteiro desse arquivo e clique em Run.
+O script começa com RESET ROLE porque seu SQL Editor já ficou selecionado como "authenticated" antes.
+A migração converte programações antigas para o respectivo dia da semana e mantém a mais recente de cada dia.
+
+2. COMO ABRIR NO WINDOWS
+- Dê dois cliques em abrir_site.bat.
 - O BAT escolhe uma porta local livre e abre o navegador.
 
-2. PRODUÇÃO
-- index.html = cardápio do cliente
-- admin.html = painel administrativo
-- Por padrão, o site usa o Supabase configurado em js/config.js.
+3. PRODUÇÃO
+- index.html = cardápio do cliente.
+- admin.html = painel administrativo.
+- js/config.js contém URL pública do Supabase, publishable key, bucket e fuso America/Sao_Paulo.
 
-3. MARMITAS E TAMANHOS
-- O banco continua usando um registro por tamanho, como já estava.
-- Não é necessário alterar o SQL/Supabase para esta versão.
-- No site, produtos da categoria Marmitas com o MESMO NOME são agrupados automaticamente.
-- Exemplo:
-    Isca de tilápia
-      P — R$ 16,99
-      G — R$ 19,99
-  aparece como UM ÚNICO produto para o cliente.
-- Ao abrir o produto, o cliente escolhe P/M/G e o preço muda automaticamente.
-- Tamanhos sem preço ou indisponíveis ficam desabilitados.
-- O carrinho e a mensagem do WhatsApp registram o tamanho escolhido.
+4. PRODUTOS E CATEGORIAS
+- No cardápio, a categoria aparece apenas como título da seção.
+- O produto não repete "Pratos Executivos", "Cervejas", "Sucos" etc. dentro de cada card.
+- No ADM, os produtos ficam agrupados por categoria para facilitar a manutenção.
 
-4. COMO CADASTRAR TAMANHOS NO ADM
-- Para criar outro tamanho do mesmo prato, use exatamente o mesmo Nome e Categoria.
-- Escolha P, M ou G no campo Tamanho e informe o preço correspondente.
-- Exemplo:
-    Nome: Isca de tilápia | Categoria: Marmitas | Tamanho: P | Preço: 16,99
-    Nome: Isca de tilápia | Categoria: Marmitas | Tamanho: G | Preço: 19,99
-- O cardápio agrupa esses registros automaticamente.
+5. MARMITAS E TAMANHOS
+- O banco continua usando um registro por tamanho.
+- Produtos da categoria Marmitas com o MESMO NOME são agrupados no cardápio.
+- Exemplo: Isca de tilápia P e G aparece como um único produto com escolha de tamanho.
+- Carrinho e WhatsApp registram o tamanho escolhido.
 
-5. CARRINHO
-- O ícone do carrinho no topo mostra a quantidade escolhida.
-- Depois do primeiro item aparece também o carrinho flutuante.
-- A bolinha mostra a quantidade total de unidades.
-- O carrinho registra produto + tamanho + observação + quantidade + preço.
+6. PRATO DO DIA SEMANAL
+- O banco usa weekday:
+    0 = Domingo
+    1 = Segunda-feira
+    2 = Terça-feira
+    3 = Quarta-feira
+    4 = Quinta-feira
+    5 = Sexta-feira
+    6 = Sábado
+- No ADM, abra "Prato do dia", escolha o dia e o produto.
+- Pode informar preço especial e observação.
+- O cliente vê automaticamente o prato correspondente ao dia no fuso America/Sao_Paulo.
 
-6. PRATO DO DIA
-- O painel ADM possui a aba "Prato do dia".
-- Escolha data, produto, tamanho, preço especial opcional e observação.
-- Se o prato do dia for uma Marmita, ao abrir o produto os outros tamanhos continuam disponíveis com seus preços normais; o preço especial é aplicado ao tamanho configurado no ADM.
+7. FOTOS
+- Bucket esperado: product-images.
+- Público somente para leitura das fotos do cardápio.
+- Upload/alteração/exclusão continuam controlados pelas Policies e pelo administrador.
+- JPG, PNG e WEBP, até 5 MB por arquivo.
 
-7. SEGURANÇA / SUPABASE
-- O login ADM usa Supabase Auth.
-- O usuário precisa estar em private.app_admins conforme o SQL entregue.
+8. SEGURANÇA
+- Login ADM pelo Supabase Auth.
+- Usuário autorizado pela função public.is_admin() e tabela de administradores criada no SQL.
 - A publishable key pode ficar no navegador.
-- NUNCA coloque secret key/service_role no projeto.
-- O RLS do SQL continua sendo a camada de autorização real.
+- NUNCA coloque secret key/service_role no HTML ou JavaScript.
+- RLS continua sendo a camada real de autorização.
 
-8. FOTOS
-- Bucket esperado: product-images
-- As políticas de escrita restringem upload/alteração/exclusão ao administrador.
+9. WHATSAPP
+- Mantido envio direto por wa.me para funcionar melhor no mobile.
+- A mensagem começa por *PEDIDO:* e termina com endereço/retirada e nome do cliente.
+- Número: 5511947406124.
 
-9. PEDIDOS / LGPD
-- O cliente não precisa criar conta.
-- Nome, endereço, pagamento e observações do checkout não são gravados no Supabase por esta página.
-- Esses dados são usados para montar a mensagem enviada ao WhatsApp.
-
-10. MODO DEMO
-- Acrescente ?demo=1 para testar sem acessar o Supabase.
-- Ex.: http://127.0.0.1:8000/?demo=1
-- Painel: admin.html?demo=1
-- Login demo: admin@demo.local
-- Senha demo: 123456
-
-11. WHATSAPP
-- Número configurado em js/config.js: 5511947406124
-
-12. DEPURAÇÃO
-- Chromium: 28/28 verificações aprovadas.
-- Foram testados agrupamento, P/G, mudança de preço, quantidade, carrinho, checkout, WhatsApp, busca e visual mobile.
-- O ambiente de teste bloqueia navegação HTTP/HTTPS por política; por isso os mesmos HTML/CSS/JS foram carregados diretamente no Chromium em modo demo.
-- Relatório: qa/DEPURACAO_CHROMIUM_V3.txt
+10. TESTES NO CHROMIUM
+- Testado em Chromium real no desktop e emulação Pixel 7.
+- 17/17 verificações aprovadas.
+- 0 erros JavaScript.
+- Testes incluíram:
+  • card sem repetir categoria;
+  • agrupamento do ADM por categoria;
+  • formulário de produto separado em quatro blocos;
+  • sete dias da programação semanal;
+  • salvar prato semanal no ADM;
+  • carrinho mobile;
+  • mensagem do WhatsApp.
+- Relatório: qa/DEPURACAO_CHROMIUM_V5.txt

@@ -3,11 +3,20 @@
   const api = window.supabaseRest;
   const C = window.APP_CONFIG;
   const money = new Intl.NumberFormat(C.LOCALE,{style:'currency',currency:C.CURRENCY});
+  const WEEKDAYS = [
+    {value:1,label:'Segunda-feira',short:'Seg'},
+    {value:2,label:'Terça-feira',short:'Ter'},
+    {value:3,label:'Quarta-feira',short:'Qua'},
+    {value:4,label:'Quinta-feira',short:'Qui'},
+    {value:5,label:'Sexta-feira',short:'Sex'},
+    {value:6,label:'Sábado',short:'Sáb'},
+    {value:0,label:'Domingo',short:'Dom'},
+  ];
   const state = { categories:[], products:[], specials:[], editing:null, imageRemoved:false };
   const $ = s => document.querySelector(s);
   const els = {
     login:$('#loginView'), admin:$('#adminView'), loginForm:$('#loginForm'), loginMessage:$('#loginMessage'), loginBtn:$('#loginBtn'), identity:$('#adminIdentity'),
-    table:$('#productsTableBody'), empty:$('#adminEmpty'), search:$('#adminSearch'), clearSearch:$('#clearAdminSearch'), filter:$('#adminCategoryFilter'),
+    groups:$('#productsGroups'), empty:$('#adminEmpty'), search:$('#adminSearch'), clearSearch:$('#clearAdminSearch'), filter:$('#adminCategoryFilter'),
     productDialog:$('#productDialog'), productForm:$('#productForm'), specialForm:$('#specialForm'), specialList:$('#specialList'), toast:$('#toastRegion')
   };
   const escapeHtml = (v='') => String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -17,6 +26,7 @@
   function cat(id){return state.categories.find(c=>c.id===id)}
   function product(id){return state.products.find(p=>p.id===id)}
   function imgUrl(path){return path?api.publicImageUrl(path):''}
+  function weekdayInfo(value){return WEEKDAYS.find(d=>d.value===Number(value))||{value:Number(value),label:'Dia não definido',short:'—'};}
 
   async function boot(){
     if(C.DEMO_MODE) $('#demoCredentials').classList.remove('hidden');
@@ -35,7 +45,7 @@
   }
   async function reloadData(){
     const data=await api.adminGetAll();state.categories=data.categories||[];state.products=data.products||[];state.specials=data.daily_specials||[];
-    state.categories.sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));state.products.sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));
+    state.categories.sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));state.products.sort((a,b)=>(a.sort_order||0)-(b.sort_order||0)||a.name.localeCompare(b.name,'pt-BR'));
     renderMetrics();renderCategoryOptions();renderProducts();renderSpecials();
   }
   function renderMetrics(){
@@ -46,23 +56,68 @@
     const options=state.categories.map(c=>`<option value="${escapeHtml(c.id)}">${escapeHtml(c.name)}</option>`).join('');
     const currentFilter=els.filter.value;els.filter.innerHTML='<option value="">Todas as categorias</option>'+options;els.filter.value=currentFilter;
     $('#productCategory').innerHTML=options;
-    const activeProducts=state.products.filter(p=>p.active).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR'));
+    const activeProducts=state.products.filter(p=>p.active).sort((a,b)=>a.name.localeCompare(b.name,'pt-BR')||(a.size||'').localeCompare(b.size||''));
     $('#specialProduct').innerHTML='<option value="">Selecione...</option>'+activeProducts.map(p=>`<option value="${escapeHtml(p.id)}">${escapeHtml(p.name)}${p.size?` · ${escapeHtml(p.size)}`:''} — ${p.price!=null?money.format(Number(p.price)):'sem preço'}</option>`).join('');
   }
   function statusPill(p){
-    if(!p.active)return '<span class="status-pill off">Inativo</span>'; if(!p.available)return '<span class="status-pill off">Indisponível</span>'; return '<span class="status-pill ok">Disponível</span>';
+    if(!p.active)return '<span class="status-pill off">Não publicado</span>';
+    if(!p.available)return '<span class="status-pill off">Indisponível</span>';
+    return '<span class="status-pill ok">Disponível</span>';
+  }
+  function renderProductRow(p){
+    return `<article class="admin-product-row">
+      <div class="product-cell">
+        <div class="thumb">${p.image_path?`<img src="${escapeHtml(imgUrl(p.image_path))}" alt="">`:'🍽️'}</div>
+        <div><div class="row-title">${escapeHtml(p.name)}</div><div class="row-sub">${p.size?`Tamanho ${escapeHtml(p.size)}`:'Sem tamanho'}${p.featured?' · Destaque':''}</div></div>
+      </div>
+      <div class="admin-product-price">${p.price!=null?money.format(Number(p.price)):'—'}</div>
+      <div>${statusPill(p)}</div>
+      <button class="edit-row" data-edit="${escapeHtml(p.id)}" type="button">Editar</button>
+    </article>`;
   }
   function renderProducts(){
     const q=normalize(els.search.value),filter=els.filter.value;
-    const rows=state.products.filter(p=>(!filter||p.category_id===filter)&&(!q||normalize(`${p.name} ${p.size||''}`).includes(q)));
-    els.empty.classList.toggle('hidden',!!rows.length);$('#productsTableWrap').classList.toggle('hidden',!rows.length);
-    els.table.innerHTML=rows.map(p=>`<tr><td><div class="product-cell"><div class="thumb">${p.image_path?`<img src="${escapeHtml(imgUrl(p.image_path))}" alt="">`:'🍽️'}</div><div><div class="row-title">${escapeHtml(p.name)}</div><div class="row-sub">${p.size?`Tamanho ${escapeHtml(p.size)} · `:''}${escapeHtml(p.slug||'')}</div></div></div></td><td>${escapeHtml(cat(p.category_id)?.name||'—')}</td><td>${p.price!=null?money.format(Number(p.price)):'—'}</td><td>${statusPill(p)}</td><td><div class="row-actions"><button class="edit-row" data-edit="${escapeHtml(p.id)}" type="button">Editar</button></div></td></tr>`).join('');
-    els.table.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openProduct(b.dataset.edit));
+    const filtered=state.products.filter(p=>(!filter||p.category_id===filter)&&(!q||normalize(`${p.name} ${p.size||''} ${p.description||''}`).includes(q)));
+    els.empty.classList.toggle('hidden',!!filtered.length);els.groups.classList.toggle('hidden',!filtered.length);
+    const html=[];
+    for(const c of state.categories){
+      const items=filtered.filter(p=>p.category_id===c.id);
+      if(!items.length)continue;
+      html.push(`<section class="admin-category-card">
+        <header class="admin-category-header">
+          <div><span class="admin-category-kicker">Categoria</span><h3>${escapeHtml(c.name)}</h3>${c.description?`<p>${escapeHtml(c.description)}</p>`:''}</div>
+          <span class="admin-category-count">${items.length} ${items.length===1?'item':'itens'}</span>
+        </header>
+        <div class="admin-category-products">${items.map(renderProductRow).join('')}</div>
+      </section>`);
+    }
+    els.groups.innerHTML=html.join('');
+    els.groups.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openProduct(b.dataset.edit));
   }
   function renderSpecials(){
-    const list=[...state.specials].sort((a,b)=>String(b.special_date).localeCompare(String(a.special_date)));
-    els.specialList.innerHTML=list.length?list.map(s=>{const p=product(s.product_id);return `<div class="special-row"><div><strong>${escapeHtml(new Date(`${s.special_date}T12:00:00`).toLocaleDateString('pt-BR'))}</strong><small>${s.active?'Ativo':'Inativo'}</small></div><div><strong>${escapeHtml(p?.name||'Produto removido')}</strong><small>${escapeHtml(s.note||'Sem observação')}</small></div><div>${s.special_price!=null?money.format(Number(s.special_price)):'Preço normal'}</div><button type="button" data-del-special="${escapeHtml(s.id)}">Excluir</button></div>`}).join(''):'<p class="row-sub">Nenhum prato do dia cadastrado.</p>';
+    els.specialList.innerHTML=WEEKDAYS.map(day=>{
+      const s=state.specials.find(x=>Number(x.weekday)===day.value);
+      const p=s?product(s.product_id):null;
+      if(!s){return `<div class="weekday-row empty"><div class="weekday-name"><span>${day.short}</span><strong>${day.label}</strong></div><div class="weekday-empty">Nenhum prato definido</div><button type="button" class="edit-row" data-new-weekday="${day.value}">Definir</button></div>`;}
+      return `<div class="weekday-row ${s.active?'':'inactive'}">
+        <div class="weekday-name"><span>${day.short}</span><strong>${day.label}</strong></div>
+        <div class="weekday-product"><strong>${escapeHtml(p?.name||'Produto removido')}${p?.size?` (${escapeHtml(p.size)})`:''}</strong><small>${escapeHtml(s.note||'Sem observação')}</small></div>
+        <div class="weekday-price">${s.special_price!=null?money.format(Number(s.special_price)):'Preço normal'}<small>${s.active?'Ativo':'Inativo'}</small></div>
+        <div class="weekday-actions"><button type="button" class="edit-row" data-edit-special="${escapeHtml(s.id)}">Editar</button><button type="button" class="delete-mini" data-del-special="${escapeHtml(s.id)}">Excluir</button></div>
+      </div>`;
+    }).join('');
+    els.specialList.querySelectorAll('[data-edit-special]').forEach(b=>b.onclick=()=>editSpecial(b.dataset.editSpecial));
     els.specialList.querySelectorAll('[data-del-special]').forEach(b=>b.onclick=()=>deleteSpecial(b.dataset.delSpecial));
+    els.specialList.querySelectorAll('[data-new-weekday]').forEach(b=>b.onclick=()=>prepareSpecialDay(Number(b.dataset.newWeekday)));
+  }
+  function resetSpecialForm(){
+    els.specialForm.reset();$('#specialActive').checked=true;$('#specialId').value='';$('#cancelSpecialEdit').classList.add('hidden');
+  }
+  function prepareSpecialDay(day){resetSpecialForm();$('#specialWeekday').value=String(day);$('#specialProduct').focus();}
+  function editSpecial(id){
+    const s=state.specials.find(x=>x.id===id);if(!s)return;
+    $('#specialId').value=s.id;$('#specialWeekday').value=String(s.weekday);$('#specialProduct').value=s.product_id;$('#specialPrice').value=s.special_price??'';$('#specialNote').value=s.note||'';$('#specialActive').checked=s.active!==false;$('#cancelSpecialEdit').classList.remove('hidden');
+    $('#specialWeekday').scrollIntoView({behavior:'smooth',block:'center'});
   }
   function openProduct(id=null){
     state.editing=id?product(id):null;state.imageRemoved=false; const p=state.editing;
@@ -87,15 +142,21 @@
     await api.deleteProduct(id);await reloadData();els.productDialog.close();toast('Produto excluído.','success');
   }
   async function saveSpecial(){
-    const row={id:$('#specialId').value||null,special_date:$('#specialDate').value,product_id:$('#specialProduct').value,special_price:$('#specialPrice').value===''?null:Number($('#specialPrice').value),note:$('#specialNote').value.trim()||null,active:$('#specialActive').checked};
-    if(!row.special_date||!row.product_id)throw new Error('Escolha a data e o produto.');await api.saveSpecial(row);await reloadData();els.specialForm.reset();$('#specialActive').checked=true;$('#specialId').value='';toast('Prato do dia salvo.','success');
+    const weekdayRaw=$('#specialWeekday').value;
+    const row={id:$('#specialId').value||null,weekday:weekdayRaw===''?null:Number(weekdayRaw),product_id:$('#specialProduct').value,special_price:$('#specialPrice').value===''?null:Number($('#specialPrice').value),note:$('#specialNote').value.trim()||null,active:$('#specialActive').checked};
+    if(row.weekday===null||!row.product_id)throw new Error('Escolha o dia da semana e o produto.');
+    await api.saveSpecial(row);await reloadData();resetSpecialForm();toast(`${weekdayInfo(row.weekday).label} salva com sucesso.`,'success');
   }
-  async function deleteSpecial(id){if(!confirm('Excluir este prato do dia?'))return;await api.deleteSpecial(id);await reloadData();toast('Prato do dia excluído.','success');}
+  async function deleteSpecial(id){if(!confirm('Excluir a programação deste dia?'))return;await api.deleteSpecial(id);await reloadData();resetSpecialForm();toast('Programação excluída.','success');}
 
+  function switchTab(name){
+    document.querySelectorAll('.admin-tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===name));
+    $('#productsTab').classList.toggle('hidden',name!=='products');$('#specialTab').classList.toggle('hidden',name!=='special');
+  }
   function initEvents(){
     els.loginForm.addEventListener('submit',async e=>{e.preventDefault();els.loginBtn.disabled=true;els.loginBtn.textContent='Entrando…';els.loginMessage.classList.add('hidden');try{const s=await api.login($('#adminEmail').value.trim(),$('#adminPassword').value);if(!(await api.isAdmin()))throw new Error('Usuário autenticado, mas sem permissão de administrador.');await enterAdmin(s);}catch(err){api.logout();showLogin(err.message||'Falha no login.');}finally{els.loginBtn.disabled=false;els.loginBtn.textContent='Entrar';}});
     $('#logoutBtn').onclick=()=>{api.logout();location.reload();};
-    document.querySelectorAll('.admin-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.admin-tab').forEach(x=>x.classList.toggle('active',x===b));$('#productsTab').classList.toggle('hidden',b.dataset.tab!=='products');$('#specialTab').classList.toggle('hidden',b.dataset.tab!=='special');});
+    document.querySelectorAll('.admin-tab').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
     els.search.addEventListener('input',()=>{els.clearSearch.classList.toggle('hidden',!els.search.value);renderProducts();});els.clearSearch.onclick=()=>{els.search.value='';els.clearSearch.classList.add('hidden');renderProducts();els.search.focus();};els.filter.onchange=renderProducts;
     $('#newProductBtn').onclick=()=>openProduct();
     els.productForm.addEventListener('submit',async e=>{e.preventDefault();const btn=$('#saveProductBtn');btn.disabled=true;const old=btn.textContent;try{await saveProduct();}catch(err){toast(err.message||'Não foi possível salvar.','error');}finally{btn.disabled=false;btn.textContent=old;}});
@@ -105,6 +166,7 @@
     $('#productImage').onchange=()=>{const file=$('#productImage').files?.[0];if(!file)return;const u=URL.createObjectURL(file);$('#imagePreview').src=u;$('#imagePreviewBox').classList.remove('hidden');state.imageRemoved=false;};
     $('#removeImageBtn').onclick=()=>{$('#productImage').value='';$('#imagePreview').removeAttribute('src');$('#imagePreviewBox').classList.add('hidden');state.imageRemoved=true;};
     els.specialForm.addEventListener('submit',async e=>{e.preventDefault();try{await saveSpecial();}catch(err){toast(err.message||'Não foi possível salvar.','error');}});
+    $('#cancelSpecialEdit').onclick=resetSpecialForm;
   }
   initEvents();boot();
 })();
