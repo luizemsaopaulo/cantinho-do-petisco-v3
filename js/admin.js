@@ -12,7 +12,7 @@
     {value:6,label:'Sábado',short:'Sáb'},
     {value:0,label:'Domingo',short:'Dom'},
   ];
-  const state = { categories:[], products:[], specials:[], editing:null, imageRemoved:false };
+  const state = { categories:[], products:[], specials:[], editing:null, imageRemoved:false, collapsedCategories:new Set(), categoryQueries:{}, categoriesInitialized:false };
   const $ = s => document.querySelector(s);
   const els = {
     login:$('#loginView'), admin:$('#adminView'), loginForm:$('#loginForm'), loginMessage:$('#loginMessage'), loginBtn:$('#loginBtn'), identity:$('#adminIdentity'),
@@ -46,6 +46,12 @@
   async function reloadData(){
     const data=await api.adminGetAll();state.categories=data.categories||[];state.products=data.products||[];state.specials=data.daily_specials||[];
     state.categories.sort((a,b)=>(a.sort_order||0)-(b.sort_order||0));state.products.sort((a,b)=>(a.sort_order||0)-(b.sort_order||0)||a.name.localeCompare(b.name,'pt-BR'));
+    // Na primeira entrada no painel, todas as categorias iniciam recolhidas.
+    // Depois disso, recarregamentos de dados preservam o que o administrador abriu/fechou.
+    if(!state.categoriesInitialized){
+      state.categories.forEach(c=>state.collapsedCategories.add(c.id));
+      state.categoriesInitialized=true;
+    }
     renderMetrics();renderCategoryOptions();renderProducts();renderSpecials();
   }
   function renderMetrics(){
@@ -65,7 +71,8 @@
     return '<span class="status-pill ok">Disponível</span>';
   }
   function renderProductRow(p){
-    return `<article class="admin-product-row">
+    const searchText=normalize(`${p.name} ${p.size||''} ${p.description||''} ${p.price??''}`);
+    return `<article class="admin-product-row" data-product-row data-search-text="${escapeHtml(searchText)}">
       <div class="product-cell">
         <div class="thumb">${p.image_path?`<img src="${escapeHtml(imgUrl(p.image_path))}" alt="">`:'🍽️'}</div>
         <div><div class="row-title">${escapeHtml(p.name)}</div><div class="row-sub">${p.size?`Tamanho ${escapeHtml(p.size)}`:'Sem tamanho'}${p.featured?' · Destaque':''}</div></div>
@@ -75,6 +82,23 @@
       <button class="edit-row" data-edit="${escapeHtml(p.id)}" type="button">Editar</button>
     </article>`;
   }
+  function applyCategorySearch(section,rawQuery){
+    if(!section)return;
+    const query=normalize(rawQuery||'');
+    const rows=[...section.querySelectorAll('[data-product-row]')];
+    let visible=0;
+    rows.forEach(row=>{
+      const show=!query||(row.dataset.searchText||'').includes(query);
+      row.classList.toggle('hidden',!show);
+      if(show)visible++;
+    });
+    const count=section.querySelector('[data-category-count]');
+    if(count)count.textContent=`${visible} ${visible===1?'item':'itens'}`;
+    const empty=section.querySelector('[data-category-empty]');
+    if(empty)empty.classList.toggle('hidden',visible>0);
+    const clear=section.querySelector('[data-clear-category-search]');
+    if(clear)clear.classList.toggle('hidden',!rawQuery);
+  }
   function renderProducts(){
     const q=normalize(els.search.value),filter=els.filter.value;
     const filtered=state.products.filter(p=>(!filter||p.category_id===filter)&&(!q||normalize(`${p.name} ${p.size||''} ${p.description||''}`).includes(q)));
@@ -83,16 +107,57 @@
     for(const c of state.categories){
       const items=filtered.filter(p=>p.category_id===c.id);
       if(!items.length)continue;
-      html.push(`<section class="admin-category-card">
-        <header class="admin-category-header">
-          <div><span class="admin-category-kicker">Categoria</span><h3>${escapeHtml(c.name)}</h3>${c.description?`<p>${escapeHtml(c.description)}</p>`:''}</div>
-          <span class="admin-category-count">${items.length} ${items.length===1?'item':'itens'}</span>
+      const collapsed=state.collapsedCategories.has(c.id);
+      const localQuery=state.categoryQueries[c.id]||'';
+      html.push(`<section class="admin-category-card ${collapsed?'is-collapsed':''}" data-category-section="${escapeHtml(c.id)}">
+        <header class="admin-category-header admin-category-header-collapsible">
+          <button class="admin-category-toggle" data-category-toggle="${escapeHtml(c.id)}" type="button" aria-expanded="${collapsed?'false':'true'}">
+            <span class="admin-category-chevron" aria-hidden="true">⌄</span>
+            <span class="admin-category-title-wrap"><span class="admin-category-kicker">Categoria</span><strong class="admin-category-name">${escapeHtml(c.name)}</strong>${c.description?`<small>${escapeHtml(c.description)}</small>`:''}</span>
+          </button>
+          <span class="admin-category-count" data-category-count>${items.length} ${items.length===1?'item':'itens'}</span>
         </header>
-        <div class="admin-category-products">${items.map(renderProductRow).join('')}</div>
+        <div class="admin-category-content ${collapsed?'hidden':''}" data-category-content>
+          <div class="admin-category-tools">
+            <label class="search-box category-search-box">
+              <span>⌕</span>
+              <input type="search" value="${escapeHtml(localQuery)}" data-category-search="${escapeHtml(c.id)}" placeholder="Pesquisar somente em ${escapeHtml(c.name)}" aria-label="Pesquisar em ${escapeHtml(c.name)}">
+              <button class="clear-search ${localQuery?'':'hidden'}" data-clear-category-search="${escapeHtml(c.id)}" type="button" aria-label="Limpar pesquisa da categoria">×</button>
+            </label>
+          </div>
+          <div class="admin-category-products">${items.map(renderProductRow).join('')}</div>
+          <div class="category-search-empty hidden" data-category-empty>Nenhum produto encontrado nesta categoria.</div>
+        </div>
       </section>`);
     }
     els.groups.innerHTML=html.join('');
     els.groups.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openProduct(b.dataset.edit));
+    els.groups.querySelectorAll('[data-category-toggle]').forEach(b=>b.onclick=()=>{
+      const id=b.dataset.categoryToggle;
+      const section=b.closest('[data-category-section]');
+      const content=section?.querySelector('[data-category-content]');
+      const nowCollapsed=!state.collapsedCategories.has(id);
+      if(nowCollapsed)state.collapsedCategories.add(id);else state.collapsedCategories.delete(id);
+      section?.classList.toggle('is-collapsed',nowCollapsed);
+      content?.classList.toggle('hidden',nowCollapsed);
+      b.setAttribute('aria-expanded',String(!nowCollapsed));
+    });
+    els.groups.querySelectorAll('[data-category-search]').forEach(input=>{
+      const id=input.dataset.categorySearch;
+      const section=input.closest('[data-category-section]');
+      applyCategorySearch(section,input.value);
+      input.addEventListener('input',()=>{
+        state.categoryQueries[id]=input.value;
+        applyCategorySearch(section,input.value);
+      });
+    });
+    els.groups.querySelectorAll('[data-clear-category-search]').forEach(b=>b.onclick=()=>{
+      const id=b.dataset.clearCategorySearch;
+      const section=b.closest('[data-category-section]');
+      const input=section?.querySelector(`[data-category-search="${CSS.escape(id)}"]`);
+      state.categoryQueries[id]='';
+      if(input){input.value='';applyCategorySearch(section,'');input.focus();}
+    });
   }
   function renderSpecials(){
     els.specialList.innerHTML=WEEKDAYS.map(day=>{
@@ -158,6 +223,8 @@
     $('#logoutBtn').onclick=()=>{api.logout();location.reload();};
     document.querySelectorAll('.admin-tab').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
     els.search.addEventListener('input',()=>{els.clearSearch.classList.toggle('hidden',!els.search.value);renderProducts();});els.clearSearch.onclick=()=>{els.search.value='';els.clearSearch.classList.add('hidden');renderProducts();els.search.focus();};els.filter.onchange=renderProducts;
+    $('#expandAllCategories').onclick=()=>{state.collapsedCategories.clear();renderProducts();};
+    $('#collapseAllCategories').onclick=()=>{state.categories.forEach(c=>state.collapsedCategories.add(c.id));renderProducts();};
     $('#newProductBtn').onclick=()=>openProduct();
     els.productForm.addEventListener('submit',async e=>{e.preventDefault();const btn=$('#saveProductBtn');btn.disabled=true;const old=btn.textContent;try{await saveProduct();}catch(err){toast(err.message||'Não foi possível salvar.','error');}finally{btn.disabled=false;btn.textContent=old;}});
     $('#closeProductDialog').onclick=()=>els.productDialog.close();

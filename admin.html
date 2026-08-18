@@ -66,11 +66,15 @@
           <button id="newProductBtn" class="primary-button small" type="button">+ Novo produto</button>
         </div>
 
-        <div class="admin-toolbar admin-toolbar-v5">
+        <div class="admin-toolbar admin-toolbar-v5 admin-toolbar-collapsible">
           <label class="search-box admin-search">
-            <span>⌕</span><input id="adminSearch" type="search" placeholder="Buscar produto"><button id="clearAdminSearch" class="clear-search hidden" type="button">×</button>
+            <span>⌕</span><input id="adminSearch" type="search" placeholder="Buscar em todas as categorias"><button id="clearAdminSearch" class="clear-search hidden" type="button">×</button>
           </label>
           <select id="adminCategoryFilter" aria-label="Filtrar categoria"><option value="">Todas as categorias</option></select>
+          <div class="admin-collapse-actions" aria-label="Controles das categorias">
+            <button id="expandAllCategories" class="secondary-button compact" type="button">Expandir todas</button>
+            <button id="collapseAllCategories" class="secondary-button compact" type="button">Recolher todas</button>
+          </div>
         </div>
 
         <div class="admin-visibility-note"><strong>Visibilidade das duas páginas</strong><span>Pratos Executivos, Cervejas e Bebidas Alcoólicas continuam cadastrados e editáveis aqui, mas são ocultados automaticamente no <b>delivery</b>. No <b>cardápio do restaurante</b>, todas as categorias publicadas aparecem.</span></div>
