@@ -1,4 +1,4 @@
-CANTINHO DO PETISCO V9
+CANTINHO DO PETISCO V12
 
 Páginas:
 - index.html = Delivery
@@ -23,6 +23,12 @@ IMAGEM DO LINK / WHATSAPP
 - Arquivo usado no preview do link: assets/whatsapp-preview-v2.jpg
 - As páginas index.html e restaurante.html já saem com meta tags Open Graph e Twitter Card.
 - Depois de publicar ou atualizar no GitHub Pages, o WhatsApp pode demorar um pouco para atualizar o cache do preview.
-- Mensagens já enviadas não atualizam retroativamente. Reenvie o link em uma nova mensagem.
-- Para atualizar o cache da Meta, use o Sharing Debugger e solicite uma nova extração da URL canônica.
-- Para diagnosticar o cache do cliente, também é possível enviar temporariamente a URL com um parâmetro novo, por exemplo: ?preview=20260827.
+- A V12 usa cache-busting ?v=12 na URL da imagem para forçar uma URL social nova.
+
+
+V12 — CACHE DO WHATSAPP
+- Arquivo físico: assets/whatsapp-preview-v2.jpg
+- URL usada nos metadados sociais: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-v2.jpg?v=12
+- O parâmetro ?v=12 muda a URL vista pelo cache sem duplicar a imagem.
+- index.html e restaurante.html usam a mesma versão em og:image, og:image:url, og:image:secure_url e twitter:image.
+- og:locale="pt_BR" foi adicionado.

@@ -1,0 +1,71 @@
+DEPURAÇÃO V12 — CANTINHO DO PETISCO
+Correção: preview social/WhatsApp com cache-busting ?v=12
+
+RESULTADO: 41/41 PASS
+
+PASS — imagem existe
+PASS — imagem é JPEG real
+PASS — imagem 1200x630
+PASS — imagem RGB
+PASS — imagem abaixo de 1 MB
+PASS — index.html: title
+PASS — index.html: canonical
+PASS — index.html: og:url
+PASS — index.html: og:locale pt_BR
+PASS — index.html: og:image versionada
+PASS — index.html: og:image:url versionada
+PASS — index.html: og:image:secure_url versionada
+PASS — index.html: twitter:image versionada
+PASS — index.html: image/jpeg
+PASS — index.html: width 1200
+PASS — index.html: height 630
+PASS — index.html: og:image:alt existe
+PASS — index.html: nenhuma URL social sem ?v=12
+PASS — restaurante.html: title
+PASS — restaurante.html: canonical
+PASS — restaurante.html: og:url
+PASS — restaurante.html: og:locale pt_BR
+PASS — restaurante.html: og:image versionada
+PASS — restaurante.html: og:image:url versionada
+PASS — restaurante.html: og:image:secure_url versionada
+PASS — restaurante.html: twitter:image versionada
+PASS — restaurante.html: image/jpeg
+PASS — restaurante.html: width 1200
+PASS — restaurante.html: height 630
+PASS — restaurante.html: og:image:alt existe
+PASS — restaurante.html: nenhuma URL social sem ?v=12
+PASS — admin: noindex,nofollow preservado
+PASS — admin: sem og:image público
+PASS — projeto: sem referências antigas PNG/v10/v11
+PASS — HTML: todos CSS/JS locais referenciados existem
+PASS — JS: sintaxe válida em todos os arquivos
+PASS — Supabase preservado: MIGRACAO_OPCOES_ADICIONAIS.sql
+PASS — Supabase preservado: MIGRACAO_PRATO_DO_DIA_SEMANAL.sql
+PASS — Supabase preservado: MIGRACAO_QUANTIDADE_ADICIONAIS_V9.sql
+PASS — Supabase preservado: PREENCHER_ADICIONAIS_PAGOS_V9.sql
+PASS — Supabase preservado: cantinho_do_petisco_supabase.sql
+
+CONFIGURAÇÃO FINAL DO DELIVERY:
+URL: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/
+IMAGEM OG: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-v2.jpg?v=12
+
+CONFIGURAÇÃO FINAL DO RESTAURANTE:
+URL: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html
+IMAGEM OG: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-v2.jpg?v=12
+
+ALTERAÇÕES DE V12:
+- og:locale=pt_BR;
+- og:image com ?v=12;
+- og:image:url com ?v=12;
+- og:image:secure_url com ?v=12;
+- twitter:image com ?v=12;
+- remoção de relatórios V11 com referências antigas;
+- nenhuma alteração na lógica de produtos, adicionais, quantidades, carrinho, checkout, admin ou Supabase.
+
+LIMITAÇÃO DO TESTE:
+O Chromium deste ambiente bloqueia navegação localhost/file por política administrativa. Por isso a depuração funcional já existente da V9 foi preservada, e nesta V12 foram validados estaticamente os HTML, metadados, imagem, dependências e sintaxe JS. O preview real do WhatsApp precisa ser testado após publicar o ZIP no GitHub Pages.
+
+CHROMIUM HTML PARSER:
+PASS — index.html leu og:image versionada e og:locale pt_BR.
+PASS — restaurante.html leu og:image versionada e og:locale pt_BR.
+PASS — admin.html permaneceu sem og:image público.

@@ -1,4 +1,4 @@
-Repositório publicado: cantinho-do-petisco-v3
+Se o repositório ficar com o nome "cantinho-do-petisco-v3", os links tendem a ficar assim:
 
 Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/
 Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html

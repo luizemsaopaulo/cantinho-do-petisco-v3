@@ -1,0 +1,11 @@
+CANTINHO DO PETISCO — V12
+
+Correção específica para cache/preview social:
+- og:image com ?v=12
+- og:image:url com ?v=12
+- og:image:secure_url com ?v=12
+- twitter:image com ?v=12
+- og:locale pt_BR
+- mesma configuração no Delivery e no Restaurante
+- imagem física mantida em assets/whatsapp-preview-v2.jpg
+- nenhuma lógica de produtos, adicionais, quantidades, carrinho, checkout, admin ou Supabase foi alterada.
