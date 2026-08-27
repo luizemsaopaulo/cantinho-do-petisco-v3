@@ -1,0 +1,37 @@
+CANTINHO DO PETISCO - DEPURAÇÃO DO PREVIEW DO WHATSAPP
+
+Causas prováveis corrigidas:
+- o preview anterior usava PNG com ~2,6 MB, que era desnecessariamente pesado;
+- o WhatsApp pode manter em cache os metadados associados à URL da página mesmo depois da troca da imagem.
+
+Correções:
+- nova imagem JPEG otimizada, exatamente 1200x630;
+- novo nome whatsapp-preview-v2.jpg para quebrar cache;
+- og:image com URL absoluta HTTPS;
+- og:image:secure_url;
+- og:url e canonical;
+- MIME image/jpeg e dimensões corretas;
+- Twitter Card sincronizado.
+
+Imagem pública atual:
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-v2.jpg
+
+Tamanho local da nova imagem: 201290 bytes.
+
+VALIDAÇÃO LOCAL E ONLINE
+- [OK] HTML servido online contém og:image absoluto correto.
+- [OK] og:url correto para o Delivery.
+- [OK] canonical correto.
+- [OK] MIME image/jpeg.
+- [OK] dimensões declaradas 1200x630.
+- [OK] arquivo real mede 1200x630.
+- [OK] JPEG otimizado abaixo de 300 KB (~201 KB).
+- [OK] JavaScript principal e ADM passaram no node --check.
+- [OK] GitHub Pages serve HTML e imagem idênticos aos arquivos versionados.
+- [OK] A imagem pública responde HTTP 200 com Content-Type image/jpeg.
+
+OBSERVAÇÃO
+Uma mensagem já enviada não atualiza retroativamente. Depois de qualquer alteração, use o Sharing Debugger da Meta para solicitar uma nova extração da URL canônica e reenvie o link do Delivery em uma nova mensagem. A atualização normal do cache pode levar cerca de 24 horas. Para diagnosticar o cache do cliente, use temporariamente um parâmetro de URL novo, por exemplo ?preview=20260827; a URL canônica continua sendo a raiz sem esse parâmetro.
+
+Referência oficial:
+https://developers.facebook.com/documentation/sharing/best-practices

@@ -20,7 +20,9 @@ O restante do projeto e do banco é mantido.
 
 
 IMAGEM DO LINK / WHATSAPP
-- Arquivo usado no preview do link: assets/whatsapp-preview.png
+- Arquivo usado no preview do link: assets/whatsapp-preview-v2.jpg
 - As páginas index.html e restaurante.html já saem com meta tags Open Graph e Twitter Card.
 - Depois de publicar ou atualizar no GitHub Pages, o WhatsApp pode demorar um pouco para atualizar o cache do preview.
-- Se o preview antigo continuar, troque o nome do arquivo ou publique uma pequena alteração e reenvie o link.
+- Mensagens já enviadas não atualizam retroativamente. Reenvie o link em uma nova mensagem.
+- Para atualizar o cache da Meta, use o Sharing Debugger e solicite uma nova extração da URL canônica.
+- Para diagnosticar o cache do cliente, também é possível enviar temporariamente a URL com um parâmetro novo, por exemplo: ?preview=20260827.

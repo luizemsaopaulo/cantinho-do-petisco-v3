@@ -15,7 +15,9 @@ OBSERVAÇÃO
 
 
 PREVIEW DO LINK NO WHATSAPP
-1) Não remova o arquivo assets/whatsapp-preview.png.
+1) Não remova o arquivo assets/whatsapp-preview-v2.jpg.
 2) Publique o projeto completo, não só o HTML.
 3) O link do delivery que gera o preview é o index.html / raiz do projeto.
-4) Se o WhatsApp mostrar a miniatura antiga, aguarde o cache atualizar e envie novamente.
+4) Se o WhatsApp mostrar a miniatura antiga, aguarde o cache atualizar e envie o link em uma nova mensagem.
+5) Use o Sharing Debugger da Meta para solicitar uma nova extração da URL canônica.
+6) Para distinguir cache do cliente, teste também a URL com um parâmetro temporário novo, por exemplo: ?preview=20260827.

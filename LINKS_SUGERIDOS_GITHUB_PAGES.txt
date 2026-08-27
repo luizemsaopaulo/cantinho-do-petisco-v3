@@ -1,5 +1,5 @@
-Se o repositório ficar com o nome "cantinho-do-petisco-v10-whatsapp-preview", os links tendem a ficar assim:
+Repositório publicado: cantinho-do-petisco-v3
 
-Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v10-whatsapp-preview/
-Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v10-whatsapp-preview/restaurante.html
-Admin: https://luizemsaopaulo.github.io/cantinho-do-petisco-v10-whatsapp-preview/admin.html
+Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/
+Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html
+Admin: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html

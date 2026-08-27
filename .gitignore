@@ -21,3 +21,6 @@ __pycache__/
 # Arquivos do Windows
 Thumbs.db
 Desktop.ini
+
+# Pacotes locais que não fazem parte do site publicado
+/cantinho-do-petisco-v3.zip
