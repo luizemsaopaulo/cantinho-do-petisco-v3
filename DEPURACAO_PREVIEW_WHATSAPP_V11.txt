@@ -1,0 +1,31 @@
+CANTINHO DO PETISCO V11 - DEPURAÇÃO DO PREVIEW DO WHATSAPP
+
+Causa provável corrigida:
+- o preview anterior usava PNG com ~2,6 MB; o Meta Debugger conseguia mostrar, mas o WhatsApp pode manter cache separado ou falhar ao buscar a imagem pesada.
+
+Correções:
+- nova imagem JPEG otimizada, exatamente 1200x630;
+- novo nome whatsapp-preview-v2.jpg para quebrar cache;
+- og:image com URL absoluta HTTPS;
+- og:image:secure_url;
+- og:url e canonical;
+- MIME image/jpeg e dimensões corretas;
+- Twitter Card sincronizado.
+
+Imagem pública esperada após publicar:
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-v2.jpg
+
+Tamanho local da nova imagem: 201290 bytes.
+
+VALIDAÇÃO LOCAL
+- [OK] Chromium real (/usr/bin/chromium) leu og:image absoluto corretamente.
+- [OK] og:url correto para o Delivery.
+- [OK] canonical correto.
+- [OK] MIME image/jpeg.
+- [OK] dimensões declaradas 1200x630.
+- [OK] arquivo real mede 1200x630.
+- [OK] JPEG otimizado abaixo de 300 KB (~201 KB).
+- [OK] JavaScript principal e ADM passaram no node --check.
+
+OBSERVAÇÃO
+O arquivo novo só passa a existir na URL pública depois que esta versão for enviada ao GitHub Pages. Depois disso, use "Extrair novamente" no Meta Sharing Debugger e teste o link do Delivery em uma conversa nova do WhatsApp.
