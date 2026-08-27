@@ -1,8 +1,21 @@
-ANTES DE PUBLICAR
+CANTINHO DO PETISCO V9 - ANTES DE PUBLICAR
 
-1. Confirme que a migração semanal do prato do dia já foi executada no Supabase.
-2. Confirme o bucket product-images e as políticas de Storage.
-3. Publique TODOS os arquivos e pastas desta V6 no mesmo repositório.
-4. A página padrão (index.html) é o DELIVERY/RETIRADA.
-5. restaurante.html é o cardápio completo presencial.
-6. admin.html administra o mesmo Supabase usado pelos dois cardápios.
+1) No Supabase > SQL Editor, execute:
+   supabase/MIGRACAO_QUANTIDADE_ADICIONAIS_V9.sql
+
+2) Confira o resultado final.
+   As opções do grupo Adicionais devem aparecer como permite_quantidade = true e limite = ILIMITADO.
+
+3) Depois substitua o projeto completo no GitHub Pages.
+
+OBSERVAÇÃO
+- Não precisa apagar o banco atual.
+- A migração apenas acrescenta allow_quantity e max_quantity em product_options.
+- Se você já personalizar limite/quantidade no ADM, rodar a migração novamente não sobrescreve sua configuração.
+
+
+PREVIEW DO LINK NO WHATSAPP
+1) Não remova o arquivo assets/whatsapp-preview.png.
+2) Publique o projeto completo, não só o HTML.
+3) O link do delivery que gera o preview é o index.html / raiz do projeto.
+4) Se o WhatsApp mostrar a miniatura antiga, aguarde o cache atualizar e envie novamente.

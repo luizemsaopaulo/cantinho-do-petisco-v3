@@ -87,7 +87,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-002",
@@ -102,7 +104,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-003",
@@ -117,7 +121,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-004",
@@ -132,7 +138,9 @@ window.MOCK_MENU = {
       "active": false,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-005",
@@ -147,7 +155,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-006",
@@ -162,7 +172,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 6
+      "sort_order": 6,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-007",
@@ -177,7 +189,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 7
+      "sort_order": 7,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-008",
@@ -192,7 +206,9 @@ window.MOCK_MENU = {
       "active": false,
       "available": true,
       "featured": false,
-      "sort_order": 8
+      "sort_order": 8,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-009",
@@ -207,7 +223,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 9
+      "sort_order": 9,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-010",
@@ -222,7 +240,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 10
+      "sort_order": 10,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-011",
@@ -237,7 +257,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 11
+      "sort_order": 11,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-012",
@@ -252,7 +274,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 12
+      "sort_order": 12,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-013",
@@ -267,7 +291,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 13
+      "sort_order": 13,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-014",
@@ -282,7 +308,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 14
+      "sort_order": 14,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-015",
@@ -297,7 +325,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 15
+      "sort_order": 15,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-016",
@@ -312,7 +342,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 16
+      "sort_order": 16,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-017",
@@ -327,7 +359,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 17
+      "sort_order": 17,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-018",
@@ -342,7 +376,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 18
+      "sort_order": 18,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-019",
@@ -357,7 +393,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 19
+      "sort_order": 19,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-020",
@@ -372,7 +410,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 20
+      "sort_order": 20,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-021",
@@ -387,7 +427,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 21
+      "sort_order": 21,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-022",
@@ -402,7 +444,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 22
+      "sort_order": 22,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-023",
@@ -417,7 +461,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 23
+      "sort_order": 23,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-024",
@@ -432,7 +478,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 24
+      "sort_order": 24,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-025",
@@ -447,7 +495,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 25
+      "sort_order": 25,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-026",
@@ -462,7 +512,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 26
+      "sort_order": 26,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-027",
@@ -477,7 +529,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 27
+      "sort_order": 27,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-028",
@@ -492,7 +546,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 28
+      "sort_order": 28,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-029",
@@ -507,7 +563,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 29
+      "sort_order": 29,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-030",
@@ -522,7 +580,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 30
+      "sort_order": 30,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-031",
@@ -537,7 +597,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 31
+      "sort_order": 31,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-032",
@@ -552,7 +614,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 32
+      "sort_order": 32,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-033",
@@ -567,7 +631,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 33
+      "sort_order": 33,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-034",
@@ -582,7 +648,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 34
+      "sort_order": 34,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-035",
@@ -597,7 +665,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 35
+      "sort_order": 35,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-036",
@@ -612,7 +682,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 36
+      "sort_order": 36,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-037",
@@ -627,7 +699,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": true,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-038",
@@ -642,7 +716,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-039",
@@ -657,7 +733,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-040",
@@ -672,7 +750,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-041",
@@ -687,7 +767,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-042",
@@ -702,7 +784,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 6
+      "sort_order": 6,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-043",
@@ -717,7 +801,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 7
+      "sort_order": 7,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-044",
@@ -732,7 +818,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 8
+      "sort_order": 8,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-045",
@@ -747,7 +835,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 9
+      "sort_order": 9,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-046",
@@ -762,7 +852,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 10
+      "sort_order": 10,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-047",
@@ -777,7 +869,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 11
+      "sort_order": 11,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-048",
@@ -792,7 +886,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 12
+      "sort_order": 12,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-049",
@@ -807,7 +903,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 13
+      "sort_order": 13,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-050",
@@ -822,7 +920,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 14
+      "sort_order": 14,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-051",
@@ -837,7 +937,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-052",
@@ -852,7 +954,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-053",
@@ -867,7 +971,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-054",
@@ -882,7 +988,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-055",
@@ -897,7 +1005,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-056",
@@ -912,7 +1022,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 6
+      "sort_order": 6,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-057",
@@ -927,7 +1039,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 7
+      "sort_order": 7,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-058",
@@ -942,7 +1056,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 8
+      "sort_order": 8,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-059",
@@ -957,7 +1073,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 9
+      "sort_order": 9,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-060",
@@ -972,7 +1090,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 10
+      "sort_order": 10,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-061",
@@ -987,7 +1107,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 11
+      "sort_order": 11,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-062",
@@ -1002,7 +1124,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 12
+      "sort_order": 12,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-063",
@@ -1017,7 +1141,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 13
+      "sort_order": 13,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-064",
@@ -1032,7 +1158,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 14
+      "sort_order": 14,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-065",
@@ -1047,7 +1175,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 15
+      "sort_order": 15,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-066",
@@ -1062,7 +1192,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 16
+      "sort_order": 16,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-067",
@@ -1077,7 +1209,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 17
+      "sort_order": 17,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-068",
@@ -1092,7 +1226,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 18
+      "sort_order": 18,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-069",
@@ -1107,7 +1243,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 19
+      "sort_order": 19,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-070",
@@ -1122,7 +1260,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 20
+      "sort_order": 20,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-071",
@@ -1137,7 +1277,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 21
+      "sort_order": 21,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-072",
@@ -1152,7 +1294,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-073",
@@ -1167,7 +1311,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-074",
@@ -1182,7 +1328,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": true,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-075",
@@ -1197,7 +1345,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-076",
@@ -1212,7 +1362,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-077",
@@ -1227,7 +1379,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-078",
@@ -1242,7 +1396,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-079",
@@ -1257,7 +1413,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-080",
@@ -1272,7 +1430,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-081",
@@ -1287,7 +1447,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": true,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-082",
@@ -1302,7 +1464,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-083",
@@ -1317,7 +1481,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-084",
@@ -1332,7 +1498,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 6
+      "sort_order": 6,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-085",
@@ -1347,7 +1515,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 7
+      "sort_order": 7,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-086",
@@ -1362,7 +1532,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-087",
@@ -1377,7 +1549,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-088",
@@ -1392,7 +1566,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-089",
@@ -1407,7 +1583,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-090",
@@ -1422,7 +1600,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-091",
@@ -1437,7 +1617,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-092",
@@ -1452,7 +1634,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-093",
@@ -1467,7 +1651,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-094",
@@ -1482,7 +1668,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 6
+      "sort_order": 6,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-095",
@@ -1497,7 +1685,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 1
+      "sort_order": 1,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-096",
@@ -1512,7 +1702,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 2
+      "sort_order": 2,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-097",
@@ -1527,7 +1719,9 @@ window.MOCK_MENU = {
       "active": false,
       "available": true,
       "featured": false,
-      "sort_order": 3
+      "sort_order": 3,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-098",
@@ -1542,7 +1736,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 4
+      "sort_order": 4,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-099",
@@ -1557,7 +1753,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 5
+      "sort_order": 5,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-100",
@@ -1572,7 +1770,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 6
+      "sort_order": 6,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-101",
@@ -1587,7 +1787,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 7
+      "sort_order": 7,
+      "allow_notes": true,
+      "notes_max_length": null
     },
     {
       "id": "prod-102",
@@ -1602,7 +1804,9 @@ window.MOCK_MENU = {
       "active": true,
       "available": true,
       "featured": false,
-      "sort_order": 8
+      "sort_order": 8,
+      "allow_notes": true,
+      "notes_max_length": null
     }
   ],
   "daily_specials": [
@@ -1612,6 +1816,179 @@ window.MOCK_MENU = {
       "product_id": "prod-074",
       "special_price": 32.99,
       "note": "Sugestão da casa",
+      "active": true
+    }
+  ],
+  "product_option_groups": [
+    {
+      "id": "grp-tilapia",
+      "product_id": "prod-037",
+      "code": "adicionais",
+      "name": "Adicionais",
+      "selection_type": "multiple",
+      "required": false,
+      "min_selections": null,
+      "max_selections": null,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-bisteca-p",
+      "product_id": "prod-006",
+      "code": "adicionais",
+      "name": "Adicionais",
+      "selection_type": "multiple",
+      "required": false,
+      "min_selections": null,
+      "max_selections": null,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-bisteca-g",
+      "product_id": "prod-018",
+      "code": "adicionais",
+      "name": "Adicionais",
+      "selection_type": "multiple",
+      "required": false,
+      "min_selections": null,
+      "max_selections": null,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-latas",
+      "product_id": "prod-079",
+      "code": "escolha-sua-bebida",
+      "name": "Escolha sua bebida",
+      "selection_type": "single",
+      "required": true,
+      "min_selections": 1,
+      "max_selections": 1,
+      "sort_order": 1,
+      "active": true
+    }
+  ],
+  "product_options": [
+    {
+      "id": "grp-tilapia-o1",
+      "group_id": "grp-tilapia",
+      "code": "nenhum",
+      "name": "Nenhum",
+      "price_mode": "add",
+      "price_value": 0,
+      "is_none_option": true,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-tilapia-o2",
+      "group_id": "grp-tilapia",
+      "code": "porcao-arroz",
+      "name": "Porção de arroz",
+      "price_mode": "add",
+      "price_value": 10,
+      "is_none_option": false,
+      "sort_order": 2,
+      "active": true
+    },
+    {
+      "id": "grp-tilapia-o3",
+      "group_id": "grp-tilapia",
+      "code": "porcao-feijao",
+      "name": "Porção de feijão",
+      "price_mode": "add",
+      "price_value": 10,
+      "is_none_option": false,
+      "sort_order": 3,
+      "active": true
+    },
+    {
+      "id": "grp-bisteca-p-o1",
+      "group_id": "grp-bisteca-p",
+      "code": "acebolada",
+      "name": "Acebolada",
+      "price_mode": "add",
+      "price_value": 0,
+      "is_none_option": false,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-bisteca-p-o2",
+      "group_id": "grp-bisteca-p",
+      "code": "ovo-frito",
+      "name": "Ovo frito",
+      "price_mode": "add",
+      "price_value": 3,
+      "is_none_option": false,
+      "sort_order": 2,
+      "active": true
+    },
+    {
+      "id": "grp-bisteca-g-o1",
+      "group_id": "grp-bisteca-g",
+      "code": "acebolada",
+      "name": "Acebolada",
+      "price_mode": "add",
+      "price_value": 0,
+      "is_none_option": false,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-bisteca-g-o2",
+      "group_id": "grp-bisteca-g",
+      "code": "ovo-frito",
+      "name": "Ovo frito",
+      "price_mode": "add",
+      "price_value": 3,
+      "is_none_option": false,
+      "sort_order": 2,
+      "active": true
+    },
+    {
+      "id": "grp-latas-o1",
+      "group_id": "grp-latas",
+      "code": "coca-cola",
+      "name": "Coca-Cola",
+      "price_mode": "set",
+      "price_value": 8,
+      "is_none_option": false,
+      "sort_order": 1,
+      "active": true
+    },
+    {
+      "id": "grp-latas-o2",
+      "group_id": "grp-latas",
+      "code": "coca-cola-zero",
+      "name": "Coca-Cola Zero",
+      "price_mode": "set",
+      "price_value": 8,
+      "is_none_option": false,
+      "sort_order": 2,
+      "active": true
+    },
+    {
+      "id": "grp-latas-o3",
+      "group_id": "grp-latas",
+      "code": "guarana",
+      "name": "Guaraná",
+      "price_mode": "set",
+      "price_value": 8,
+      "is_none_option": false,
+      "sort_order": 3,
+      "active": true
+    },
+    {
+      "id": "grp-latas-o4",
+      "group_id": "grp-latas",
+      "code": "suco-laranja",
+      "name": "Suco de laranja",
+      "price_mode": "set",
+      "price_value": 12,
+      "is_none_option": false,
+      "sort_order": 4,
       "active": true
     }
   ]

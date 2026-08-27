@@ -1,0 +1,39 @@
+CANTINHO DO PETISCO V9 - DEPURAÇÃO CHROMIUM
+Resultado: 33/33 verificações aprovadas
+
+Navegador: Chromium real (/usr/bin/chromium), controlado por Playwright.
+Arquivos HTML/CSS/JS exatos carregados em modo demonstração; nenhum dado do Supabase real foi alterado durante a depuração.
+
+[OK] Restaurante carrega
+[OK] Observação neutra
+[OK] Modal produto abre
+[OK] Contadores aparecem nos adicionais
+[OK] Arroz permite 3 unidades
+[OK] Feijão permite 2 unidades
+[OK] Quantidade padrão está ilimitada
+[OK] Total soma todos os adicionais
+[OK] Carrinho mostra 3x arroz
+[OK] Carrinho mostra 2x feijão
+[OK] Carrinho calcula R$30 do arroz
+[OK] WhatsApp leva quantidade do arroz
+[OK] WhatsApp leva quantidade do feijão
+[OK] Sem erros JS restaurante
+[OK] Limite opcional é respeitado
+[OK] Botão + bloqueia no limite
+[OK] Cliente vê o limite
+[OK] Sem erros JS no limite
+[OK] Escolha única continua sem quantidade
+[OK] Escolha única continua radio
+[OK] ADM entra
+[OK] Categorias continuam recolhidas por padrão
+[OK] ADM mostra controle Quantidade
+[OK] Adicional vem ilimitado por padrão
+[OK] Campo indica Ilimitado
+[OK] ADM salva limite escolhido
+[OK] Sem erros JS ADM
+[OK] Delivery mobile usa quantidade nos adicionais
+[OK] Sem erros JS delivery mobile
+[OK] JavaScript validado por node --check (app.js, admin.js, supabase-rest.js)
+[OK] ADM desktop sem overflow horizontal no editor de adicionais
+[OK] ADM mobile sem overflow horizontal no editor de adicionais
+[OK] Migração V9 de quantidade incluída e idempotente (não sobrescreve ajustes do ADM em nova execução)

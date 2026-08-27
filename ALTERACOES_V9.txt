@@ -1,0 +1,15 @@
+CANTINHO DO PETISCO - V9
+
+NOVO
+- Adicionais podem ter quantidade própria: ex. 3x ovo, 2x arroz.
+- Por padrão, opções do grupo Adicionais ficam com quantidade habilitada e ilimitada.
+- No ADM, cada opção tem:
+  * Quantidade (liga/desliga)
+  * Limite (vazio = ilimitado)
+- Sabores e escolhas únicas continuam sem contador de quantidade.
+- Total do modal, carrinho e WhatsApp calculam quantidade x valor do adicional.
+- Carrinho diferencia corretamente pedidos com quantidades diferentes de adicionais.
+- Campo de observação continua com exemplo neutro.
+
+SUPABASE
+Execute uma vez: supabase/MIGRACAO_QUANTIDADE_ADICIONAIS_V9.sql

@@ -183,6 +183,17 @@
           </div>
         </section>
 
+        <section class="form-section-card options-admin-section">
+          <div class="form-section-title"><span>5</span><div><strong>Personalização do produto</strong><small>Observação, sabores e adicionais que aparecem ao cliente.</small></div></div>
+          <label class="switch-line switch-card notes-switch-card"><input id="productAllowNotes" type="checkbox" checked><span><strong>Permitir observação do cliente</strong><small>No cardápio aparece um texto neutro: “Retirar ou acrescentar algo? Escreva aqui (opcional).”</small></span></label>
+          <div class="option-editor-toolbar">
+            <div><strong>Grupos de escolha</strong><small>Ex.: Sabores, Adicionais, Escolha sua bebida.</small></div>
+            <button id="addOptionGroupBtn" class="secondary-button compact" type="button">+ Novo grupo</button>
+          </div>
+          <div id="optionGroupsEditor" class="option-groups-editor"></div>
+          <div id="optionGroupsEmpty" class="option-groups-empty">Este produto ainda não tem sabores ou adicionais.</div>
+        </section>
+
         <div class="dialog-actions split-actions sticky-dialog-actions">
           <button id="deleteProductBtn" class="danger-button hidden" type="button">Excluir produto</button>
           <div><button id="cancelProductDialog" class="secondary-button" type="button">Cancelar</button><button id="saveProductBtn" class="primary-button" type="submit" value="default">Salvar produto</button></div>

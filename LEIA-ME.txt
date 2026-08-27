@@ -1,23 +1,26 @@
-CANTINHO DO PETISCO - V6
+CANTINHO DO PETISCO V9
 
-ARQUIVOS PRINCIPAIS
-- index.html: cardápio para DELIVERY e RETIRADA.
-  Oculta automaticamente: Pratos Executivos, Cervejas e Bebidas Alcoólicas.
-- restaurante.html: cardápio completo para uso no RESTAURANTE.
-  Mostra todas as categorias publicadas no Supabase.
-- admin.html: painel administrativo único para gerenciar os dois cardápios.
+Páginas:
+- index.html = Delivery
+- restaurante.html = Cardápio completo do restaurante
+- admin.html = Painel administrativo
 
-IMPORTANTE
-Os produtos NÃO foram duplicados no Supabase. As duas páginas leem o mesmo banco.
-Pratos Executivos, Cervejas e Bebidas Alcoólicas continuam no Supabase e no ADM; apenas não são exibidos no delivery.
+NOVIDADE V9
+Os adicionais podem ser pedidos em quantidade. Ex.:
+- 3x Ovo frito
+- 2x Porção de arroz
 
-PRATO DO DIA
-Continua por dia da semana (weekday 0 a 6). Se ainda não executou a migração, rode supabase/MIGRACAO_PRATO_DO_DIA_SEMANAL.sql uma vez.
+Por padrão, adicionais usam quantidade ilimitada. No ADM, a opção "Quantidade" pode ser desligada ou pode ser preenchido um limite. Campo vazio = ilimitado.
 
-ABRIR LOCALMENTE
-Clique em abrir_site.bat e escolha Delivery, Restaurante, Admin ou os três.
+SUPABASE
+Antes de publicar esta versão, execute:
+  supabase/MIGRACAO_QUANTIDADE_ADICIONAIS_V9.sql
 
-GITHUB PAGES
-Delivery: /index.html ou a raiz do repositório
-Restaurante: /restaurante.html
-Admin: /admin.html
+O restante do projeto e do banco é mantido.
+
+
+IMAGEM DO LINK / WHATSAPP
+- Arquivo usado no preview do link: assets/whatsapp-preview.png
+- As páginas index.html e restaurante.html já saem com meta tags Open Graph e Twitter Card.
+- Depois de publicar ou atualizar no GitHub Pages, o WhatsApp pode demorar um pouco para atualizar o cache do preview.
+- Se o preview antigo continuar, troque o nome do arquivo ou publique uma pequena alteração e reenvie o link.
