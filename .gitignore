@@ -1,26 +1,5 @@
-# Senhas, tokens e chaves
 .env
 .env.*
-!.env.example
-*.pem
-*.key
-*.p12
-*.pfx
-*.jks
-*.keystore
-local.properties
-credentials.json
-secrets.*
-
-# Dependencias e caches
 node_modules/
-.gradle/
-__pycache__/
-*.pyc
-
-# Arquivos do Windows
-Thumbs.db
-Desktop.ini
-
-# Pacotes locais que não fazem parte do site publicado
-/cantinho-do-petisco-v3.zip
+.supabase/
+*.log

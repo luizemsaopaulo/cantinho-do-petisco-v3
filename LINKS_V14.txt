@@ -1,0 +1,13 @@
+CANTINHO DO PETISCO — LINKS V14
+
+DELIVERY (para clientes)
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=14
+
+DELIVERY NORMAL
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/
+
+RESTAURANTE
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=14
+
+ADMIN
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html?v=14

@@ -1,0 +1,18 @@
+CANTINHO DO PETISCO — V14 PWA
+
+CLIENTE
+- PWA instalável como Cantinho do Petisco.
+- Botão de instalação só aparece quando aplicável.
+- Sugestão automática somente depois da primeira interação e nunca por cima de modal/carrinho.
+- Ao dispensar, espera 30 dias para sugerir novamente.
+- Se já estiver aberto como app (standalone), não mostra instalação.
+- iPhone: instrução Compartilhar > Adicionar à Tela de Início.
+
+ADMIN
+- PWA separado Cantinho Admin, com nome/ícone/manifesto próprios.
+- Acesso rápido: catálogo Delivery, Restaurante, compartilhar os dois no WhatsApp, copiar links e QR Codes.
+- Botão Instalar Cantinho Admin só aparece quando aplicável.
+
+LINKS DE COMPARTILHAMENTO V14
+Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=14
+Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=14

@@ -1,29 +1,35 @@
-CANTINHO DO PETISCO V9 - ANTES DE PUBLICAR
+CANTINHO DO PETISCO — V17 — ANTES DE PUBLICAR
 
-1) No Supabase > SQL Editor, execute:
+1) Publique TODOS os arquivos desta pasta no repositório:
+   cantinho-do-petisco-v14
+
+2) Não publique somente os HTML. Também precisam subir:
+   - css/
+   - js/
+   - assets/
+   - manifest.webmanifest
+   - manifest-admin.webmanifest
+   - service-worker.js
+
+3) Confirme que estes arquivos existem online:
+   assets/whatsapp-preview-v2.jpg
+   assets/qr-delivery-v17.png
+   assets/qr-restaurante-v17.png
+
+4) Links após publicação:
+   Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v14/?v=17
+   Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v14/restaurante.html?v=17
+   Admin: https://luizemsaopaulo.github.io/cantinho-do-petisco-v14/admin.html?v=17
+
+5) O prompt nativo de instalação do PWA precisa do site publicado por HTTPS.
+
+6) Se o banco ainda não recebeu a migração de quantidade dos adicionais, execute antes:
    supabase/MIGRACAO_QUANTIDADE_ADICIONAIS_V9.sql
 
-2) Confira o resultado final.
-   As opções do grupo Adicionais devem aparecer como permite_quantidade = true e limite = ILIMITADO.
 
-3) Depois substitua o projeto completo no GitHub Pages.
-
-OBSERVAÇÃO
-- Não precisa apagar o banco atual.
-- A migração apenas acrescenta allow_quantity e max_quantity em product_options.
-- Se você já personalizar limite/quantidade no ADM, rodar a migração novamente não sobrescreve sua configuração.
-
-
-PREVIEW DO LINK NO WHATSAPP
-1) Não remova o arquivo assets/whatsapp-preview-v2.jpg.
-2) Publique o projeto completo, não só o HTML.
-3) O link do delivery que gera o preview é o index.html / raiz do projeto.
-4) Se o WhatsApp mostrar a miniatura antiga, aguarde o cache atualizar e envie novamente.
-
-
-V12 — PUBLICAÇÃO
-1) Publique TODOS os arquivos desta pasta no repositório cantinho-do-petisco-v3.
-2) Confirme que assets/whatsapp-preview-v2.jpg está publicado.
-3) O HTML deve apontar para whatsapp-preview-v2.jpg?v=12.
-4) Depois do GitHub Pages atualizar, use o Meta Sharing Debugger e clique em Extrair novamente.
-5) No WhatsApp, teste primeiro o link normal do Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/
+LOGIN PWA ADMIN — V17
+- Publique todos os arquivos, principalmente js/supabase-rest.js, js/admin.js, service-worker.js e admin.html.
+- Abra o Admin com internet depois da publicação para o service worker atualizar para v17.
+- Faça login dentro do PWA uma vez com “Manter acesso neste aparelho” marcado.
+- “Salvar senha no navegador” depende do gerenciador de senhas do Chromium/Edge; a confirmação é do próprio navegador.
+- A V17 não grava sua senha em localStorage/IndexedDB. O site guarda a sessão/refresh token; a senha, quando aceita, fica no gerenciador do navegador.

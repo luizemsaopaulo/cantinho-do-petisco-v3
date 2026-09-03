@@ -8,5 +8,8 @@ window.APP_CONFIG = Object.freeze({
   CURRENCY: 'BRL',
   LOCALE: 'pt-BR',
   TIME_ZONE: 'America/Sao_Paulo',
-  DELIVERY_HIDDEN_CATEGORY_SLUGS: Object.freeze(['pratos-executivos', 'cervejas', 'bebidas-alcoolicas'])
+  DELIVERY_HIDDEN_CATEGORY_SLUGS: Object.freeze(['pratos-executivos', 'cervejas', 'bebidas-alcoolicas']),
+
+  // V24 — chave ORS oculta na Edge Function; regras de taxa/distância vêm do Supabase.
+  DELIVERY_FUNCTION_NAME: 'calc-delivery'
 });

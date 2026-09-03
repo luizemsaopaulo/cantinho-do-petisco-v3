@@ -1,0 +1,10 @@
+CANTINHO DO PETISCO — ANTES DE PUBLICAR V28
+
+1. Esta versão parte da V27 já configurada.
+2. A V28 NÃO exige SQL novo nem Edge Function nova.
+3. Substitua os arquivos publicados pelos da V28.
+4. Abra uma vez com ?v=28 ou faça Ctrl+F5 para renovar o cache/PWA.
+5. Em um navegador/aparelho que ainda não viu a apresentação, o botão de relógio deve chamar atenção levemente.
+6. Toque nele: deve aparecer "Seus pedidos ficam aqui".
+7. Toque em "Entendi, ver meus pedidos"; depois feche e abra novamente. A apresentação não deve voltar.
+8. Para testar novamente a primeira experiência no mesmo navegador, remova somente a chave local cantinho_petisco_history_intro_seen_v1 (apenas para QA).

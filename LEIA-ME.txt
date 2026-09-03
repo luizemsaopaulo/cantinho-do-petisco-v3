@@ -1,34 +1,48 @@
-CANTINHO DO PETISCO V12
+CANTINHO DO PETISCO — V17
 
-Páginas:
-- index.html = Delivery
+PÁGINAS
+- index.html = Delivery e retirada
 - restaurante.html = Cardápio completo do restaurante
 - admin.html = Painel administrativo
 
-NOVIDADE V9
-Os adicionais podem ser pedidos em quantidade. Ex.:
-- 3x Ovo frito
-- 2x Porção de arroz
+REPOSITÓRIO ATUAL
+- cantinho-do-petisco-v14
 
-Por padrão, adicionais usam quantidade ilimitada. No ADM, a opção "Quantidade" pode ser desligada ou pode ser preenchido um limite. Campo vazio = ilimitado.
+PWA
+- Cliente: PWA “Cantinho do Petisco”
+- Admin: PWA separado “Cantinho Admin”
+- Cliente só recebe sugestão de instalação quando o navegador permite e após interação.
+- Se dispensar, a sugestão fica suspensa por 30 dias.
+- Quando aberto como app instalado, a sugestão não aparece.
+
+ADMIN V17
+O painel voltou ao formato limpo. As ferramentas extras ficam dentro do menu de três linhas no cabeçalho.
+
+Itens do menu:
+1. Instalar Cantinho Admin
+2. Abrir página Delivery
+3. Abrir página Restaurante
+4. Compartilhar Delivery
+5. Compartilhar Restaurante
+6. QR Code Delivery
+7. QR Code Restaurante
+
+Os antigos botões “Copiar link” foram removidos.
+O menu bloqueia clique e rolagem do fundo enquanto está aberto e fecha pelo X, clique fora ou ESC.
+
+ADICIONAIS
+- Continuam permitindo quantidade individual.
+- Quantidade ilimitada por padrão.
+- O ADM pode desativar quantidade ou definir limite por adicional.
 
 SUPABASE
-Antes de publicar esta versão, execute:
+Se esta instalação ainda não recebeu a migração de quantidade, execute:
   supabase/MIGRACAO_QUANTIDADE_ADICIONAIS_V9.sql
 
-O restante do projeto e do banco é mantido.
+WHATSAPP / PREVIEW
+- Imagem: assets/whatsapp-preview-v2.jpg
+- Metadados sociais usam o repositório cantinho-do-petisco-v14 e cache-busting ?v=17.
 
-
-IMAGEM DO LINK / WHATSAPP
-- Arquivo usado no preview do link: assets/whatsapp-preview-v2.jpg
-- As páginas index.html e restaurante.html já saem com meta tags Open Graph e Twitter Card.
-- Depois de publicar ou atualizar no GitHub Pages, o WhatsApp pode demorar um pouco para atualizar o cache do preview.
-- A V12 usa cache-busting ?v=12 na URL da imagem para forçar uma URL social nova.
-
-
-V12 — CACHE DO WHATSAPP
-- Arquivo físico: assets/whatsapp-preview-v2.jpg
-- URL usada nos metadados sociais: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-v2.jpg?v=12
-- O parâmetro ?v=12 muda a URL vista pelo cache sem duplicar a imagem.
-- index.html e restaurante.html usam a mesma versão em og:image, og:image:url, og:image:secure_url e twitter:image.
-- og:locale="pt_BR" foi adicionado.
+DEPURAÇÃO
+- Relatório atual: DEPURACAO_CHROMIUM_V17.txt
+- Chromium real: menu ADM desktop/mobile, bloqueio do fundo, ações, QR, links e regressão do Delivery.

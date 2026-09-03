@@ -1,0 +1,57 @@
+DEPURAÇÃO CHROMIUM — V15 MENU ADMIN
+
+Resultado: 48/48 PASS; 0 FAIL
+
+Método: Chromium real com HTML/CSS/JS do projeto injetados via set_content, pois localhost/file:// é bloqueado pelo ambiente.
+
+PASS — Login demo entra no painel
+PASS — Bloco grande Acesso rápido removido
+PASS — Cabeçalho limpo presente
+PASS — Botão hambúrguer visível
+PASS — Menu começa fechado
+PASS — Menu abre pelo hambúrguer
+PASS — aria-expanded true
+PASS — Overlay aparece
+PASS — Fundo bloqueia rolagem
+PASS — Menu tem exatamente 7 opções
+PASS — Copiar Delivery removido
+PASS — Copiar Restaurante removido
+PASS — Clique no fundo não abre editor
+PASS — Clique no fundo é interceptado pelo overlay
+PASS — ESC fecha menu
+PASS — Rolagem liberada após fechar
+PASS — Clique no overlay fecha menu
+PASS — Abrir Delivery aponta repo v14
+PASS — Abrir Restaurante aponta repo v14
+PASS — Compartilhar Delivery usa wa.me
+PASS — Compartilhar Delivery contém URL v14/v15
+PASS — Compartilhar Restaurante usa wa.me
+PASS — Compartilhar Restaurante contém URL correta
+PASS — QR Delivery abre dialog
+PASS — QR Delivery mostra URL correta
+PASS — QR Delivery referencia arquivo v15
+PASS — QR Restaurante abre dialog
+PASS — QR Restaurante mostra URL correta
+PASS — QR Restaurante referencia arquivo v15
+PASS — Opção Instalar Admin existe no menu
+PASS — Instalar Admin não incomoda quando navegador não oferece instalação
+PASS — Código escuta beforeinstallprompt
+PASS — Código escuta appinstalled
+PASS — 4 métricas preservadas
+PASS — Produtos preservado
+PASS — Prato do dia preservado
+PASS — Categorias iniciam recolhidas
+PASS — Busca global preservada
+PASS — Novo produto preservado
+PASS — Mobile hambúrguer visível
+PASS — Mobile sem bloco grande
+PASS — Mobile menu abre
+PASS — Mobile menu cabe no viewport
+PASS — Mobile menu sem opções copiar
+PASS — Mobile X fecha menu
+PASS — Delivery continua carregando produtos
+PASS — Produto continua abrindo
+PASS — Sem page errors JavaScript
+
+PAGE ERRORS:
+NONE

@@ -6,7 +6,12 @@
   <meta name="theme-color" content="#b20d18">
   <meta name="robots" content="noindex,nofollow">
   <title>Admin | Cantinho do Petisco</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="manifest" href="manifest-admin.webmanifest?v=28">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Cantinho ADM">
+  <link rel="apple-touch-icon" href="assets/icon-admin-192.png?v=28">
+  <link rel="stylesheet" href="css/styles.css?v=28">
 </head>
 <body class="admin-body">
   <main class="admin-shell">
@@ -18,32 +23,64 @@
       <p>Entre com o usuário autorizado no Supabase Auth.</p>
       <form id="loginForm" class="stack-form">
         <label class="field-label">E-mail
-          <input id="adminEmail" type="email" autocomplete="username" required placeholder="seu@email.com">
+          <input id="adminEmail" name="username" type="email" autocomplete="username" required placeholder="seu@email.com">
         </label>
         <label class="field-label">Senha
-          <input id="adminPassword" type="password" autocomplete="current-password" required placeholder="••••••••">
+          <input id="adminPassword" name="password" type="password" autocomplete="current-password" required placeholder="••••••••">
         </label>
+        <label class="remember-login-card"><input id="keepAdminSignedIn" type="checkbox" checked><span><strong>Manter acesso neste aparelho</strong><small>Salva a sessão também no armazenamento persistente do PWA para evitar pedir a senha a cada abertura.</small></span></label>
+        <label class="remember-login-card save-password-card"><input id="saveAdminPassword" type="checkbox" checked><span><strong>Salvar senha no navegador</strong><small>Quando o Chromium/Edge permitir, a senha fica no gerenciador de senhas do navegador — não no código do site.</small></span></label>
+        <p id="loginPersistenceStatus" class="password-manager-note">🔐 No PWA, o site tenta manter sua sessão com o token de renovação. Se a sessão expirar de verdade, você pode usar a senha salva pelo navegador.</p>
         <button id="loginBtn" class="primary-button" type="submit">Entrar</button>
+        <button id="savedCredentialLoginBtn" class="secondary-button hidden" type="button">🔐 Usar senha salva</button>
+        <button id="retrySavedSessionBtn" class="secondary-button hidden" type="button">↻ Tentar sessão salva novamente</button>
         <p id="demoCredentials" class="demo-credentials hidden">Modo demonstração: admin@demo.local / 123456</p>
       </form>
       <div id="loginMessage" class="form-message hidden"></div>
     </section>
 
     <section id="adminView" class="admin-dashboard hidden">
-      <header class="admin-header admin-header-v5">
-        <div class="admin-title-block">
-          <span class="eyebrow">Cantinho do Petisco</span>
-          <h1>Painel administrativo</h1>
-          <p>Gerencie o cardápio por setores, fotos, disponibilidade e o prato de cada dia da semana.</p>
-          <div class="admin-user-line">Conectado como <strong id="adminIdentity"></strong></div>
+      <header class="admin-header admin-header-v5 admin-header-clean admin-header-left-menu">
+        <div class="admin-header-main">
+          <button id="adminToolsMenuBtn" class="admin-menu-toggle" type="button" aria-label="Abrir menu" aria-controls="adminToolsMenu" aria-expanded="false" title="Menu">
+            <span class="hamburger-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <div class="admin-title-block">
+            <span class="eyebrow">Cantinho do Petisco</span>
+            <h1>Painel administrativo</h1>
+            <p>Gerencie o cardápio por setores, fotos, disponibilidade e o prato de cada dia da semana.</p>
+            <div class="admin-user-line">Conectado como <strong id="adminIdentity"></strong></div>
+          </div>
         </div>
-        <div class="admin-header-actions">
-          <a class="secondary-button small" href="index.html" target="_blank" rel="noopener">Ver delivery</a>
-          <a class="secondary-button small" href="restaurante.html" target="_blank" rel="noopener">Ver restaurante</a>
+        <div class="admin-header-actions admin-header-actions-clean">
           <button id="logoutBtn" class="secondary-button small" type="button">Sair</button>
         </div>
       </header>
 
+      <div id="adminToolsOverlay" class="admin-tools-overlay hidden" aria-hidden="true"></div>
+      <aside id="adminToolsMenu" class="admin-tools-menu" aria-hidden="true" aria-labelledby="adminToolsMenuTitle">
+        <div class="admin-tools-menu-head">
+          <div>
+            <span class="eyebrow">Atalhos</span>
+            <h2 id="adminToolsMenuTitle">Menu</h2>
+          </div>
+          <button id="closeAdminToolsMenu" class="admin-tools-close" type="button" aria-label="Fechar menu">×</button>
+        </div>
+        <nav class="admin-tools-list" aria-label="Ferramentas do painel">
+          <button id="installAdminPwa" class="admin-tools-item admin-tools-install hidden" type="button"><span>📲</span><strong>Instalar Cantinho Admin</strong></button>
+          <button id="openDeliveryQuick" class="admin-tools-item" type="button"><span>🛵</span><strong>Abrir página Delivery</strong></button>
+          <button id="openRestaurantQuick" class="admin-tools-item" type="button"><span>🍽️</span><strong>Abrir página Restaurante</strong></button>
+          <div class="admin-tools-divider" role="separator"></div>
+          <button id="shareDeliveryWhatsApp" class="admin-tools-item admin-tools-whatsapp" type="button"><span>💬</span><strong>Compartilhar Delivery</strong></button>
+          <button id="shareRestaurantWhatsApp" class="admin-tools-item admin-tools-whatsapp" type="button"><span>💬</span><strong>Compartilhar Restaurante</strong></button>
+          <div class="admin-tools-divider" role="separator"></div>
+          <button id="qrDeliveryBtn" class="admin-tools-item" type="button"><span>▦</span><strong>QR Code Delivery</strong></button>
+          <button id="qrRestaurantBtn" class="admin-tools-item" type="button"><span>▦</span><strong>QR Code Restaurante</strong></button>
+          <div class="admin-tools-divider" role="separator"></div>
+          <button id="deliverySettingsBtn" class="admin-tools-item" type="button"><span>⚙️</span><strong>Configurações do Delivery</strong></button>
+          <button id="paymentSettingsBtn" class="admin-tools-item" type="button"><span>💳</span><strong>Pagamentos</strong></button>
+        </nav>
+      </aside>
       <div class="admin-metrics">
         <article><span>Produtos cadastrados</span><strong id="metricProducts">0</strong></article>
         <article><span>Disponíveis no cardápio</span><strong id="metricAvailable">0</strong></article>
@@ -87,7 +124,7 @@
           <div>
             <span class="eyebrow">Programação semanal</span>
             <h2>Prato do dia por dia da semana</h2>
-            <p>Defina uma vez o prato de segunda, terça, quarta etc. O cardápio mostra automaticamente o prato correspondente ao dia.</p>
+            <p>Organize as marmitas de cada dia. Você pode deixar um ou vários pratos disponíveis no mesmo dia da semana.</p>
           </div>
         </div>
 
@@ -95,10 +132,11 @@
           <article class="admin-section-card special-editor-card">
             <div class="admin-card-title">
               <span class="step-badge">1</span>
-              <div><strong>Configurar um dia</strong><small>Escolha o dia, o produto e um preço especial se desejar.</small></div>
+              <div><strong>Configurar um dia</strong><small>Escolha o dia e a marmita. Tamanho e preço ficam dentro do produto.</small></div>
             </div>
             <form id="specialForm" class="special-form-v5">
               <input id="specialId" type="hidden">
+              <input id="specialProduct" type="hidden" required>
               <label class="field-label">Dia da semana
                 <select id="specialWeekday" required>
                   <option value="">Selecione...</option>
@@ -111,11 +149,14 @@
                   <option value="0">Domingo</option>
                 </select>
               </label>
-              <label class="field-label">Produto<select id="specialProduct" required></select></label>
-              <div class="special-price-note-grid">
-                <label class="field-label">Preço especial<input id="specialPrice" type="number" min="0" step="0.01" placeholder="Opcional"></label>
-                <label class="field-label">Observação<input id="specialNote" type="text" maxlength="160" placeholder="Ex.: Sugestão da casa"></label>
+              <div class="field-label special-picker-field">
+                <span>Marmita <span>*</span></span>
+                <button id="openSpecialPicker" class="special-picker-button" type="button">
+                  <span><strong id="specialPickerLabel">Escolher marmita</strong><small id="specialPickerHint">Somente marmitas · sem tamanho e sem preço nesta etapa</small></span>
+                  <b aria-hidden="true">›</b>
+                </button>
               </div>
+              <label class="field-label">Observação<input id="specialNote" type="text" maxlength="160" placeholder="Ex.: Sugestão da casa"></label>
               <label class="switch-line switch-card"><input id="specialActive" type="checkbox" checked><span><strong>Ativo</strong><small>Mostrar este prato quando chegar esse dia.</small></span></label>
               <div class="special-form-actions">
                 <button id="cancelSpecialEdit" class="secondary-button hidden" type="button">Cancelar edição</button>
@@ -127,7 +168,7 @@
           <article class="admin-section-card weekly-overview-card">
             <div class="admin-card-title">
               <span class="step-badge">2</span>
-              <div><strong>Semana cadastrada</strong><small>Veja rapidamente o prato definido para cada dia.</small></div>
+              <div><strong>Semana cadastrada</strong><small>Veja rapidamente todas as marmitas definidas para cada dia.</small></div>
             </div>
             <div id="specialList" class="weekly-special-list"></div>
           </article>
@@ -183,8 +224,29 @@
           </div>
         </section>
 
+        <section class="form-section-card product-special-section">
+          <div class="form-section-title"><span>5</span><div><strong>Prato do dia</strong><small>Disponível somente para produtos da categoria Marmitas.</small></div></div>
+          <div id="productSpecialCategoryWarning" class="product-special-category-warning hidden">Para tornar um item prato do dia, selecione a categoria <strong>Marmitas</strong>.</div>
+          <div id="productSpecialControls">
+            <label class="switch-line switch-card product-special-toggle"><input id="productDailySpecial" type="checkbox"><span><strong>Tornar prato do dia</strong><small>Ative e escolha um ou mais dias da semana.</small></span></label>
+            <div id="productSpecialFields" class="product-special-fields hidden">
+              <div class="weekday-check-grid" role="group" aria-label="Dias da semana do prato do dia">
+                <label><input type="checkbox" data-product-special-day="1"><span>Segunda</span></label>
+                <label><input type="checkbox" data-product-special-day="2"><span>Terça</span></label>
+                <label><input type="checkbox" data-product-special-day="3"><span>Quarta</span></label>
+                <label><input type="checkbox" data-product-special-day="4"><span>Quinta</span></label>
+                <label><input type="checkbox" data-product-special-day="5"><span>Sexta</span></label>
+                <label><input type="checkbox" data-product-special-day="6"><span>Sábado</span></label>
+                <label><input type="checkbox" data-product-special-day="0"><span>Domingo</span></label>
+              </div>
+              <div id="productSpecialExisting" class="product-special-existing"></div>
+              <div class="product-special-info"><strong>Mais de um prato no mesmo dia</strong><small>Se o dia já tiver outro prato, você poderá escolher entre adicionar este também ou substituir os pratos atuais.</small></div>
+            </div>
+          </div>
+        </section>
+
         <section class="form-section-card options-admin-section">
-          <div class="form-section-title"><span>5</span><div><strong>Personalização do produto</strong><small>Observação, sabores e adicionais que aparecem ao cliente.</small></div></div>
+          <div class="form-section-title"><span>6</span><div><strong>Personalização do produto</strong><small>Observação, sabores e adicionais que aparecem ao cliente.</small></div></div>
           <label class="switch-line switch-card notes-switch-card"><input id="productAllowNotes" type="checkbox" checked><span><strong>Permitir observação do cliente</strong><small>No cardápio aparece um texto neutro: “Retirar ou acrescentar algo? Escreva aqui (opcional).”</small></span></label>
           <div class="option-editor-toolbar">
             <div><strong>Grupos de escolha</strong><small>Ex.: Sabores, Adicionais, Escolha sua bebida.</small></div>
@@ -202,11 +264,145 @@
     </form>
   </dialog>
 
+  <dialog id="specialPickerDialog" class="app-dialog special-picker-dialog">
+    <div class="dialog-body">
+      <button id="closeSpecialPicker" class="dialog-close" type="button" aria-label="Fechar">×</button>
+      <span class="eyebrow">Prato do dia</span>
+      <h2>Escolher marmita</h2>
+      <p class="dialog-description">A lista mostra somente marmitas. Tamanhos e valores aparecem para o cliente depois que ele abre o prato.</p>
+      <label class="search-box special-picker-search"><span>⌕</span><input id="specialPickerSearch" type="search" placeholder="Buscar marmita" autocomplete="off"><button id="clearSpecialPickerSearch" class="clear-search hidden" type="button" aria-label="Limpar busca">×</button></label>
+      <div id="specialPickerList" class="special-picker-list"></div>
+      <div id="specialPickerEmpty" class="state-card hidden"><p>Nenhuma marmita encontrada.</p></div>
+    </div>
+  </dialog>
+
+  <dialog id="specialPickConfirmDialog" class="app-dialog special-pick-confirm-dialog">
+    <div class="dialog-body">
+      <span class="eyebrow">Confirmar escolha</span>
+      <h2 id="specialPickConfirmTitle">Selecionar esta marmita?</h2>
+      <p id="specialPickConfirmText" class="dialog-description"></p>
+      <div id="specialPickConfirmChoice" class="special-pick-confirm-choice"></div>
+      <div id="specialPickConfirmExisting" class="special-conflict-existing hidden"></div>
+      <div class="special-conflict-actions">
+        <button id="specialPickConfirmCancel" class="secondary-button" type="button">Cancelar</button>
+        <button id="specialPickConfirmReplace" class="secondary-button danger-outline hidden" type="button">Selecionar e substituir atuais</button>
+        <button id="specialPickConfirmAdd" class="primary-button" type="button">Confirmar seleção</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="specialConflictDialog" class="app-dialog special-conflict-dialog">
+    <div class="dialog-body">
+      <span class="eyebrow">Prato do dia</span>
+      <h2 id="specialConflictTitle">Este dia já tem prato cadastrado</h2>
+      <p id="specialConflictText" class="dialog-description"></p>
+      <div id="specialConflictExisting" class="special-conflict-existing"></div>
+      <div class="special-conflict-actions">
+        <button id="specialConflictCancel" class="secondary-button" type="button">Cancelar</button>
+        <button id="specialConflictReplace" class="secondary-button danger-outline" type="button">Substituir atuais</button>
+        <button id="specialConflictAdd" class="primary-button" type="button">Adicionar também</button>
+      </div>
+    </div>
+  </dialog>
+
+
+  <dialog id="deliverySettingsDialog" class="app-dialog delivery-settings-dialog">
+    <form id="deliverySettingsForm" class="dialog-body delivery-settings-form">
+      <button id="closeDeliverySettings" class="dialog-close" type="button" aria-label="Fechar">×</button>
+      <span class="eyebrow">Delivery</span>
+      <h2>Configurações do Delivery</h2>
+      <p class="dialog-description">Altere regras de entrega sem editar código nem republicar o site. As mudanças ficam no Supabase.</p>
+
+      <div id="deliverySettingsLoading" class="form-message">Carregando configurações…</div>
+      <div id="deliverySettingsFields" class="hidden">
+        <section class="delivery-settings-section">
+          <label class="admin-check-row"><input id="deliveryEnabled" type="checkbox"><span><strong>Delivery ativo</strong><small>Desmarque para suspender temporariamente todas as entregas.</small></span></label>
+          <label class="admin-check-row"><input id="deliveryEnforceHours" type="checkbox"><span><strong>Respeitar horário de funcionamento</strong><small>Quando ativo, pedidos de entrega ficam bloqueados fora dos horários abaixo.</small></span></label>
+        </section>
+
+        <section class="delivery-settings-section">
+          <h3>Distância e valores</h3>
+          <div class="delivery-settings-grid">
+            <label>Distância máxima (km)<input id="deliveryMaxKm" type="number" min="0.1" max="100" step="0.1" required></label>
+            <label>Pedido mínimo (R$)<input id="deliveryMinimumOrder" type="number" min="0" step="0.01" placeholder="Sem mínimo"></label>
+            <label>Entrega grátis a partir de (R$)<input id="deliveryFreeOver" type="number" min="0" step="0.01" placeholder="Desativado"></label>
+          </div>
+          <p class="delivery-coordinate-note">Origem fixa do comércio: <strong>-23.055199, -46.3526171</strong></p>
+        </section>
+
+        <section class="delivery-settings-section">
+          <div class="delivery-settings-section-head"><div><h3>Taxas por distância</h3><p>A primeira faixa cujo limite contenha a distância será usada.</p></div><button id="addDeliveryTier" class="secondary-button small" type="button">+ Adicionar faixa</button></div>
+          <div id="deliveryTiers" class="delivery-tiers"></div>
+          <p class="field-hint">Exemplo: até 1 km = R$ 3,00; até 2 km = R$ 4,00; até 3 km = R$ 5,00.</p>
+        </section>
+
+        <section class="delivery-settings-section">
+          <h3>Bairros sem entrega</h3>
+          <label>Um por linha ou separados por vírgula<textarea id="deliveryBlockedDistricts" rows="3" placeholder="Ex.: Bairro X, Bairro Y"></textarea></label>
+        </section>
+
+        <section class="delivery-settings-section">
+          <h3>Horários por dia</h3>
+          <div id="deliveryBusinessHours" class="delivery-hours"></div>
+        </section>
+
+        <div id="deliverySettingsMessage" class="form-message hidden"></div>
+        <div class="dialog-actions">
+          <button id="cancelDeliverySettings" class="secondary-button" type="button">Cancelar</button>
+          <button id="saveDeliverySettings" class="primary-button" type="submit">Salvar configurações</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+
+  <dialog id="paymentSettingsDialog" class="app-dialog payment-settings-dialog">
+    <form id="paymentSettingsForm" class="dialog-body payment-settings-form">
+      <button id="closePaymentSettings" class="dialog-close" type="button" aria-label="Fechar">×</button>
+      <span class="eyebrow">Pagamentos</span>
+      <h2>Configurações de pagamento</h2>
+      <p class="dialog-description">Ative somente os meios que o restaurante realmente aceita. As configurações ficam salvas no Supabase e a página pública se adapta automaticamente.</p>
+
+      <div id="paymentSettingsLoading" class="form-message">Carregando configurações…</div>
+      <div id="paymentSettingsFields" class="hidden">
+        <section class="delivery-settings-section">
+          <h3>Pix</h3>
+          <label class="admin-check-row"><input id="pixDirectEnabled" type="checkbox"><span><strong>Pix ativo</strong><small>A chave aparece somente no final da comanda enviada ao WhatsApp.</small></span></label>
+          <div class="delivery-settings-grid">
+            <label>Tipo da chave
+              <select id="pixKeyType">
+                <option value="CNPJ">CNPJ</option><option value="CPF">CPF</option><option value="Telefone">Telefone</option><option value="E-mail">E-mail</option><option value="Aleatória">Aleatória</option>
+              </select>
+            </label>
+            <label>Chave Pix <input id="pixKey" type="text" maxlength="160" autocomplete="off" placeholder="Digite a chave"></label>
+          </div>
+          <label>Nome do recebedor <input id="pixReceiverName" type="text" maxlength="120" autocomplete="off" placeholder="Nome que o cliente deve conferir"></label>
+        </section>
+
+        <section class="delivery-settings-section">
+          <h3>Pagamento presencial</h3>
+          <label class="admin-check-row"><input id="creditMachineEnabled" type="checkbox"><span><strong>Cartão de crédito na maquininha</strong><small>Pagamento com o entregador ou no momento da retirada.</small></span></label>
+          <label class="admin-check-row"><input id="debitMachineEnabled" type="checkbox"><span><strong>Cartão de débito na maquininha</strong><small>Pagamento com o entregador ou no momento da retirada.</small></span></label>
+          <label class="admin-check-row"><input id="cashEnabled" type="checkbox"><span><strong>Dinheiro</strong><small>O cliente informa se precisa de troco e para quanto.</small></span></label>
+        </section>
+
+        <div id="paymentSettingsMessage" class="form-message hidden"></div>
+        <div class="dialog-actions">
+          <button id="cancelPaymentSettings" class="secondary-button" type="button">Cancelar</button>
+          <button id="savePaymentSettings" class="primary-button" type="submit">Salvar pagamentos</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="qrDialog" class="app-dialog info-dialog qr-dialog"><div class="dialog-body"><span class="eyebrow">Compartilhar</span><h2 id="qrDialogTitle">QR Code</h2><img id="qrDialogImage" class="qr-dialog-image" alt="QR Code do cardápio"><p id="qrDialogLink" class="qr-dialog-link"></p><button id="closeQrDialog" class="primary-button" type="button">Fechar</button></div></dialog>
+  <dialog id="adminIosInstallDialog" class="app-dialog info-dialog pwa-ios-dialog"><div class="dialog-body"><span class="eyebrow">Instalar no iPhone</span><h2>Adicionar Cantinho Admin</h2><p>No Safari, toque em <strong>Compartilhar</strong> e depois em <strong>Adicionar à Tela de Início</strong>.</p><button id="closeAdminIosInstall" class="primary-button" type="button">Entendi</button></div></dialog>
   <div id="toastRegion" class="toast-region" aria-live="polite"></div>
 
-  <script src="js/config.js"></script>
-  <script src="js/mock-data.js"></script>
-  <script src="js/supabase-rest.js"></script>
-  <script src="js/admin.js"></script>
+  <script src="js/config.js?v=28"></script>
+  <script src="js/mock-data.js?v=28"></script>
+  <script src="js/supabase-rest.js?v=28"></script>
+  <script src="js/admin.js?v=28"></script>
+  <script src="js/pwa-admin.js?v=28"></script>
 </body>
 </html>

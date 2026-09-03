@@ -121,12 +121,12 @@ for each row execute function public.set_updated_at();
 
 -- ------------------------------------------------------------
 -- 5) PRATO DO DIA
--- Um prato por dia da semana. 0=domingo ... 6=sábado.
+-- Um ou mais pratos por dia da semana. 0=domingo ... 6=sábado.
 -- special_price é opcional.
 -- ------------------------------------------------------------
 create table if not exists public.daily_specials (
     id uuid primary key default gen_random_uuid(),
-    weekday smallint not null unique
+    weekday smallint not null
         check (weekday between 0 and 6),
     product_id uuid not null
         references public.products(id)
@@ -139,6 +139,9 @@ create table if not exists public.daily_specials (
     created_at timestamptz not null default now(),
     updated_at timestamptz not null default now()
 );
+
+create unique index if not exists daily_specials_weekday_product_unique_idx
+    on public.daily_specials(weekday, product_id);
 
 create index if not exists daily_specials_weekday_idx
     on public.daily_specials(weekday, active);

@@ -1,0 +1,24 @@
+CANTINHO DO PETISCO — V16
+
+1. Menu do ADM
+- Botão de três linhas no lado esquerdo do cabeçalho.
+- Gaveta do menu abre pela esquerda.
+- Mantidas as 7 opções: instalar Admin, abrir Delivery, abrir Restaurante, compartilhar os dois no WhatsApp e os dois QR Codes.
+
+2. Prato do dia dentro da edição do produto
+- Ao editar qualquer produto existe a opção “Tornar prato do dia”.
+- Ao ativar, aparece a seleção do dia da semana.
+- Se o dia já tiver outro prato, o produto salvo assume aquele dia.
+- Ao desmarcar e salvar, a programação desse produto é removida.
+- A aba semanal de Prato do dia continua funcionando normalmente.
+
+3. Login do Admin
+- Opção “Manter acesso neste aparelho”.
+- Marcada: a sessão fica persistente e o Admin reabre sem pedir a senha enquanto a sessão/refresh token continuar válido.
+- Desmarcada: a sessão fica apenas na aba/sessão do navegador.
+- O site NÃO grava a senha em localStorage.
+- Os campos continuam compatíveis com o gerenciador de senhas do navegador; o Chromium pode oferecer “Salvar senha”.
+
+4. Cache/PWA
+- Versão de cache atualizada para v16.
+- Links e QR Codes atualizados para ?v=16.

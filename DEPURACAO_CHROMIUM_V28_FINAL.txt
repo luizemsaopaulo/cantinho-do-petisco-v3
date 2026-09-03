@@ -1,0 +1,79 @@
+CANTINHO DO PETISCO — V28 — HISTÓRICO COM RELÓGIO E APRESENTAÇÃO ÚNICA
+=======================================================================
+
+RESULTADO V28: 25/25 verificações direcionadas aprovadas
+Falhas: 0
+Navegador: Chromium real (/usr/bin/chromium), controlado por Playwright.
+Viewports: desktop 1440x1000 e mobile 390x844.
+
+ALTERAÇÃO SOLICITADA
+--------------------
+- O botão superior de histórico agora usa o ícone universal de relógio.
+- Em celular, o texto "Meus pedidos" recolhe e o relógio continua visível.
+- Enquanto a pessoa ainda não viu a apresentação do histórico neste aparelho, o botão faz um movimento leve e periódico para chamar atenção.
+- O movimento não é contínuo/agressivo: há uma pequena chamada visual em ciclos de 4,8 s.
+- Ao primeiro clique, abre uma explicação:
+  "Seus pedidos ficam aqui".
+- O texto informa que o cliente pode pedir novamente o que já comprou e, antes de finalizar, acrescentar outros itens, remover produtos e ajustar quantidades/adicionais.
+- Após tocar em "Entendi, ver meus pedidos", a preferência é salva em localStorage e a explicação não aparece novamente.
+- A chave usada é: cantinho_petisco_history_intro_seen_v1
+- Depois disso, o botão fica normal, sem movimento, e abre o histórico diretamente.
+- O mesmo aviso de primeira abertura é respeitado se o cliente entrar pelo link "Meus pedidos" do rodapé.
+
+ACESSIBILIDADE
+--------------
+- prefers-reduced-motion: reduce desativa a animação.
+- Nesse caso, o botão mantém apenas um destaque estático discreto até a primeira abertura.
+
+TESTES NO CHROMIUM — CLIENTE REAL / INTERAÇÃO
+---------------------------------------------
+PASS — cardápio demo carregou com 55 cards.
+PASS — botão do histórico contém SVG de relógio e não usa mais a seta antiga.
+PASS — botão recebe classe de atenção somente antes da apresentação.
+PASS — animação historyAttention de 4,8 s está ativa na primeira visita.
+PASS — transform real da animação foi observado pelo Chromium.
+PASS — primeiro clique abre a apresentação, não pula direto para o histórico.
+PASS — apresentação contém orientação sobre repetir pedido.
+PASS — apresentação contém orientação sobre acrescentar outros itens.
+PASS — botão "Entendi, ver meus pedidos" abre o histórico.
+PASS — flag de apresentação é persistida pelo mecanismo de armazenamento testado.
+PASS — animação para depois da apresentação.
+PASS — segundo clique abre o histórico diretamente, sem reapresentar o aviso.
+PASS — carrinho continua abrindo normalmente.
+PASS — console/page errors = 0 no cenário desktop.
+PASS — mobile mantém o ícone de relógio visível.
+PASS — mobile recolhe somente o texto do botão.
+PASS — botão mobile fica totalmente dentro da viewport.
+PASS — apresentação abre corretamente no primeiro toque mobile.
+PASS — modal mobile cabe integralmente na largura da tela.
+PASS — nenhum scroll horizontal indevido em 390 px.
+PASS — histórico abre após a apresentação no mobile.
+PASS — console/page errors = 0 no cenário mobile.
+PASS — prefers-reduced-motion remove a animação.
+PASS — destaque estático permanece com redução de movimento.
+PASS — console/page errors = 0 no cenário de acessibilidade.
+
+VALIDAÇÃO ESTÁTICA / CACHE
+--------------------------
+- node --check aprovado em todos os arquivos JS do projeto.
+- index.html, restaurante.html e admin.html usam assets ?v=28.
+- service-worker.js atualizado para cache cantinho-v28.
+- pwa-client.js e pwa-admin.js registram service-worker.js?v=28.
+- Nenhuma referência ativa v=27 ficou nos HTML/JS/PWA principais.
+
+EVIDÊNCIAS VISUAIS
+------------------
+- qa_v28_history_button_desktop.png
+- qa_v28_history_button_mobile.png
+- qa_v28_history_intro_viewport_desktop.png
+- qa_v28_history_intro_viewport_mobile.png
+- qa_v28_history_intro_desktop.png
+- qa_v28_history_intro_mobile.png
+- qa_v28_history_mobile_after_intro.png
+- resultado_chromium_v28.json
+
+OBSERVAÇÃO SOBRE O AMBIENTE
+---------------------------
+A política administrativa deste ambiente bloqueia navegação direta do Chromium para HTTP/HTTPS/localhost/file (ERR_BLOCKED_BY_ADMINISTRATOR). Para ainda depurar visualmente no Chromium real, os HTML/CSS/JS exatos da V28 foram carregados no documento do navegador; o cardápio utilizou o modo demo já existente do projeto. Como páginas de origem opaca não oferecem localStorage neste ambiente, somente a camada de armazenamento foi substituída no QA por um armazenamento em memória com a mesma interface getItem/setItem/removeItem. O código entregue continua usando localStorage real normalmente no GitHub Pages.
+
+Nenhuma alteração nova de Supabase/SQL é necessária especificamente para a V28. A V28 parte da V27 e altera somente interface/comportamento local do histórico e versionamento de cache.

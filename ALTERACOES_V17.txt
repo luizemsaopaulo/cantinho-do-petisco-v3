@@ -1,0 +1,12 @@
+CANTINHO DO PETISCO — V17
+
+CORREÇÃO DO LOGIN NO PWA ADMIN
+- Sessão persistente agora é salva em localStorage e também em IndexedDB como redundância.
+- O PWA solicita armazenamento persistente do navegador quando “Manter acesso” está marcado.
+- Falhas temporárias de internet NÃO apagam mais o refresh token/sessão salva.
+- Se a renovação falhar temporariamente, aparece “Tentar sessão salva novamente” em vez de exigir a senha.
+- E-mail do administrador é lembrado no aparelho.
+- Opção “Salvar senha no navegador” usa Credential Management API quando o Chromium/Edge oferece suporte.
+- Botão “Usar senha salva” aparece quando o navegador suporta credenciais de senha.
+- Senha não é salva em localStorage/IndexedDB pelo site; fica no gerenciador de senhas do navegador.
+- Cache/PWA atualizado para v17.

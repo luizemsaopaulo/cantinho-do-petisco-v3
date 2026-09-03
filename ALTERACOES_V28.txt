@@ -1,0 +1,9 @@
+CANTINHO DO PETISCO — V28
+
+- Botão "Meus pedidos" agora usa ícone universal de relógio/histórico.
+- Enquanto o histórico nunca foi aberto neste aparelho, o botão superior faz movimentos leves e periódicos para chamar atenção.
+- Na primeira abertura, aparece uma explicação única dizendo que ali ficam os pedidos anteriores e que é possível repetir e acrescentar novos itens antes de finalizar.
+- Depois de tocar em "Entendi, ver meus pedidos", a explicação não aparece novamente e o botão deixa de se mover.
+- Preferência salva localmente em cantinho_petisco_history_intro_seen_v1.
+- Usuários com redução de movimento ativada recebem destaque estático, sem animação.
+- Cache/PWA atualizado para V28.

@@ -1,0 +1,16 @@
+CANTINHO DO PETISCO — V15 MENU ADMIN
+
+- Painel administrativo voltou ao layout limpo, sem o bloco grande de Acesso rápido.
+- Menu de três linhas no cabeçalho reúne as ferramentas extras.
+- Menu contém somente:
+  1. Instalar Cantinho Admin
+  2. Abrir página Delivery
+  3. Abrir página Restaurante
+  4. Compartilhar Delivery
+  5. Compartilhar Restaurante
+  6. QR Code Delivery
+  7. QR Code Restaurante
+- Removidos os botões de copiar link.
+- Menu bloqueia interação/rolagem do fundo enquanto aberto e fecha por X, clique fora ou ESC.
+- URLs públicas ajustadas para o repositório cantinho-do-petisco-v14.
+- Cache dos arquivos atualizado para v15.

@@ -1,0 +1,69 @@
+DEPURAÇÃO V14 — PWA CLIENTE + CANTINHO ADMIN
+Chromium real: /usr/bin/chromium
+Teste funcional por injeção dos arquivos reais devido à política do ambiente bloquear localhost/file:// no Chromium.
+
+RESULTADO: 51/51 PASS
+
+PASS - Manifest cliente nome
+PASS - Manifest admin nome
+PASS - PWAs têm IDs distintos
+PASS - Cliente abre Delivery
+PASS - Admin abre admin.html
+PASS - Ícone assets/icon-client-192.png existe/tamanho
+PASS - Ícone assets/icon-client-512.png existe/tamanho
+PASS - Ícone assets/icon-admin-192.png existe/tamanho
+PASS - Ícone assets/icon-admin-512.png existe/tamanho
+PASS - QR Delivery existe
+PASS - QR Restaurante existe
+PASS - Service worker v14 contém cache
+PASS - index.html manifest cliente
+PASS - index.html pwa client
+PASS - index.html app cache v14
+PASS - restaurante.html manifest cliente
+PASS - restaurante.html pwa client
+PASS - restaurante.html app cache v14
+PASS - admin manifest próprio
+PASS - admin script pwa
+PASS - admin acesso rápido
+PASS - Delivery carrega produtos
+PASS - Botão instalar inicia oculto
+PASS - beforeinstallprompt mostra botão
+PASS - Modal de produto abre
+PASS - Sugestão NÃO invade modal
+PASS - Página bloqueada com modal
+PASS - Sugestão aparece após interação segura
+PASS - Agora não oculta sugestão
+PASS - Dispensa registrada
+PASS - Busca continua funcionando
+PASS - App principal segue sem erro crítico
+PASS - PWA já instalado não mostra botão
+PASS - PWA já instalado não mostra sugestão
+PASS - Cliente mobile sem overflow
+PASS - Admin abre painel
+PASS - Central tem 8 atalhos
+PASS - Admin instalável mostra botão
+PASS - Acessar catálogo usa Delivery v14
+PASS - Abrir Restaurante usa v14
+PASS - Compartilhar Delivery abre WhatsApp
+PASS - Compartilhar Restaurante abre WhatsApp
+PASS - Copiar Delivery correto
+PASS - Copiar Restaurante correto
+PASS - QR Delivery abre
+PASS - QR Delivery link v14
+PASS - QR Restaurante abre
+PASS - QR Restaurante aponta restaurante
+PASS - Admin sem JS crítico
+PASS - Admin mobile sem overflow
+PASS - Atalhos visíveis mobile
+
+OBSERVAÇÃO PWA NATIVO:
+O manifesto, ícones, service worker e lógica de beforeinstallprompt foram validados. O prompt nativo de instalação depende da versão publicada via HTTPS/GitHub Pages; o Chromium deste ambiente bloqueia navegação local por política administrativa.
+
+TESTES IMPORTANTES:
+- sugestão de instalação não aparece por cima de modal/carrinho;
+- dispensa fica registrada por 30 dias;
+- standalone não mostra instalação;
+- Admin tem PWA distinto;
+- compartilhamento WhatsApp usa URLs v14;
+- QR codes e cópia de links testados;
+- layouts desktop/mobile verificados.

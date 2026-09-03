@@ -1,0 +1,131 @@
+{
+  "passed": 25,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Desktop: cardápio carrega",
+      "ok": true,
+      "detail": "55"
+    },
+    {
+      "name": "Desktop: botão histórico usa ícone de relógio",
+      "ok": true,
+      "detail": "Meus pedidos"
+    },
+    {
+      "name": "Desktop: primeira visita recebe movimento leve",
+      "ok": true,
+      "detail": "history-top history-attention"
+    },
+    {
+      "name": "Desktop: animação periódica configurada",
+      "ok": true,
+      "detail": "historyAttention 4.8s"
+    },
+    {
+      "name": "Desktop: movimento realmente ocorre no Chromium",
+      "ok": true,
+      "detail": "matrix(1.01862, 0.0532243, -0.0532243, 1.01862, 0, -0.00178688)"
+    },
+    {
+      "name": "Desktop: primeiro clique abre explicação",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Desktop: explicação informa repetir pedido",
+      "ok": true,
+      "detail": "HISTÓRICO DE PEDIDOS\nSeus pedidos ficam aqui\n\nAqui você encontra os pedidos feitos neste aparelho. Você pode pedir novamente o que já comprou e, antes de finalizar, acrescentar out"
+    },
+    {
+      "name": "Desktop: explicação informa acrescentar itens",
+      "ok": true,
+      "detail": "HISTÓRICO DE PEDIDOS\nSeus pedidos ficam aqui\n\nAqui você encontra os pedidos feitos neste aparelho. Você pode pedir novamente o que já comprou e, antes de finalizar, acrescentar out"
+    },
+    {
+      "name": "Desktop: após entender abre histórico",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Desktop: flag de apresentação salva",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Desktop: movimento para após primeira explicação",
+      "ok": true,
+      "detail": "history-top"
+    },
+    {
+      "name": "Desktop: segundo clique pula explicação",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Desktop: carrinho continua abrindo",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Desktop: zero erros JavaScript",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "Mobile: relógio visível",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile: texto recolhe e preserva ícone",
+      "ok": true,
+      "detail": "label=False icon=True"
+    },
+    {
+      "name": "Mobile: botão dentro da viewport",
+      "ok": true,
+      "detail": "{'x': 255, 'y': 19.109375, 'width': 42, 'height': 40}"
+    },
+    {
+      "name": "Mobile: explicação abre no primeiro toque",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile: modal cabe na tela",
+      "ok": true,
+      "detail": "{'x': 19, 'y': 212.109375, 'width': 352, 'height': 419.78125}"
+    },
+    {
+      "name": "Mobile: sem rolagem horizontal",
+      "ok": true,
+      "detail": "[390, 390]"
+    },
+    {
+      "name": "Mobile: histórico abre após explicação",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Mobile: zero erros JavaScript",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "Acessibilidade: reduz movimento quando solicitado",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "Acessibilidade: destaque continua visível sem animação",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Acessibilidade: zero erros JavaScript",
+      "ok": true,
+      "detail": "[]"
+    }
+  ]
+}

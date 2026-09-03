@@ -1,0 +1,57 @@
+DEPURACAO COMO CLIENTE REAL — CHROMIUM — V13
+Projeto testado: cantinho-do-petisco-v13-cliente-real
+Ambiente: Chromium real / Playwright, código exato local, DEMO_MODE para dados (rede externa indisponível no container).
+
+PASS — Desktop: cardápio carregou — cards=54
+PASS — Desktop: categorias do delivery ocultam presenciais
+PASS — Desktop: clique no item abre modal nativo
+PASS — Desktop: modal mostra nome do produto — Isca de tilápia
+PASS — Desktop: clique fora do modal NÃO interage com página ao fundo — point=(124.5, 365.34375), before=1 after=1
+PASS — Desktop: produto do modal não muda após clique no fundo
+PASS — Desktop: roda do mouse no backdrop NÃO rola página ao fundo — scrollY 877->877
+PASS — Desktop: TAB não alcança controles interativos da página ao fundo — [{'inside': True, 'tag': 'BUTTON', 'id': 'closeItemDialog', 'cls': 'dialog-close'}, {'inside': True, 'tag': 'BUTTON', 'id': '', 'cls': 'size-option selected'}, {'inside': True, 'tag': 'BUTTON', 'id': '', 'cls': 'size-option '}, {'inside': True, 'tag': 'TEXTAREA', 'id': 'itemNote', 'cls': ''}, {'inside': True, 'tag': 'BUTTON', 'id': 'itemQtyMinus', 'cls': ''}, {'inside': True, 'tag': 'BUTTON', 'id': 'itemQtyPlus', 'cls': ''}, {'inside': True, 'tag': 'BUTTON', 'id': 'addItemBtn', 'cls': 'primary-button'}, {'inside': False, 'tag': 'BODY', 'id': '', 'cls': ''}, {'inside': True, 'tag': 'BUTTON', 'id': 'closeItemDialog', 'cls': 'dialog-close'}, {'inside': True, 'tag': 'BUTTON', 'id': '', 'cls': 'size-option selected'}, {'inside': True, 'tag': 'BUTTON', 'id': '', 'cls': 'size-option '}, {'inside': True, 'tag': 'TEXTAREA', 'id': 'itemNote', 'cls': ''}, {'inside': True, 'tag': 'BUTTON', 'id': 'itemQtyMinus', 'cls': ''}, {'inside': True, 'tag': 'BUTTON', 'id': 'itemQtyPlus', 'cls': ''}]
+PASS — Desktop: ESC fecha modal
+PASS — Desktop: página volta a responder após fechar modal
+PASS — Desktop: busca encontra produto com adicionais
+PASS — Desktop: adicionais aparecem no modal — qty+=2
+PASS — Desktop: adicional aceita quantidade >1 — qty=2
+PASS — Desktop: quantidade principal aumenta
+PASS — Desktop: adicionar fecha modal
+PASS — Desktop: carrinho atualiza após adicionar — 2
+PASS — Desktop: carrinho abre
+PASS — Desktop: carrinho bloqueia scroll do body — hidden
+PASS — Desktop: clicar overlay fecha carrinho
+PASS — Desktop: checkout abre como modal
+PASS — Desktop: checkout também bloqueia interação com fundo — 5->5
+PASS — Desktop: filtro de categoria Porções funciona
+PASS — Desktop: botão Tudo restaura várias categorias — sections=6
+PASS — Desktop: busca encontra bebida com escolha obrigatória
+PASS — Desktop: opção obrigatória impede adicionar sem escolha
+PASS — Desktop: escolher opção obrigatória libera Adicionar
+PASS — Desktop: privacidade abre como modal
+PASS — Desktop: privacidade bloqueia rolagem de fundo
+PASS — Desktop: fechar privacidade libera a página
+PASS — Desktop: escolher Entrega exibe endereço
+PASS — Desktop: endereço vira obrigatório em Entrega
+PASS — Desktop: pagamento Dinheiro exibe campo de troco
+PASS — Desktop: finalizar gera URL do WhatsApp — https://wa.me/5511947406124?text=*PEDIDO%3A*%0A*2x%20Isca%20de%20til%C3%A1pia%20500gr*%20%
+PASS — Desktop: mensagem contém cliente/endereço/pedido
+PASS — Desktop: fechar checkout libera rolagem
+PASS — Desktop: 5 ciclos abrir/fechar sem travar
+PASS — Mobile: cardápio carregou — cards=54
+PASS — Mobile: toque no produto abre modal
+PASS — Mobile: modal cabe na largura da tela — {'x': 19, 'y': 42.203125, 'width': 352, 'height': 759.59375}
+PASS — Mobile: conteúdo longo do modal pode ser rolado — {'clientHeight': 758, 'scrollHeight': 820, 'overflow': 'auto'}
+PASS — Mobile: toque fora do modal NÃO ativa página ao fundo — point=(5, 120) 1->1
+PASS — Mobile: modal permanece aberto após toque no backdrop
+PASS — Mobile: gesto de rolagem fora do modal não move fundo — scrollY 884->884
+PASS — Mobile: controles de adicionais respondem ao toque
+PASS — Mobile: quantidade principal responde ao toque
+PASS — Mobile: botão X fecha modal
+PASS — Mobile: item entra no carrinho e barra flutuante aparece
+PASS — Mobile: carrinho lateral abre pelo botão flutuante
+PASS — Mobile: fundo do carrinho tem overlay ativo
+PASS — JavaScript: sem page errors — []
+PASS — JavaScript: sem console errors — []
+
+TOTAL: 51/51 PASS

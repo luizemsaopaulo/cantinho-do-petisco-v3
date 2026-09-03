@@ -1,0 +1,10 @@
+V13 — DEPURAÇÃO COMO CLIENTE REAL NO CHROMIUM
+
+Correção principal:
+- Ao abrir modal de produto, checkout ou privacidade, a página ao fundo agora tem a rolagem bloqueada.
+- Cliques/toques no fundo já eram bloqueados pelo dialog.showModal() nativo; isso foi validado.
+- O carrinho continua usando overlay + bloqueio de rolagem.
+- Ao fechar qualquer modal, o bloqueio é sincronizado corretamente.
+- index.html e restaurante.html chamam js/app.js?v=13 para reduzir risco de cache antigo após publicação.
+
+Nenhuma regra de produtos, adicionais, carrinho, checkout, WhatsApp ou Supabase foi removida.

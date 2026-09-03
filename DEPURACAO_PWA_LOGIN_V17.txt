@@ -1,0 +1,26 @@
+CANTINHO DO PETISCO — DEPURAÇÃO DO LOGIN NO PWA V17
+
+Resultado: 11/11 verificações PASS.
+
+PASS — Login inicial entra no ADM
+PASS — Preferência de manter acesso foi salva — {"local": {"cantinho_petisco_admin_persistent": "1", "cantinho_petisco_admin_email": "admin@demo.local", "cantinho_petisco_admin_session": "{\"access_token\":\"demo-token\",\"refresh_token\":\"demo-refresh\",\"expires_at\":1787942871857,\"user\":{\"email\":\"admin@demo.local\",\"id\":\"demo-admin\"}}"}, "session": {}}
+PASS — Sessão foi salva de forma persistente — {"local": {"cantinho_petisco_admin_persistent": "1", "cantinho_petisco_admin_email": "admin@demo.local", "cantinho_petisco_admin_session": "{\"access_token\":\"demo-token\",\"refresh_token\":\"demo-refresh\",\"expires_at\":1787942871857,\"user\":{\"email\":\"admin@demo.local\",\"id\":\"demo-admin\"}}"}, "session": {}}
+PASS — E-mail foi lembrado — {"local": {"cantinho_petisco_admin_persistent": "1", "cantinho_petisco_admin_email": "admin@demo.local", "cantinho_petisco_admin_session": "{\"access_token\":\"demo-token\",\"refresh_token\":\"demo-refresh\",\"expires_at\":1787942871857,\"user\":{\"email\":\"admin@demo.local\",\"id\":\"demo-admin\"}}"}, "session": {}}
+PASS — Reabertura do PWA entra sem redigitar senha
+PASS — Tela de login permanece escondida na reabertura
+PASS — Falha HTTP 503 não apaga a sessão salva — {'firstError': 'SAVED_SESSION_TEMPORARY_FAILURE', 'kept': True, 'token': 'new', 'pref': '1'}
+PASS — Falha temporária é identificada como recuperável — {'firstError': 'SAVED_SESSION_TEMPORARY_FAILURE', 'kept': True, 'token': 'new', 'pref': '1'}
+PASS — Nova tentativa renova sessão sem senha — {'firstError': 'SAVED_SESSION_TEMPORARY_FAILURE', 'kept': True, 'token': 'new', 'pref': '1'}
+PASS — Preferência persistente permanece ativa — {'firstError': 'SAVED_SESSION_TEMPORARY_FAILURE', 'kept': True, 'token': 'new', 'pref': '1'}
+PASS — Refresh realmente inválido limpa a sessão — {'session': None, 'kept': False}
+
+CORREÇÕES APLICADAS:
+- Sessão persistente em localStorage + cópia redundante em IndexedDB.
+- Solicitação de armazenamento persistente do navegador quando disponível.
+- Falha temporária de internet/servidor não apaga mais a sessão do ADM.
+- Botão para tentar novamente a sessão salva sem redigitar senha.
+- E-mail lembrado no aparelho.
+- Integração opcional com Credential Management API/PasswordCredential para o navegador salvar a senha quando suportado.
+
+LIMITAÇÃO DO AMBIENTE DE QA:
+A política deste ambiente bloqueia navegação do Chromium para URLs externas/localhost. Por isso, a interface foi executada no Chromium real com HTML/CSS/JS do projeto injetados e armazenamento controlado. A lógica de persistência e renovação foi exercitada no Chromium. A confirmação visual do prompt nativo do gerenciador de senhas depende do Chromium/Edge do aparelho publicado em HTTPS.
