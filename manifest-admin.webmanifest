@@ -3,7 +3,7 @@
   "name": "Cantinho Admin",
   "short_name": "Cantinho ADM",
   "description": "Painel administrativo do Cantinho do Petisco.",
-  "start_url": "./admin.html?source=pwa",
+  "start_url": "./admin.html?source=pwa&v=29",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f7f1ea",

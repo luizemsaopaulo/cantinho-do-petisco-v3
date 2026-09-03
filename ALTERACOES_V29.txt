@@ -1,0 +1,13 @@
+CANTINHO DO PETISCO — ALTERAÇÕES V29
+
+- Repositório oficial padronizado em cantinho-do-petisco-v3.
+- Links do menu oculto do Admin corrigidos para Delivery e Restaurante oficiais.
+- Compartilhamento via WhatsApp do Admin usa links oficiais com ?v=29.
+- QR Codes recriados para os links oficiais V29.
+- canonical e og:url corrigidos para o repositório oficial.
+- Imagem do WhatsApp renomeada para whatsapp-preview-20260903.jpg sem alterar seu conteúdo.
+- Metatags og:image / twitter:image apontam para o novo arquivo.
+- Cache-busting geral atualizado para ?v=29.
+- Service Worker atualizado para cache cantinho-v29 e remove caches anteriores na ativação.
+- start_url dos manifests recebe v=29 sem trocar o ID do PWA instalado.
+- Arquivos históricos de QA/links antigos foram retirados do ZIP final para não deixar URLs obsoletas confundindo a publicação.

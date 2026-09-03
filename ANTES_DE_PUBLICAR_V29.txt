@@ -1,0 +1,10 @@
+ANTES DE PUBLICAR — V29 OFICIAL
+
+1. No repositório GitHub cantinho-do-petisco-v3, substitua os arquivos do site pelos arquivos desta pasta.
+2. Confirme que assets/whatsapp-preview-20260903.jpg foi enviado.
+3. Publique normalmente pelo GitHub Pages.
+4. Abra Delivery, Restaurante e Admin uma vez com ?v=29.
+5. Para compartilhar no WhatsApp agora, use o link do Delivery com ?v=29.
+6. Mantenha o novo nome da imagem do WhatsApp; ele faz parte da quebra de cache.
+
+Não há nova migração SQL nesta V29. As regras/banco existentes foram preservados.

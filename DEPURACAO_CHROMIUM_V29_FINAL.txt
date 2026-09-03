@@ -1,0 +1,76 @@
+DEPURAÇÃO CHROMIUM V29 — CANTINHO DO PETISCO
+RESULTADO: 59/59 PASS
+
+PASS — Sem referência ao repositório v14 no código publicado
+PASS — Sem referência ao repositório de teste no código publicado
+PASS — Sem whatsapp-preview-v2 no código publicado
+PASS — Cache geral V29 nos HTML/PWA
+PASS — Service Worker usa cache cantinho-v29
+PASS — Menu Admin usa repositório oficial v3
+PASS — Menu Admin usa QR V29
+PASS — Nova imagem WhatsApp existe
+PASS — Nova imagem WhatsApp é JPEG RGB
+PASS — Metadados OG usam dimensão real da imagem
+PASS — Imagem foi apenas renomeada, sem alterar pixels/bytes
+PASS — index.html: canonical oficial
+PASS — index.html: og:url V29 oficial
+PASS — index.html: OG imagem nova
+PASS — index.html: CSS V29
+PASS — restaurante.html: canonical oficial
+PASS — restaurante.html: og:url V29 oficial
+PASS — restaurante.html: OG imagem nova
+PASS — restaurante.html: CSS V29
+PASS — index.html: referências locais existem
+PASS — restaurante.html: referências locais existem
+PASS — admin.html: referências locais existem
+PASS — Sintaxe JS: js/admin.js
+PASS — Sintaxe JS: js/app.js
+PASS — Sintaxe JS: js/config.js
+PASS — Sintaxe JS: js/delivery.js
+PASS — Sintaxe JS: js/mock-data.js
+PASS — Sintaxe JS: js/pwa-admin.js
+PASS — Sintaxe JS: js/pwa-client.js
+PASS — Sintaxe JS: js/supabase-rest.js
+PASS — Sintaxe JS: service-worker.js
+PASS — qr-delivery-v29.png: aponta para URL oficial V29
+PASS — qr-restaurante-v29.png: aponta para URL oficial V29
+PASS — Chromium Delivery: carregou produtos
+PASS — Chromium Delivery: modo delivery
+PASS — Chromium Delivery: primeiro clique no histórico abre explicação
+PASS — Chromium Delivery: histórico abre depois da explicação
+PASS — Chromium Delivery: produto abre modal
+PASS — Chromium Delivery: item entra no carrinho
+PASS — Chromium Delivery: carrinho abre
+PASS — Chromium Delivery: checkout abre
+PASS — Chromium Delivery: Pix aparece no checkout
+PASS — Chromium Delivery: finalizar gera WhatsApp correto
+PASS — Chromium Delivery: sem erros JS de página
+PASS — Chromium Restaurante: modo restaurant
+PASS — Chromium Restaurante: carregou produtos
+PASS — Chromium Restaurante: sem erros JS de página
+PASS — Chromium Admin: login demonstração entra no painel
+PASS — Chromium Admin: menu oculto abre
+PASS — Chromium Admin: Abrir Delivery usa v3 V29
+PASS — Chromium Admin: Abrir Restaurante usa v3 V29
+PASS — Chromium Admin: compartilhar Delivery abre WhatsApp
+PASS — Chromium Admin: compartilhamento contém link v3 V29
+PASS — Chromium Admin: QR Delivery mostra arquivo V29
+PASS — Chromium Admin: QR Delivery exibe URL v3 V29
+PASS — Chromium Admin: sem erros JS de página
+PASS — Chromium Mobile: viewport 390 e produtos visíveis
+PASS — Chromium Mobile: botão histórico visível
+PASS — Chromium Mobile: sem erros JS de página
+
+MÉTODO DE TESTE:
+- Chromium real: /usr/bin/chromium via Playwright.
+- O ambiente bloqueia navegação direta para localhost com ERR_BLOCKED_BY_ADMINISTRATOR.
+- Por isso, os arquivos exatos index/admin/restaurante + CSS/JS da pasta foram injetados no Chromium e operados com cliques/digitação, em modo demo somente para não depender do Supabase durante o QA.
+- Links externos foram capturados no momento do clique para validar o destino sem sair do ambiente de teste.
+- QR Codes foram decodificados e comparados com as URLs oficiais.
+
+PUBLICAÇÃO OFICIAL:
+- Repositório: cantinho-do-petisco-v3
+- Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29
+- Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29
+- Admin: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html?v=29
+- Preview WhatsApp: assets/whatsapp-preview-20260903.jpg?v=1
