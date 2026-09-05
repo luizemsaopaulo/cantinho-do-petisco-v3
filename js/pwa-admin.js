@@ -1,11 +1,16 @@
 (()=>{
   'use strict';
 
-  const BASE = 'https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/';
+  const BASE = 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/';
   const DELIVERY_URL = BASE + '?v=29';
   const RESTAURANT_URL = BASE + 'restaurante.html?v=29';
+  const QR_DELIVERY_ASSET = 'assets/qr-cantinho-delivery.png';
+  const QR_RESTAURANT_ASSET = 'assets/qr-cantinho-restaurante.png';
+  const QR_DELIVERY_DYNAMIC_URL = 'https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal';
+  const QR_RESTAURANT_DYNAMIC_URL = 'https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=qr-2-restaurante';
   let deferredPrompt = null;
   let lastMenuFocus = null;
+  let currentQrMode = 'delivery';
 
   const $ = id => document.getElementById(id);
   const standalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
@@ -53,14 +58,54 @@
     closeMenu(false);
   }
 
-  function qr(mode){
+  function qrMeta(mode){
     const delivery = mode === 'delivery';
-    $('qrDialogTitle').textContent = delivery ? 'QR Code — Delivery' : 'QR Code — Restaurante';
-    $('qrDialogImage').src = delivery ? 'assets/qr-delivery-v29.png' : 'assets/qr-restaurante-v29.png';
-    $('qrDialogLink').textContent = delivery ? DELIVERY_URL : RESTAURANT_URL;
+    return delivery
+      ? {label:'Delivery', asset:QR_DELIVERY_ASSET, dynamicUrl:QR_DELIVERY_DYNAMIC_URL, filename:'qr-cantinho-delivery.png'}
+      : {label:'Restaurante', asset:QR_RESTAURANT_ASSET, dynamicUrl:QR_RESTAURANT_DYNAMIC_URL, filename:'qr-cantinho-restaurante.png'};
+  }
+
+  function qr(mode){
+    const meta = qrMeta(mode);
+    $('qrDialogTitle').textContent = `QR Code — ${meta.label}`;
+    $('qrDialogImage').src = meta.asset;
+    $('qrDialogImage').alt = `QR Code dinâmico — ${meta.label}`;
+    $('qrDialogLink').textContent = `QR dinâmico: ${meta.dynamicUrl}`;
+    currentQrMode = mode;
+    const download = $('downloadQrDialog');
+    if(download) download.setAttribute('aria-label', `Baixar QR ${meta.label}`);
     closeMenu(false);
     const dialog = $('qrDialog');
     if(dialog && !dialog.open) dialog.showModal();
+  }
+
+  async function downloadQr(mode){
+    const meta = qrMeta(mode);
+    closeMenu(false);
+    try{
+      const response = await fetch(meta.asset, {cache:'no-store'});
+      if(!response.ok) throw new Error(`HTTP ${response.status}`);
+      const blob = await response.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objectUrl;
+      a.download = meta.filename;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=>URL.revokeObjectURL(objectUrl), 1500);
+      toast(`Download do QR ${meta.label} iniciado.`);
+    }catch(error){
+      const a = document.createElement('a');
+      a.href = meta.asset;
+      a.download = meta.filename;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      toast(`Download do QR ${meta.label} iniciado.`);
+    }
   }
 
   function menuFocusable(){
@@ -151,7 +196,11 @@
     $('shareDeliveryWhatsApp')?.addEventListener('click', ()=>share('delivery'));
     $('shareRestaurantWhatsApp')?.addEventListener('click', ()=>share('restaurant'));
     $('qrDeliveryBtn')?.addEventListener('click', ()=>qr('delivery'));
+    $('downloadQrDeliveryBtn')?.addEventListener('click', ()=>downloadQr('delivery'));
     $('qrRestaurantBtn')?.addEventListener('click', ()=>qr('restaurant'));
+    $('downloadQrRestaurantBtn')?.addEventListener('click', ()=>downloadQr('restaurant'));
+    $('downloadQrDialog')?.addEventListener('click', ()=>downloadQr(currentQrMode));
     $('closeQrDialog')?.addEventListener('click', ()=>$('qrDialog')?.close());
+    $('closeQrDialogX')?.addEventListener('click', ()=>$('qrDialog')?.close());
   });
 })();

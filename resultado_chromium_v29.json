@@ -1,0 +1,298 @@
+{
+  "passed": 58,
+  "failed": 0,
+  "total": 58,
+  "results": [
+    {
+      "name": "desktop: login ADM como usuário real",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: menu abre por clique",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: opção Ver QR — Delivery acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: opção Baixar QR — Delivery acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: opção Ver QR — Restaurante acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: opção Baixar QR — Restaurante acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: modal QR Delivery abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: título QR Delivery correto",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: usa QR Delivery fornecido",
+      "ok": true,
+      "detail": "assets/qr-cantinho-delivery.png"
+    },
+    {
+      "name": "desktop: QR Delivery renderiza 256x256",
+      "ok": true,
+      "detail": "[256, 256]"
+    },
+    {
+      "name": "desktop: identifica URL dinâmica Delivery",
+      "ok": true,
+      "detail": "QR dinâmico: https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal"
+    },
+    {
+      "name": "desktop: download Delivery pelo modal",
+      "ok": true,
+      "detail": "qr-cantinho-delivery.png"
+    },
+    {
+      "name": "desktop: download Delivery pelo modal preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: download direto Delivery no menu",
+      "ok": true,
+      "detail": "qr-cantinho-delivery.png"
+    },
+    {
+      "name": "desktop: download direto Delivery preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: modal QR Restaurante abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: título QR Restaurante correto",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: usa QR Restaurante fornecido",
+      "ok": true,
+      "detail": "assets/qr-cantinho-restaurante.png"
+    },
+    {
+      "name": "desktop: QR Restaurante renderiza 256x256",
+      "ok": true,
+      "detail": "[256, 256]"
+    },
+    {
+      "name": "desktop: identifica URL dinâmica Restaurante",
+      "ok": true,
+      "detail": "QR dinâmico: https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=qr-2-restaurante"
+    },
+    {
+      "name": "desktop: download Restaurante pelo modal",
+      "ok": true,
+      "detail": "qr-cantinho-restaurante.png"
+    },
+    {
+      "name": "desktop: download Restaurante pelo modal preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: download direto Restaurante no menu",
+      "ok": true,
+      "detail": "qr-cantinho-restaurante.png"
+    },
+    {
+      "name": "desktop: download direto Restaurante preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: atalho Delivery aponta para projeto atual V29",
+      "ok": true,
+      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29']"
+    },
+    {
+      "name": "desktop: atalho Restaurante aponta para projeto atual V29",
+      "ok": true,
+      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29', 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29']"
+    },
+    {
+      "name": "desktop: sem rolagem horizontal indevida",
+      "ok": true,
+      "detail": "scrollWidth=1440 clientWidth=1440"
+    },
+    {
+      "name": "desktop: zero page errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "desktop: zero console errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "mobile: login ADM como usuário real",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: menu abre por clique",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: opção Ver QR — Delivery acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: opção Baixar QR — Delivery acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: opção Ver QR — Restaurante acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: opção Baixar QR — Restaurante acessível no menu",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: modal QR Delivery abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: título QR Delivery correto",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: usa QR Delivery fornecido",
+      "ok": true,
+      "detail": "assets/qr-cantinho-delivery.png"
+    },
+    {
+      "name": "mobile: QR Delivery renderiza 256x256",
+      "ok": true,
+      "detail": "[256, 256]"
+    },
+    {
+      "name": "mobile: identifica URL dinâmica Delivery",
+      "ok": true,
+      "detail": "QR dinâmico: https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal"
+    },
+    {
+      "name": "mobile: download Delivery pelo modal",
+      "ok": true,
+      "detail": "qr-cantinho-delivery.png"
+    },
+    {
+      "name": "mobile: download Delivery pelo modal preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: download direto Delivery no menu",
+      "ok": true,
+      "detail": "qr-cantinho-delivery.png"
+    },
+    {
+      "name": "mobile: download direto Delivery preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: modal QR Restaurante abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: título QR Restaurante correto",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: usa QR Restaurante fornecido",
+      "ok": true,
+      "detail": "assets/qr-cantinho-restaurante.png"
+    },
+    {
+      "name": "mobile: QR Restaurante renderiza 256x256",
+      "ok": true,
+      "detail": "[256, 256]"
+    },
+    {
+      "name": "mobile: identifica URL dinâmica Restaurante",
+      "ok": true,
+      "detail": "QR dinâmico: https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=qr-2-restaurante"
+    },
+    {
+      "name": "mobile: download Restaurante pelo modal",
+      "ok": true,
+      "detail": "qr-cantinho-restaurante.png"
+    },
+    {
+      "name": "mobile: download Restaurante pelo modal preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: download direto Restaurante no menu",
+      "ok": true,
+      "detail": "qr-cantinho-restaurante.png"
+    },
+    {
+      "name": "mobile: download direto Restaurante preserva bytes",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "mobile: atalho Delivery aponta para projeto atual V29",
+      "ok": true,
+      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29']"
+    },
+    {
+      "name": "mobile: atalho Restaurante aponta para projeto atual V29",
+      "ok": true,
+      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29', 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29']"
+    },
+    {
+      "name": "mobile: sem rolagem horizontal indevida",
+      "ok": true,
+      "detail": "scrollWidth=390 clientWidth=390"
+    },
+    {
+      "name": "mobile: zero page errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "mobile: zero console errors",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "note": "Chromium real; HTML/CSS/JS exatos carregados com subrecursos locais interceptados porque navegação HTTP/HTTPS é bloqueada por política do ambiente."
+}

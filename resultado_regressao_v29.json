@@ -1,0 +1,57 @@
+{
+  "passed": 10,
+  "failed": 0,
+  "total": 10,
+  "results": [
+    {
+      "name": "index.html: cardápio renderiza",
+      "ok": true,
+      "detail": "55 cards"
+    },
+    {
+      "name": "index.html: histórico abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "index.html: histórico fecha",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "index.html: sem page errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "index.html: sem console errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "restaurante.html: cardápio renderiza",
+      "ok": true,
+      "detail": "89 cards"
+    },
+    {
+      "name": "restaurante.html: histórico abre",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "restaurante.html: histórico fecha",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "restaurante.html: sem page errors",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "name": "restaurante.html: sem console errors",
+      "ok": true,
+      "detail": "[]"
+    }
+  ]
+}

@@ -1,13 +1,10 @@
-CANTINHO DO PETISCO — ALTERAÇÕES V29
+CANTINHO DO PETISCO — V29 — QR DINÂMICO NO ADM
 
-- Repositório oficial padronizado em cantinho-do-petisco-v3.
-- Links do menu oculto do Admin corrigidos para Delivery e Restaurante oficiais.
-- Compartilhamento via WhatsApp do Admin usa links oficiais com ?v=29.
-- QR Codes recriados para os links oficiais V29.
-- canonical e og:url corrigidos para o repositório oficial.
-- Imagem do WhatsApp renomeada para whatsapp-preview-20260903.jpg sem alterar seu conteúdo.
-- Metatags og:image / twitter:image apontam para o novo arquivo.
-- Cache-busting geral atualizado para ?v=29.
-- Service Worker atualizado para cache cantinho-v29 e remove caches anteriores na ativação.
-- start_url dos manifests recebe v=29 sem trocar o ID do PWA instalado.
-- Arquivos históricos de QA/links antigos foram retirados do ZIP final para não deixar URLs obsoletas confundindo a publicação.
+- Mantidos exatamente os 2 QR Codes dinâmicos fornecidos pelo usuário.
+- QR Delivery: assets/qr-cantinho-delivery.png
+- QR Restaurante: assets/qr-cantinho-restaurante.png
+- Menu ADM agora tem Ver QR e Baixar QR separadamente para Delivery e Restaurante.
+- Ao visualizar, o modal também oferece botão Baixar QR.
+- Links rápidos/compartilhar do ADM foram alinhados ao repositório publicado teste-cantinho-do-petisco-v22-localizacao-ors.
+- Cache/Service Worker atualizado para V29.
+- Nenhum QR foi regenerado ou redesenhado.

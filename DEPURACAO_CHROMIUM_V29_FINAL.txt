@@ -1,76 +1,138 @@
-DEPURAÇÃO CHROMIUM V29 — CANTINHO DO PETISCO
-RESULTADO: 59/59 PASS
+CANTINHO DO PETISCO — V29 — QR DINÂMICO NO ADM
+=================================================
 
-PASS — Sem referência ao repositório v14 no código publicado
-PASS — Sem referência ao repositório de teste no código publicado
-PASS — Sem whatsapp-preview-v2 no código publicado
-PASS — Cache geral V29 nos HTML/PWA
-PASS — Service Worker usa cache cantinho-v29
-PASS — Menu Admin usa repositório oficial v3
-PASS — Menu Admin usa QR V29
-PASS — Nova imagem WhatsApp existe
-PASS — Nova imagem WhatsApp é JPEG RGB
-PASS — Metadados OG usam dimensão real da imagem
-PASS — Imagem foi apenas renomeada, sem alterar pixels/bytes
-PASS — index.html: canonical oficial
-PASS — index.html: og:url V29 oficial
-PASS — index.html: OG imagem nova
-PASS — index.html: CSS V29
-PASS — restaurante.html: canonical oficial
-PASS — restaurante.html: og:url V29 oficial
-PASS — restaurante.html: OG imagem nova
-PASS — restaurante.html: CSS V29
-PASS — index.html: referências locais existem
-PASS — restaurante.html: referências locais existem
-PASS — admin.html: referências locais existem
-PASS — Sintaxe JS: js/admin.js
-PASS — Sintaxe JS: js/app.js
-PASS — Sintaxe JS: js/config.js
-PASS — Sintaxe JS: js/delivery.js
-PASS — Sintaxe JS: js/mock-data.js
-PASS — Sintaxe JS: js/pwa-admin.js
-PASS — Sintaxe JS: js/pwa-client.js
-PASS — Sintaxe JS: js/supabase-rest.js
-PASS — Sintaxe JS: service-worker.js
-PASS — qr-delivery-v29.png: aponta para URL oficial V29
-PASS — qr-restaurante-v29.png: aponta para URL oficial V29
-PASS — Chromium Delivery: carregou produtos
-PASS — Chromium Delivery: modo delivery
-PASS — Chromium Delivery: primeiro clique no histórico abre explicação
-PASS — Chromium Delivery: histórico abre depois da explicação
-PASS — Chromium Delivery: produto abre modal
-PASS — Chromium Delivery: item entra no carrinho
-PASS — Chromium Delivery: carrinho abre
-PASS — Chromium Delivery: checkout abre
-PASS — Chromium Delivery: Pix aparece no checkout
-PASS — Chromium Delivery: finalizar gera WhatsApp correto
-PASS — Chromium Delivery: sem erros JS de página
-PASS — Chromium Restaurante: modo restaurant
-PASS — Chromium Restaurante: carregou produtos
-PASS — Chromium Restaurante: sem erros JS de página
-PASS — Chromium Admin: login demonstração entra no painel
-PASS — Chromium Admin: menu oculto abre
-PASS — Chromium Admin: Abrir Delivery usa v3 V29
-PASS — Chromium Admin: Abrir Restaurante usa v3 V29
-PASS — Chromium Admin: compartilhar Delivery abre WhatsApp
-PASS — Chromium Admin: compartilhamento contém link v3 V29
-PASS — Chromium Admin: QR Delivery mostra arquivo V29
-PASS — Chromium Admin: QR Delivery exibe URL v3 V29
-PASS — Chromium Admin: sem erros JS de página
-PASS — Chromium Mobile: viewport 390 e produtos visíveis
-PASS — Chromium Mobile: botão histórico visível
-PASS — Chromium Mobile: sem erros JS de página
+RESULTADO FINAL: 68/68 VERIFICAÇÕES APROVADAS
+Falhas finais: 0
 
-MÉTODO DE TESTE:
-- Chromium real: /usr/bin/chromium via Playwright.
-- O ambiente bloqueia navegação direta para localhost com ERR_BLOCKED_BY_ADMINISTRATOR.
-- Por isso, os arquivos exatos index/admin/restaurante + CSS/JS da pasta foram injetados no Chromium e operados com cliques/digitação, em modo demo somente para não depender do Supabase durante o QA.
-- Links externos foram capturados no momento do clique para validar o destino sem sair do ambiente de teste.
-- QR Codes foram decodificados e comparados com as URLs oficiais.
+NAVEGADOR
+---------
+Chromium real (/usr/bin/chromium), controlado por Playwright.
+Viewports exercitados:
+- Desktop: 1440 x 1000
+- Mobile: 390 x 844
 
-PUBLICAÇÃO OFICIAL:
-- Repositório: cantinho-do-petisco-v3
-- Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29
-- Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29
-- Admin: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html?v=29
-- Preview WhatsApp: assets/whatsapp-preview-20260903.jpg?v=1
+IMPORTANTE SOBRE O AMBIENTE
+---------------------------
+A política administrativa deste ambiente bloqueia navegação direta do Chromium para HTTP/HTTPS/localhost (ERR_BLOCKED_BY_ADMINISTRATOR).
+Por isso, os HTML/CSS/JS EXATOS da V29 foram carregados no Chromium real e os subrecursos locais foram servidos/interceptados com os mesmos caminhos usados pelo site publicado.
+As interações foram feitas por clique, preenchimento, abertura de menu, abertura de modal e download real pelo navegador.
+
+QR CODES OFICIAIS USADOS
+------------------------
+Os QRs NÃO foram recriados, redesenhados ou alterados.
+Foram copiados byte a byte dos 2 PNGs fornecidos pelo usuário.
+
+Delivery
+- Arquivo: assets/qr-cantinho-delivery.png
+- Tamanho: 256 x 256
+- SHA-256: ecf0a02b37067c9f8b643245d5b7b93c65b7af1888f90f528891f0d6136708b0
+- Conteúdo decodificado: https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal
+
+Restaurante
+- Arquivo: assets/qr-cantinho-restaurante.png
+- Tamanho: 256 x 256
+- SHA-256: a123620a1c806629fbc17efad9b3366c6bf9b683216b6c881fe1ab32548296a1
+- Conteúdo decodificado: https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=qr-2-restaurante
+
+MENU ADM — APROVADO
+-------------------
+PASS — menu abre por clique no desktop.
+PASS — menu abre por clique no mobile.
+PASS — “Ver QR — Delivery” acessível no menu.
+PASS — “Baixar QR — Delivery” acessível no menu.
+PASS — “Ver QR — Restaurante” acessível no menu.
+PASS — “Baixar QR — Restaurante” acessível no menu.
+PASS — menu continua com rolagem vertical quando necessário.
+PASS — sem rolagem horizontal indevida.
+
+VISUALIZAÇÃO QR DELIVERY — APROVADO
+-----------------------------------
+PASS — abre modal por clique.
+PASS — título identifica Delivery.
+PASS — imagem carregada é assets/qr-cantinho-delivery.png.
+PASS — imagem renderiza 256 x 256.
+PASS — URL dinâmica correta é exibida como referência.
+PASS — botão Baixar QR dentro do modal funciona.
+PASS — download preserva exatamente os bytes do PNG fornecido.
+
+VISUALIZAÇÃO QR RESTAURANTE — APROVADO
+--------------------------------------
+PASS — abre modal por clique.
+PASS — título identifica Restaurante.
+PASS — imagem carregada é assets/qr-cantinho-restaurante.png.
+PASS — imagem renderiza 256 x 256.
+PASS — URL dinâmica correta é exibida como referência.
+PASS — botão Baixar QR dentro do modal funciona.
+PASS — download preserva exatamente os bytes do PNG fornecido.
+
+DOWNLOAD DIRETO PELO MENU — APROVADO
+------------------------------------
+PASS — Baixar QR — Delivery inicia download real.
+PASS — nome baixado: qr-cantinho-delivery.png.
+PASS — arquivo baixado é byte a byte igual ao QR original.
+PASS — Baixar QR — Restaurante inicia download real.
+PASS — nome baixado: qr-cantinho-restaurante.png.
+PASS — arquivo baixado é byte a byte igual ao QR original.
+
+ATALHOS DO MENU — CORRIGIDOS E APROVADOS
+----------------------------------------
+A V28 ainda tinha links rápidos antigos apontando para cantinho-do-petisco-v14.
+Na V29 foram alinhados ao projeto atual:
+- Delivery: https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29
+- Restaurante: https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29
+
+PASS — atalho Delivery aponta para o projeto atual.
+PASS — atalho Restaurante aponta para o projeto atual.
+
+REGRESSÃO PÁGINA DO CLIENTE — APROVADO
+--------------------------------------
+PASS — Delivery renderizou 55 cards no modo de teste.
+PASS — Histórico abre por clique no Delivery.
+PASS — Histórico fecha normalmente no Delivery.
+PASS — Delivery: 0 page errors.
+PASS — Delivery: 0 console errors.
+PASS — Restaurante renderizou 89 cards no modo de teste.
+PASS — Histórico abre por clique no Restaurante.
+PASS — Histórico fecha normalmente no Restaurante.
+PASS — Restaurante: 0 page errors.
+PASS — Restaurante: 0 console errors.
+
+CACHE / PWA
+-----------
+PASS — cache alterado de cantinho-v28 para cantinho-v29.
+PASS — referências locais principais atualizadas para ?v=29.
+PASS — Service Worker passa a pré-cachear os 2 QRs oficiais novos.
+PASS — referências antigas aos QR v24 removidas do runtime do menu/Service Worker.
+
+ARQUIVOS PRINCIPAIS ALTERADOS / CRIADOS
+---------------------------------------
+- admin.html
+- js/pwa-admin.js
+- js/pwa-client.js
+- css/styles.css
+- service-worker.js
+- index.html (somente versionamento de cache V29)
+- restaurante.html (somente versionamento de cache V29)
+- assets/qr-cantinho-delivery.png
+- assets/qr-cantinho-restaurante.png
+- ALTERACOES_V29.txt
+- LINKS_V29.txt
+- ANTES_DE_PUBLICAR_V29.txt
+- DEPURACAO_CHROMIUM_V29_FINAL.txt
+- resultado_chromium_v29.json
+- resultado_regressao_v29.json
+
+EVIDÊNCIAS VISUAIS
+------------------
+- qa_v29_menu_qrs_desktop.png
+- qa_v29_menu_qrs_mobile.png
+- qa_v29_qr_delivery_desktop.png
+- qa_v29_qr_delivery_mobile.png
+- qa_v29_qr_restaurante_desktop.png
+- qa_v29_qr_restaurante_mobile.png
+
+PUBLICAÇÃO
+----------
+Não precisa executar SQL novo.
+Não precisa alterar Edge Function.
+Publique os arquivos da V29 no mesmo GitHub Pages e, na primeira abertura, use admin.html?v=29 para evitar cache antigo.

@@ -1,29 +1,16 @@
-CANTINHO DO PETISCO — LINKS OFICIAIS V29
+CANTINHO DO PETISCO — LINKS V29
 
-REPOSITÓRIO OFICIAL
-cantinho-do-petisco-v3
+DELIVERY
+https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29
 
-DELIVERY — principal
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/
+RESTAURANTE
+https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29
 
-DELIVERY — quebra de cache para compartilhar/testar agora
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29
+ADMIN
+https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/admin.html?v=29
 
-RESTAURANTE — principal
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html
+QR DINÂMICO — DELIVERY
+https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal
 
-RESTAURANTE — quebra de cache
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29
-
-ADMIN — principal
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html
-
-ADMIN — quebra de cache
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html?v=29
-
-IMAGEM WHATSAPP / OPEN GRAPH
-https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/assets/whatsapp-preview-20260903.jpg?v=1
-
-IMPORTANTE
-Para o WhatsApp buscar a nova prévia, envie o link com ?v=29 pelo menos na primeira vez.
-A imagem também recebeu um nome físico novo, o que evita reutilização da URL antiga em cache.
+QR DINÂMICO — RESTAURANTE
+https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=qr-2-restaurante

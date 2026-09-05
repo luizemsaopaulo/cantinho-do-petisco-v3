@@ -74,8 +74,10 @@
           <button id="shareDeliveryWhatsApp" class="admin-tools-item admin-tools-whatsapp" type="button"><span>💬</span><strong>Compartilhar Delivery</strong></button>
           <button id="shareRestaurantWhatsApp" class="admin-tools-item admin-tools-whatsapp" type="button"><span>💬</span><strong>Compartilhar Restaurante</strong></button>
           <div class="admin-tools-divider" role="separator"></div>
-          <button id="qrDeliveryBtn" class="admin-tools-item" type="button"><span>▦</span><strong>QR Code Delivery</strong></button>
-          <button id="qrRestaurantBtn" class="admin-tools-item" type="button"><span>▦</span><strong>QR Code Restaurante</strong></button>
+          <button id="qrDeliveryBtn" class="admin-tools-item" type="button"><span>👁️</span><strong>Ver QR — Delivery</strong></button>
+          <button id="downloadQrDeliveryBtn" class="admin-tools-item" type="button"><span>⬇️</span><strong>Baixar QR — Delivery</strong></button>
+          <button id="qrRestaurantBtn" class="admin-tools-item" type="button"><span>👁️</span><strong>Ver QR — Restaurante</strong></button>
+          <button id="downloadQrRestaurantBtn" class="admin-tools-item" type="button"><span>⬇️</span><strong>Baixar QR — Restaurante</strong></button>
           <div class="admin-tools-divider" role="separator"></div>
           <button id="deliverySettingsBtn" class="admin-tools-item" type="button"><span>⚙️</span><strong>Configurações do Delivery</strong></button>
           <button id="paymentSettingsBtn" class="admin-tools-item" type="button"><span>💳</span><strong>Pagamentos</strong></button>
@@ -395,7 +397,7 @@
     </form>
   </dialog>
 
-  <dialog id="qrDialog" class="app-dialog info-dialog qr-dialog"><div class="dialog-body"><span class="eyebrow">Compartilhar</span><h2 id="qrDialogTitle">QR Code</h2><img id="qrDialogImage" class="qr-dialog-image" alt="QR Code do cardápio"><p id="qrDialogLink" class="qr-dialog-link"></p><button id="closeQrDialog" class="primary-button" type="button">Fechar</button></div></dialog>
+  <dialog id="qrDialog" class="app-dialog info-dialog qr-dialog"><div class="dialog-body"><button id="closeQrDialogX" class="dialog-close" type="button" aria-label="Fechar">×</button><span class="eyebrow">QR dinâmico oficial</span><h2 id="qrDialogTitle">QR Code</h2><img id="qrDialogImage" class="qr-dialog-image" alt="QR Code do cardápio"><p id="qrDialogLink" class="qr-dialog-link"></p><div class="qr-dialog-actions"><button id="downloadQrDialog" class="primary-button" type="button">⬇️ Baixar QR</button><button id="closeQrDialog" class="secondary-button" type="button">Fechar</button></div></div></dialog>
   <dialog id="adminIosInstallDialog" class="app-dialog info-dialog pwa-ios-dialog"><div class="dialog-body"><span class="eyebrow">Instalar no iPhone</span><h2>Adicionar Cantinho Admin</h2><p>No Safari, toque em <strong>Compartilhar</strong> e depois em <strong>Adicionar à Tela de Início</strong>.</p><button id="closeAdminIosInstall" class="primary-button" type="button">Entendi</button></div></dialog>
   <div id="toastRegion" class="toast-region" aria-live="polite"></div>
 
