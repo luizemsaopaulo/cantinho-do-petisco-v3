@@ -126,12 +126,12 @@
     {
       "name": "desktop: atalho Delivery aponta para projeto atual V29",
       "ok": true,
-      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29']"
+      "detail": "['https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29']"
     },
     {
       "name": "desktop: atalho Restaurante aponta para projeto atual V29",
       "ok": true,
-      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29', 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29']"
+      "detail": "['https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29', 'https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29']"
     },
     {
       "name": "desktop: sem rolagem horizontal indevida",
@@ -271,12 +271,12 @@
     {
       "name": "mobile: atalho Delivery aponta para projeto atual V29",
       "ok": true,
-      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29']"
+      "detail": "['https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29']"
     },
     {
       "name": "mobile: atalho Restaurante aponta para projeto atual V29",
       "ok": true,
-      "detail": "['https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29', 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29']"
+      "detail": "['https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29', 'https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29']"
     },
     {
       "name": "mobile: sem rolagem horizontal indevida",

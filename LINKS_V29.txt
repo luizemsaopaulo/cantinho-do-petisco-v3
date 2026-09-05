@@ -1,13 +1,13 @@
 CANTINHO DO PETISCO — LINKS V29
 
 DELIVERY
-https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29
 
 RESTAURANTE
-https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29
 
 ADMIN
-https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/admin.html?v=29
+https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/admin.html?v=29
 
 QR DINÂMICO — DELIVERY
 https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal

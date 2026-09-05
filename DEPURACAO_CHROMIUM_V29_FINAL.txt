@@ -78,8 +78,8 @@ ATALHOS DO MENU — CORRIGIDOS E APROVADOS
 ----------------------------------------
 A V28 ainda tinha links rápidos antigos apontando para cantinho-do-petisco-v14.
 Na V29 foram alinhados ao projeto atual:
-- Delivery: https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/?v=29
-- Restaurante: https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29
+- Delivery: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29
+- Restaurante: https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29
 
 PASS — atalho Delivery aponta para o projeto atual.
 PASS — atalho Restaurante aponta para o projeto atual.

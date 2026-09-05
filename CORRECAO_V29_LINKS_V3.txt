@@ -1,0 +1,20 @@
+CANTINHO DO PETISCO — CORREÇÃO V29 — LINKS OFICIAIS V3
+========================================================
+
+Correção aplicada no menu do ADM:
+- Abrir página Delivery -> https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/?v=29
+- Abrir página Restaurante -> https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/restaurante.html?v=29
+- Compartilhar Delivery -> usa o mesmo link V3 com ?v=29
+- Compartilhar Restaurante -> usa o mesmo link V3/restaurante.html?v=29
+
+Arquivo funcional corrigido:
+- js/pwa-admin.js
+
+Depuração Chromium após a correção:
+- Desktop 1440x1000: PASS
+- Mobile 390x844: PASS
+- Atalho Delivery: PASS
+- Atalho Restaurante: PASS
+- QRs/Downloads: PASS
+- Console/Page errors: 0
+- Resultado da bateria específica: 58/58 PASS

@@ -3,7 +3,7 @@ from playwright.sync_api import sync_playwright
 import hashlib, json, mimetypes, sys
 from urllib.parse import urlparse
 
-ROOT = Path('/mnt/data/cantinho_v29_work/teste-cantinho-do-petisco-v29-qrs-admin')
+ROOT = Path(__file__).resolve().parent
 results=[]
 
 def check(name, cond, detail=''):
@@ -125,11 +125,11 @@ with sync_playwright() as p:
         page.locator('#adminToolsMenuBtn').click()
         page.locator('#openDeliveryQuick').click()
         opened=page.evaluate('window.__opened.slice()')
-        check(f'{label}: atalho Delivery aponta para projeto atual V29', bool(opened) and 'teste-cantinho-do-petisco-v22-localizacao-ors/?v=29' in opened[-1], opened)
+        check(f'{label}: atalho Delivery aponta para projeto atual V29', bool(opened) and 'cantinho-do-petisco-v3/?v=29' in opened[-1], opened)
         page.locator('#adminToolsMenuBtn').click()
         page.locator('#openRestaurantQuick').click()
         opened=page.evaluate('window.__opened.slice()')
-        check(f'{label}: atalho Restaurante aponta para projeto atual V29', bool(opened) and 'teste-cantinho-do-petisco-v22-localizacao-ors/restaurante.html?v=29' in opened[-1], opened)
+        check(f'{label}: atalho Restaurante aponta para projeto atual V29', bool(opened) and 'cantinho-do-petisco-v3/restaurante.html?v=29' in opened[-1], opened)
 
         overflow = page.evaluate('document.documentElement.scrollWidth > document.documentElement.clientWidth')
         check(f'{label}: sem rolagem horizontal indevida', not overflow, f"scrollWidth={page.evaluate('document.documentElement.scrollWidth')} clientWidth={page.evaluate('document.documentElement.clientWidth')}")

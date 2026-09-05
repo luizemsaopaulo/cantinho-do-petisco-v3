@@ -5,6 +5,6 @@ CANTINHO DO PETISCO — V29 — QR DINÂMICO NO ADM
 - QR Restaurante: assets/qr-cantinho-restaurante.png
 - Menu ADM agora tem Ver QR e Baixar QR separadamente para Delivery e Restaurante.
 - Ao visualizar, o modal também oferece botão Baixar QR.
-- Links rápidos/compartilhar do ADM foram alinhados ao repositório publicado teste-cantinho-do-petisco-v22-localizacao-ors.
+- Links rápidos/compartilhar do ADM foram alinhados ao repositório publicado cantinho-do-petisco-v3.
 - Cache/Service Worker atualizado para V29.
 - Nenhum QR foi regenerado ou redesenhado.
