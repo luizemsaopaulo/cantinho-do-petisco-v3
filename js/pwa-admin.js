@@ -1,7 +1,7 @@
 (()=>{
   'use strict';
 
-  const BASE = 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v22-localizacao-ors/';
+  const BASE = 'https://luizemsaopaulo.github.io/teste-cantinho-do-petisco-v3-localizacao-ors/';
   const DELIVERY_URL = BASE + '?v=29';
   const RESTAURANT_URL = BASE + 'restaurante.html?v=29';
   const QR_DELIVERY_ASSET = 'assets/qr-cantinho-delivery.png';
