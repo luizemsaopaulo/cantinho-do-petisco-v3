@@ -1,9 +1,9 @@
 (()=>{
   'use strict';
 
-  const BASE = 'https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/';
-  const DELIVERY_URL = BASE + '?v=29';
-  const RESTAURANT_URL = BASE + 'restaurante.html?v=29';
+  const BASE = (window.APP_CONFIG?.DEV_ISOLATED||window.APP_CONFIG?.PREVIEW_MODE) ? new URL('./',location.href).href : 'https://luizemsaopaulo.github.io/cantinho-do-petisco-v3/';
+  const DELIVERY_URL = BASE + '?v=30';
+  const RESTAURANT_URL = BASE + 'restaurante.html?v=30';
   const QR_DELIVERY_ASSET = 'assets/qr-cantinho-delivery.png';
   const QR_RESTAURANT_ASSET = 'assets/qr-cantinho-restaurante.png';
   const QR_DELIVERY_DYNAMIC_URL = 'https://luizemsaopaulo.github.io/Qr-code-dinamico/qr.html?slug=principal';
@@ -50,6 +50,7 @@
   }
 
   function share(mode){
+    if(window.APP_CONFIG?.DEV_ISOLATED||window.APP_CONFIG?.PREVIEW_MODE){ toast('Compartilhamento desativado no ambiente de testes.', 'info'); return; }
     const delivery = mode === 'delivery';
     const url = delivery ? DELIVERY_URL : RESTAURANT_URL;
     const title = delivery ? '🍽️ *Cantinho do Petisco*' : '🍽️ *Cantinho do Petisco — Cardápio do Restaurante*';
@@ -161,8 +162,8 @@
     else if(!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
   }
 
-  if('serviceWorker' in navigator){
-    addEventListener('load', ()=>navigator.serviceWorker.register('service-worker.js?v=29',{scope:'./'}).catch(()=>{}));
+  if('serviceWorker' in navigator && !window.APP_CONFIG?.DEV_ISOLATED && !window.APP_CONFIG?.PREVIEW_MODE){
+    addEventListener('load', ()=>navigator.serviceWorker.register('service-worker.js?v=30',{scope:'./'}).catch(()=>{}));
   }
 
   addEventListener('beforeinstallprompt', event=>{

@@ -6,12 +6,13 @@
   <meta name="theme-color" content="#b20d18">
   <meta name="robots" content="noindex,nofollow">
   <title>Admin | Cantinho do Petisco</title>
-  <link rel="manifest" href="manifest-admin.webmanifest?v=29">
+  <link rel="manifest" href="manifest-admin.webmanifest?v=30">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Cantinho ADM">
-  <link rel="apple-touch-icon" href="assets/icon-admin-192.png?v=29">
-  <link rel="stylesheet" href="css/styles.css?v=29">
+  <link rel="apple-touch-icon" href="assets/icon-admin-192.png?v=30">
+  <link rel="stylesheet" href="css/styles.css?v=30">
+  <link rel="icon" type="image/png" href="assets/icon-admin-192.png">
 </head>
 <body class="admin-body">
   <main class="admin-shell">
@@ -20,7 +21,7 @@
       <div class="brand-mark large">CP</div>
       <span class="eyebrow">Área restrita</span>
       <h1>Administração</h1>
-      <p>Entre com o usuário autorizado no Supabase Auth.</p>
+      <p>Entre com seu e-mail e senha de administrador. Na primeira entrada, a conta antiga será validada para ativar seu acesso no novo sistema.</p>
       <form id="loginForm" class="stack-form">
         <label class="field-label">E-mail
           <input id="adminEmail" name="username" type="email" autocomplete="username" required placeholder="seu@email.com">
@@ -313,7 +314,7 @@
       <button id="closeDeliverySettings" class="dialog-close" type="button" aria-label="Fechar">×</button>
       <span class="eyebrow">Delivery</span>
       <h2>Configurações do Delivery</h2>
-      <p class="dialog-description">Altere regras de entrega sem editar código nem republicar o site. As mudanças ficam no Supabase.</p>
+      <p class="dialog-description">Altere regras de entrega sem editar código nem republicar o site. Estas configurações são armazenadas no Cloudflare. O serviço de rotas ainda utiliza temporariamente as regras antigas enquanto a integração é concluída.</p>
 
       <div id="deliverySettingsLoading" class="form-message">Carregando configurações…</div>
       <div id="deliverySettingsFields" class="hidden">
@@ -363,7 +364,7 @@
       <button id="closePaymentSettings" class="dialog-close" type="button" aria-label="Fechar">×</button>
       <span class="eyebrow">Pagamentos</span>
       <h2>Configurações de pagamento</h2>
-      <p class="dialog-description">Ative somente os meios que o restaurante realmente aceita. As configurações ficam salvas no Supabase e a página pública se adapta automaticamente.</p>
+      <p class="dialog-description">Ative somente os meios que o restaurante realmente aceita. As alterações de pagamento são salvas no Cloudflare e utilizadas no cardápio público.</p>
 
       <div id="paymentSettingsLoading" class="form-message">Carregando configurações…</div>
       <div id="paymentSettingsFields" class="hidden">
@@ -401,10 +402,10 @@
   <dialog id="adminIosInstallDialog" class="app-dialog info-dialog pwa-ios-dialog"><div class="dialog-body"><span class="eyebrow">Instalar no iPhone</span><h2>Adicionar Cantinho Admin</h2><p>No Safari, toque em <strong>Compartilhar</strong> e depois em <strong>Adicionar à Tela de Início</strong>.</p><button id="closeAdminIosInstall" class="primary-button" type="button">Entendi</button></div></dialog>
   <div id="toastRegion" class="toast-region" aria-live="polite"></div>
 
-  <script src="js/config.js?v=29"></script>
-  <script src="js/mock-data.js?v=29"></script>
-  <script src="js/supabase-rest.js?v=29"></script>
-  <script src="js/admin.js?v=29"></script>
-  <script src="js/pwa-admin.js?v=29"></script>
+  <script src="js/config.js?v=30"></script>
+  <script src="js/mock-data.js?v=30"></script>
+  <script src="js/supabase-rest.js?v=30"></script>
+  <script src="js/admin.js?v=30"></script>
+  <script src="js/pwa-admin.js?v=30"></script>
 </body>
 </html>

@@ -211,14 +211,7 @@
     }
 
     async login(email, password) {
-      if (C.DEMO_MODE) {
-        if (email !== 'admin@demo.local' || password !== '123456') {
-          throw new Error('No modo demonstração use admin@demo.local / 123456.');
-        }
-        const fake = { access_token: 'demo-token', refresh_token: 'demo-refresh', expires_at: Date.now() + 3600000, user: { email, id: 'demo-admin' } };
-        this.storeSession(fake);
-        return fake;
-      }
+      if (C.DEMO_MODE) throw new Error('Modo demonstração desativado neste site.');
       const data = await this.request('/auth/v1/token?grant_type=password', {
         method: 'POST',
         headers: this.baseHeaders(),
@@ -459,6 +452,7 @@
       if (!file) throw new Error('Selecione uma imagem.');
       if (file.size > 5 * 1024 * 1024) throw new Error('A imagem deve ter no máximo 5 MB.');
       if (!/^image\/(jpeg|png|webp)$/i.test(file.type)) throw new Error('Use imagem JPG, PNG ou WEBP.');
+      if (C.DEV_ISOLATED) throw new Error('Envio de fotos indisponível na cópia de testes até configurar o armazenamento Cloudflare. Nenhuma foto foi salva.');
       if (C.DEMO_MODE) return null;
       const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
       const path = `products/${crypto.randomUUID()}.${ext}`;
@@ -482,6 +476,7 @@
 
     publicImageUrl(path) {
       if (!path) return '';
+      if (C.DEV_ISOLATED) return './dev-assets/product-images/' + String(path).replace(/^product-images\//, '').replace(/^\/+/, '');
       if (/^https?:\/\//i.test(path)) return path;
       return `${C.SUPABASE_URL}/storage/v1/object/public/${C.STORAGE_BUCKET}/${String(path).split('/').map(encodeURIComponent).join('/')}`;
     }
