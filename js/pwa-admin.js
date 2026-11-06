@@ -163,7 +163,7 @@
   }
 
   if('serviceWorker' in navigator && !window.APP_CONFIG?.DEV_ISOLATED && !window.APP_CONFIG?.PREVIEW_MODE){
-    addEventListener('load', ()=>navigator.serviceWorker.register('service-worker.js?v=30',{scope:'./'}).catch(()=>{}));
+    addEventListener('load', ()=>navigator.serviceWorker.register('service-worker.js?v=31',{scope:'./'}).catch(()=>{}));
   }
 
   addEventListener('beforeinstallprompt', event=>{
